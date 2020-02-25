@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
 # Simpleform
 gem 'simple_form'
+# Devise
+gem 'devise'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
