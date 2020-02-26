@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    add_breadcrumb @category
   end
 
   # GET /categories/new

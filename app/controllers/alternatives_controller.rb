@@ -9,7 +9,12 @@ class AlternativesController < ApplicationController
 
   # GET /alternatives/1
   # GET /alternatives/1.json
-  def show
+  def show 
+    @product = @alternative.product
+    @category = @product.category
+    add_breadcrumb @category, @category
+    add_breadcrumb @product, @product
+    add_breadcrumb @alternative
   end
 
   # GET /alternatives/new
