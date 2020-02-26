@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'devise'
 #Breadcrumbs_on_rails
 gem "breadcrumbs_on_rails"
+gem 'cancancan'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
