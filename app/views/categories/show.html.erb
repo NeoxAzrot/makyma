@@ -1,25 +1,33 @@
-<p>
-  <strong>Titre:</strong>
-  <%= @category.titre %>
-</p>
+<div class="row justify-content-center">
+    <h1>
+      <strong><%= @category.titre %></strong>
+    </h1>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+<div class="row justify-content-center" style="margin: 0">
+  <p>
+    <strong><%= @category.description %></strong>
+  </p>
+</div>
 
 <p>
   <strong>Image:</strong>
   <%= @category.image %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
 
-<ul>
-	<% @category.products.each do |product| %>
-		<li><%= link_to product, product %></li>
+<div class="row justify-content-between" style="margin: 0">
+  <% @category.products.each do |product| %>
+		<div class="card" style="width: 18rem; height: 18rem;">
+      <div class="card-body">
+        <%= link_to product, product %>
+      </div>
+    </div>
 	<% end %>
-</ul>
-
+</div>
 <%= link_to 'New Product', new_product_path %>
+
+<div class="row justify-content-center mt-5">
+  <button type="button" class="btn btn-outline-primary"><%= link_to 'Modifier', edit_category_path(@category) %></button>
+  <button type="button" class="btn btn-outline-primary"><%= link_to 'Back', categories_path %></button>
+</div>
