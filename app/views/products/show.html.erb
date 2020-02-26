@@ -10,13 +10,14 @@
   <%= @product.title %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
-
 <ul>
 	<% @product.alternatives.each do |alternative| %>
 		<li><%= link_to alternative, alternative %></li>
 	<% end %>
 </ul>
 
-<%= link_to 'New Alternative', new_alternative_path %>
+<% if user_signed_in? %>
+	<%= link_to 'New Alternative', new_alternative_path %>
+	<%= link_to 'Edit', edit_product_path(@product) %>
+<% end %>
+<%= link_to 'Back', products_path %>

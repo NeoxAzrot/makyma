@@ -6,35 +6,41 @@
 </div>
 
 <div class="container">
-<section class="row">
-    <table class="table col-lg-8 colonne-centree rounded-sm ">
-      <thead >
-        <tr>
-          <th>Titre</th>
-          <th>Description</th>
-          <th>Image</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @categories.each do |category| %>
+  <section class="row">
+      <table class="table col-lg-8 colonne-centree rounded-sm ">
+        <thead >
           <tr>
-            <td ><%= category.title %></td>
-            <td><%= category.description %></td>
-            <td ><%= category.image %></td>
-            <td ><%= link_to 'Show', category %></td>
-            <td ><%= link_to 'Edit', edit_category_path(category) %></td>
-            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-</section>
-    <br>
+        </thead>
 
-<div class="row justify-content-center">
-    <button type="button" class="btn btn-dark">
-    <%= link_to 'New Category', new_category_path %>
-    </button>
-</div>
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td ><%= link_to category.title, category %></td>
+              <td><%= category.description %></td>
+              <td ><%= category.image %></td>
+              <% if user_signed_in? %>
+                <td ><%= link_to 'Edit', edit_category_path(category) %></td>
+                <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </section>
+      <br>
+
+  <div class="row justify-content-center">
+    <% if user_signed_in? %>
+      <button type="button" class="btn btn-dark">
+      <%= link_to 'New Category', new_category_path %>
+      </button>
+    <% end %>
+
+  </div>
+
 </div>

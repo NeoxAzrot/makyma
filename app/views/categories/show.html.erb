@@ -27,8 +27,10 @@
 </div>
 
 
-<div class="row justify-content-around mt-5">
-  <button type="button" class="btn btn-outline-primary"><%= link_to 'Ajouter', new_product_path %></button>
-  <button type="button" class="btn btn-outline-primary"><%= link_to 'Modifier', edit_category_path(@category) %></button>
-  <button type="button" class="btn btn-outline-primary"><%= link_to 'Retour', categories_path %></button>
+<div class="row justify-content-center mt-5">
+  <% if user_signed_in? %>
+    <button type="button" class="btn btn-outline-primary lg-5"><%= link_to 'New Product', new_product_path %></button>
+    <button type="button" class="btn btn-outline-primary"><%= link_to 'Modifier', edit_category_path(@category) %></button>
+  <% end %>
+  <button type="button" class="btn btn-outline-primary"><%= link_to 'Back', categories_path %></button>
 </div>
