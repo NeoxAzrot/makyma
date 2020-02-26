@@ -13,8 +13,9 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'simple_form'
 # Devise
 gem 'devise'
-#Breadcrumbs_on_rails
+# Breadcrumbs_on_rails
 gem "breadcrumbs_on_rails"
+# Cancancan
 gem 'cancancan'
 
 
