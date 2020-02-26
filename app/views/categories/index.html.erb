@@ -3,30 +3,35 @@
   <h1>makyma</h1>
 </header>
 
-<table>
-  <thead>
-    <tr>
-      <th>Titre</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section class="row justify-content-center">
+    <table class="table col-lg-8 rounded-sm ">
+      <thead >
+        <tr>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.titre %></td>
-        <td><%= category.description %></td>
-        <td><%= category.image %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td ><%= category.titre %></td>
+            <td><%= category.description %></td>
+            <td ><%= category.image %></td>
+            <td ><%= link_to 'Show', category %></td>
+            <td ><%= link_to 'Edit', edit_category_path(category) %></td>
+            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</section>
+    <br>
 
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+<div class="row justify-content-center">
+    <button type="button" class="btn btn-light">
+    <%= link_to 'New Category', new_category_path %>
+    </button>
+</div>
