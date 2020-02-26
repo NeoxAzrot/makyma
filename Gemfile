@@ -13,6 +13,8 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'simple_form'
 # Devise
 gem 'devise'
+#Breadcrumbs_on_rails
+gem "breadcrumbs_on_rails"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
