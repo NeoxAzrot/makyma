@@ -9,9 +9,9 @@
       </h1>
       <div class="row mb-4">
 
-            <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'form-inline orm-control col-lg-10' } do |f| %>
-              <%= f.input :title, input_html: {value: ""} %>   
-              <%= f.submit "search", class: "btn btn-light ml-2" %>
+            <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'form-inline orm-control col-lg-10', autocomplete: 'off' } do |f| %>
+              <%= f.input :title, input_html: {placeholder: "rechercher"}, class: "form-control mb-5" %>   
+              <%= f.submit raw("<i class='uil uil-search'></i>"), class: "btn btn-light ml-2" %>
             <% end %>
 
             <button type="button" class="btn btn-light ml-2"><i class='uil uil-search'></i></button>
