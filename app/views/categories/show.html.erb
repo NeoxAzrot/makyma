@@ -1,26 +1,48 @@
-<div class="row justify-content-center">
-    <h1>
-      <strong><%= @category %></strong>
-    </h1>
+<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" style="position:absolute; pointer-events: none;" >
+  <defs>
+    <clipPath id="myClip" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+        <clipPath id="myClipFooter" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<div class="jumbotron position-relative" style="top:-48px;">
+  <div class="container">
+  <div class="row">
+
+    <div class="col-lg-8 offset-lg-2">
+      <h1 class="mb-4 pt-4">
+        <div class="row mt-2">
+          <span class="col-lg-8"><%= @category %></span>
+        </div>
+      </h1>
+      <p class="lead pb-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+    </div>
+  </div>
+</div>
 </div>
 
-<div class="row justify-content-center" style="margin: 0">
+
+<div class="row justify-content-center">
+    <h1></h1>
+</div>
+
+<!-- <div class="row justify-content-center" style="margin: 0">
   <p>
     <%= @category.description %>
   </p>
-</div>
+</div> -->
 
-<p>
-  <strong>Image:</strong>
-  <%= @category.image %>
-</p>
-
-
-<div class="row justify-content-between" style="margin: 0">
+<div class="container d-flex flex-row flex-wrap justify-content-center" style="max-width: 1000px;">
   <% @category.products.each do |product| %>
-		<div class="card" style="width: 18rem; height: 18rem;">
-      <div class="card-body">
-        <%= link_to product, product %>
+		<div class="card shadow m-4" style="border:none; border-radius: 13px; width: 200px; height: 215px;">
+      <img class="card-img-top" src="" alt="Card image cap"><%= @category.image %></img>
+      <div class="card-body d-flex align-items-end justify-content-center">
+        <h3 class="card-title" style="font-size: 20px"><%= link_to product, product %></h3>
       </div>
     </div>
 	<% end %>
