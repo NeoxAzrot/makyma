@@ -21,11 +21,9 @@
         </div>
       </h1>
       <div class="row mb-4">
-
-
         <div class="col-lg-12 d-flex">
             <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'form-inline col-lg-10', autocomplete: 'off' } do |f| %>
-              <%= f.input :title, input_html: {placeholder: "exemples : sac plastique, film alimentaire ..."}, class: "form-control", label: "" %>
+              <%= f.input :title, input_html: {placeholder: "exemples : sac plastique, film alimentaire ..."}, class: "form-control", label: false %>   
               <%= button_tag( :class => "btn btn-light ml-2") do %>
                 <i class="uil uil-search"></i>
               <% end %>
