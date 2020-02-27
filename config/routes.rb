@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match '/users', to: 'users#index', via: 'get'
+
   resources :alternatives
   resources :products
   devise_for :users

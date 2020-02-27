@@ -8,29 +8,35 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <% if user_signed_in? %>
-           <li class="nav-item">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#" style="width: 40px; height: 40px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74.86 56.15"><defs><style>.cls-1{fill:#707070;}</style></defs><title>Fichier 1</title><g id="Calque_2" data-name="Calque 2"><g id="logos"><polygon class="cls-1" points="22.73 31.28 0 56.15 15.47 56.15 30.89 39.87 22.73 31.28"/><path class="cls-1" d="M28.59,37.45,32.79,42s-3.77-.56-5.22,1.39L22.1,49.15l3.53-10.73Z"/><path class="cls-1" d="M68.35,19S61.76,18.11,56.94,26a5.16,5.16,0,0,1,3.09.24,6.66,6.66,0,0,1,2.9,2.19s0,0,0,0l0,.05h0A6,6,0,1,0,68.35,19Z"/><path class="cls-1" d="M33.44,14.35V56.14h13V42.5l13,13.65H74.86L52.13,31.28,46.39,38.1V0A60.8,60.8,0,0,1,30.15,8.83C33.6,11.77,33.44,14.35,33.44,14.35Z"/></g></g></svg>
+        </a>
+        <a class="navbar-brand" href="#" style="color: #707070">Makyma</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav" style="color: 707070;">
+            <% if user_signed_in? %>
+             <li class="nav-item">
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="container">
