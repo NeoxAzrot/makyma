@@ -1,8 +1,10 @@
 <div class="jumbotron">
   <div class="row">      
     <div class="col-lg-10 offset-lg-1">
-      <h1 class="">Makyma</h1>
-      <p class="lead"> Le compagnon pour ta transition responsable</p>
+      <h1>
+        makyma
+        <span>Le compagnon pour ta transition responsable</span>
+      </h1>
       <input class="form-control mb-5" type="text" placeholder="Search" aria-label="Search">
   
       <p class="lead">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
@@ -10,11 +12,10 @@
   </div>
 </div>
 
-
 <div  class="row">
   <% @categories.each do |category| %>
     <%= link_to category do %>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <div class="card">
           <!--
           <img src="..." class="card-img-top" alt="...">
