@@ -11,42 +11,25 @@
 </div>
 
 
-<div class="container">
-  <section class="row">
-      <table class="table col-lg-8 offset-lg-4 rounded-sm ">
-        <thead >
-          <tr>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @categories.each do |category| %>
-            <tr>
-              <td ><%= link_to category.title, category %></td>
-              <td><%= category.description %></td>
-              <td ><%= category.image %></td>
-              <% if user_signed_in? %>
-                <td ><%= link_to 'Edit', edit_category_path(category) %></td>
-                <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-  </section>
-      <br>
-
-  <div class="row justify-content-center">
-    <% if user_signed_in? %>
-      <button type="button" class="btn btn-dark">
-      <%= link_to 'New Category', new_category_path %>
-      </button>
+<div  class="row">
+  <% @categories.each do |category| %>
+    <%= link_to category do %>
+      <div class="col-lg-4">
+        <div class="card">
+          <!--
+          <img src="..." class="card-img-top" alt="...">
+          -->
+          <div class="card-body">
+            <h3 class="card-title"><%= category %></h3>
+            <%= link_to 'Decouvrir', category, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
     <% end %>
-
-  </div>
-
+  <% end %>
 </div>
+
+
+<% if user_signed_in? %>
+  <%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %>
+<% end %>
