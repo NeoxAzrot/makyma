@@ -42,10 +42,12 @@
       </div>
     </nav>
 
-    <div class="container">
-      <ol class="breadcrumb mb-0" style="border-radius:0px; background: linear-gradient(140deg, #FF8F66, #ffeb9a 120%); color:#FFF; font-weight: 300; font-style: italic">
+    <div class="container-fluid px-0">
+      <div class="container position-relative" style="z-index:10;">
+      <ol class="breadcrumb mb-0" style="border-radius:0px; background-color:rgba(0,0,0,0); color:#FFF; font-weight: 300; font-style: italic">
         <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
       </ol>
+    </div>
       <%= yield %>
 
       <footer class="footer bg-secondary py-5">
