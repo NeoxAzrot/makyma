@@ -1,5 +1,14 @@
+<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" >
+  <defs>
+    <clipPath id="myClip" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+  </defs>
+</svg>
+
 <div class="jumbotron">
-  <div class="row">      
+  <div class="row">
+
     <div class="col-lg-10 offset-lg-1">
       <h1 class="mb-4 pt-4">
         makyma
@@ -17,24 +26,49 @@
             <% end %>
         </div>
       </div>
-      <p class="lead">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
+      <p class="lead mb-5">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
 
     </div>
   </div>
 </div>
 
-<div  class="container d-flex flex-row flex-wrap justify-content-center ">
+<div class="position-relative container d-flex flex-row flex-wrap justify-content-center" style="top: -130px;">
 
+  <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
+    <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+    <div class="card-body d-flex align-items-end justify-content-center">
+      <p class="card-title" style="font-size: 13px">Lorem ipsum dolor sit amet</p>
+    </div>
+  </div>
+
+  <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
+    <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+    <div class="card-body d-flex align-items-end justify-content-center">
+      <p class="card-title" style="font-size: 13px">Lorem ipsum dolor sit amet</p>
+    </div>
+  </div>
+
+  <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
+    <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+    <div class="card-body d-flex align-items-end justify-content-center">
+      <p class="card-title" style="font-size: 13px">Lorem ipsum dolor sit amet</p>
+    </div>
+  </div>
+
+</div>
+
+<h3 class="text-center" style="font-size: 2rem; font-weight: 600; color:#FF9469">Les catégories</h3>
+
+<div class="container d-flex flex-row flex-wrap justify-content-center" style="max-width: 1000px;">
   <% @categories.each do |category| %>
     <%= link_to category do %>
-      <div class="col-md-4">
-        <div class="card">
-          <!--
-          <img src="..." class="card-img-top" alt="...">
-          -->
-          <div class="card-body">
-            <h3 class="card-title"><%= link_to category, category%></h3>
-          </div>
+      <div class="card shadow m-4" style="border:none; border-radius: 13px; width: 200px; height: 215px;">
+        <!--
+        <img src="..." class="card-img-top" alt="...">
+        -->
+        <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+        <div class="card-body d-flex align-items-end justify-content-center">
+          <h3 class="card-title" style="font-size: 20px"><%= link_to category, category%></h3>
         </div>
       </div>
     <% end %>
@@ -45,4 +79,3 @@
 <% if user_signed_in? %>
   <%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %>
 <% end %>
-
