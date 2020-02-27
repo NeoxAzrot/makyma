@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Category:</strong>
+  <strong>Cate:</strong>
   <%= @product.category %>
 </p>
 
@@ -20,4 +20,4 @@
 	<%= link_to 'New Alternative', new_alternative_path %>
 	<%= link_to 'Edit', edit_product_path(@product) %>
 <% end %>
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', category_path %>
