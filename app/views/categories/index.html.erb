@@ -7,21 +7,18 @@
           <span class="col-lg-6">Le compagnon pour ta transition responsable.</span>
         </div>
       </h1>
-      <input class="form-control mb-4" type="text" placeholder="Search" aria-label="Search">
-  
+      <input class="form-control mb-4" type="text" placeholder="Rechercher" aria-label="Search">
+
       <p class="lead">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
     </div>
   </div>
 </div>
 
-<div  class="row">
-  <div class="col-lg-1"></div>
-
-
+<div  class="container d-flex flex-row flex-wrap justify-content-center ">
 
   <% @categories.each do |category| %>
     <%= link_to category do %>
-      <div class="col-lg-2 offset-lg-1">
+      <div class="col-md-4">
         <div class="card">
           <!--
           <img src="..." class="card-img-top" alt="...">
@@ -34,7 +31,6 @@
       </div>
     <% end %>
   <% end %>
-  <div class="col-lg-1"></div>
 </div>
 
 
