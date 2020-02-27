@@ -10,11 +10,9 @@
       <div class="row mb-4">
 
             <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'form-inline orm-control col-lg-10' } do |f| %>
-              <%= f.input :title, input_html: {value: ""} %>   
+              <%= f.input :title, input_html: {value: ""}, label: '' %>   
               <%= f.submit "search", class: "btn btn-light ml-2" %>
             <% end %>
-
-            <button type="button" class="btn btn-light ml-2"><i class='uil uil-search'></i></button>
       </div>
       <p class="lead">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
 
