@@ -17,6 +17,7 @@ gem 'devise'
 gem "breadcrumbs_on_rails"
 # Cancancan
 gem 'cancancan'
+gem 'rails_admin', '~> 2.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
