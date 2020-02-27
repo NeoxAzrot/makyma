@@ -1,49 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<div class="jumbotron" style="height:100vh">
-  <h1 class="display-4">Makyma</h1>
-  <input type="search" class="form-control ds-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off" data-docs-version="4.4" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto">
-    <p class="lead"> makyma, le compagnon pour ta transition</p>
-  <p class="lead">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. <br> Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
-</div>
-
-
-<div class="container">
-  <section class="row">
-      <table class="table col-lg-8 colonne-centree rounded-sm ">
-        <thead >
-          <tr>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @categories.each do |category| %>
-            <tr>
-              <td ><%= link_to category.title, category %></td>
-              <td><%= category.description %></td>
-              <td ><%= category.image %></td>
-              <% if user_signed_in? %>
-                <td ><%= link_to 'Edit', edit_category_path(category) %></td>
-                <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-  </section>
-      <br>
-
-  <div class="row justify-content-center">
-    <% if user_signed_in? %>
-      <button type="button" class="btn btn-dark">
-      <%= link_to 'New Category', new_category_path %>
-      </button>
-    <% end %>
-
+<div class="jumbotron">
+  <div class="row">      
+    <div class="col-lg-10 offset-lg-1">
+      <h1 class="">Makyma</h1>
+      <p class="lead"> Le compagnon pour ta transition responsable</p>
+      <input class="form-control mb-5" type="text" placeholder="Search" aria-label="Search">
+  
+      <p class="lead">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
+    </div>
   </div>
-
 </div>
+
+
+<div  class="row">
+  <% @categories.each do |category| %>
+    <%= link_to category do %>
+      <div class="col-lg-4">
+        <div class="card">
+          <!--
+          <img src="..." class="card-img-top" alt="...">
+          -->
+          <div class="card-body">
+            <h3 class="card-title"><%= category %></h3>
+            <%= link_to 'Decouvrir', category, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<% if user_signed_in? %>
+  <%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %>
+<% end %>
