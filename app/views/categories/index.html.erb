@@ -11,24 +11,24 @@
 
 <div class="d-flex justify-content-center jumbotron position-relative" style="top:-48px;">
   <div class="container row justify-content-center">
-      <div class="row col-lg-11">
-        <h1 class="col mb-4 pt-4">
-            makyma
-          <div class="row mt-2">
-            <span class="col-lg-6">Le compagnon pour ta transition responsable.</span>
-          </div>
-        </h1>
-        <div class="col-lg-12 mb-5">
-            <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'd-flex justify-content-between form-inline', autocomplete: 'off' } do |f| %>
-                <%= f.input :title, input_html: {placeholder: "exemples : sac plastique, film alimentaire..."}, class: "form-control", label: false %>
-                <%= button_tag( :class => "btn btn-light", style:"border-radius: 13px") do %>
-                  <i class="uil uil-search"></i>
-                <% end %>
-            <% end %>
+    <div class="row col-lg-11">
+      <h1 class="col mb-4 pt-4">
+          makyma
+        <div class="row mt-2">
+          <span class="col-lg-6">Le compagnon pour ta transition responsable.</span>
         </div>
-        <p class=" col-lg-11 lead mb-5" style="padding-bottom: 200px">Tu as pris conscience de ton impact écologique et tu souhaites le réduire sans changer tes habitudes. Découvres les alternatives vertes aux produits de ton quotidien, et adoptes un comportement éco-responsable.</p>
+      </h1>
+      <div class="col-lg-12 mb-5">
+          <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'd-flex justify-content-between form-inline', autocomplete: 'off' } do |f| %>
+              <%= f.input :title, input_html: {placeholder: "exemples : sac plastique, film alimentaire..."}, class: "form-control", label: false %>
+              <%= button_tag( :class => "btn btn-light", style:"border-radius: 13px") do %>
+                <i class="uil uil-search"></i>
+              <% end %>
+          <% end %>
       </div>
-</div>
+      <p class=" col-lg-11 lead mb-5" style="padding-bottom: 200px">Tu as pris conscience de ton impact écologique et tu souhaites le réduire sans changer tes habitudes. Découvres les alternatives vertes aux produits de ton quotidien, et adoptes un comportement éco-responsable.</p>
+    </div>
+  </div>
 </div>
 
 <div class="position-relative container" style="top: -250px;">
