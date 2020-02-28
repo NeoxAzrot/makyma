@@ -1,81 +1,93 @@
-<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" >
+<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" style="position:absolute; pointer-events: none;" >
   <defs>
     <clipPath id="myClip" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+        <clipPath id="myClipFooter" clipPathUnits="objectBoundingBox">
         <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
     </clipPath>
   </defs>
 </svg>
 
-<div class="jumbotron">
-  <div class="row">
-
-    <div class="col-lg-10 offset-lg-1">
-      <h1 class="mb-4 pt-4">
-        makyma
+<div class="d-flex justify-content-center jumbotron position-relative" style="top:-48px;">
+  <div class="container row justify-content-center">
+    <div class="row col-lg-11">
+      <h1 class="col mb-4 pt-4">
+          makyma
         <div class="row mt-2">
           <span class="col-lg-6">Le compagnon pour ta transition responsable.</span>
         </div>
       </h1>
-      <div class="row mb-4">
-        <div class="col-lg-12 d-flex">
-            <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'form-inline col-lg-10', autocomplete: 'off' } do |f| %>
-              <%= f.input :title, input_html: {placeholder: "exemples : sac plastique, film alimentaire ..."}, class: "form-control", label: false %>   
-              <%= button_tag( :class => "btn btn-light ml-2") do %>
+      <div class="col-lg-12 mb-5">
+          <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'd-flex justify-content-between form-inline', autocomplete: 'off' } do |f| %>
+              <%= f.input :title, input_html: {placeholder: "exemples : sac plastique, film alimentaire..."}, class: "form-control", label: false %>
+              <%= button_tag( :class => "btn btn-light", style:"border-radius: 13px") do %>
                 <i class="uil uil-search"></i>
               <% end %>
-            <% end %>
-        </div>
+          <% end %>
       </div>
-      <p class="lead mb-5">Tu as pris conscience de ton impact ecologique et tu souhaites le reduire sans changer tes habitudes. Decouvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement eco-responsable</p>
-
+      <p class=" col-lg-11 lead mb-5" style="padding-bottom: 200px">Tu as pris conscience de ton impact écologique et tu souhaites le réduire sans changer tes habitudes. Découvres les alternatives vertes aux produits de ton quotidien, et adoptes un comportement éco-responsable.</p>
     </div>
   </div>
 </div>
 
-<div class="position-relative container d-flex flex-row flex-wrap justify-content-center" style="top: -130px;">
+<div class="position-relative container" style="top: -250px;">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="d-flex justify-content-between">
+        <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
+          <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+          <div class="card-body d-flex align-items-end justify-content-center">
+            <p class="card-title text-center" style="font-size: 13px; font-weight: 400; color: #707070;">Choisis un article de ton quotidien que tu souhaites remplacer.</p>
+          </div>
+        </div>
 
-  <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
-    <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
-    <div class="card-body d-flex align-items-end justify-content-center">
-      <p class="card-title" style="font-size: 13px">Lorem ipsum dolor sit amet</p>
-    </div>
-  </div>
+        <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
+          <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+          <div class="card-body d-flex align-items-end justify-content-center">
+            <p class="card-title text-center" style="font-size: 13px; font-weight: 400; color: #707070;">Découvres les alternatives écologiques à celui-ci</p>
+          </div>
+        </div>
 
-  <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
-    <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
-    <div class="card-body d-flex align-items-end justify-content-center">
-      <p class="card-title" style="font-size: 13px">Lorem ipsum dolor sit amet</p>
-    </div>
-  </div>
-
-  <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
-    <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
-    <div class="card-body d-flex align-items-end justify-content-center">
-      <p class="card-title" style="font-size: 13px">Lorem ipsum dolor sit amet</p>
-    </div>
-  </div>
-
-</div>
-
-<h3 class="text-center" style="font-size: 2rem; font-weight: 600; color:#FF9469">Les catégories</h3>
-
-<div class="container d-flex flex-row flex-wrap justify-content-center" style="max-width: 1000px;">
-  <% @categories.each do |category| %>
-    <%= link_to category do %>
-      <div class="card shadow m-4" style="border:none; border-radius: 13px; width: 200px; height: 215px;">
-        <!--
-        <img src="..." class="card-img-top" alt="...">
-        -->
-        <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
-        <div class="card-body d-flex align-items-end justify-content-center">
-          <h3 class="card-title" style="font-size: 20px"><%= link_to category, category%></h3>
+        <div class="card shadow mx-4" style="border:none; border-radius: 13px; width: 220px; height: 236px;">
+          <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+          <div class="card-body d-flex align-items-end justify-content-center">
+            <p class="card-title text-center" style="font-size: 13px; font-weight: 400; color: #707070;">Adoptes la solution qui te correspond le mieux !</p>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="text-center" style="font-size: 2rem; font-weight: 600; color:#FF9469; margin-top: -100px">Les catégories</h3>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="d-flex flex-wrap justify-content-center">
+        <% @categories.each do |category| %>
+          <%= link_to category do %>
+            <div class="card shadow" style="border:none; border-radius: 13px; width: 200px; height: 215px; margin: 50px 65px;">
+              <!--
+              <img src="..." class="card-img-top" alt="...">
+              -->
+              <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+              <div class="card-body d-flex align-items-end justify-content-center">
+                <h3 class="card-title" style="font-size: 20px"><%= link_to category, category%></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-5">
+    <% if user_signed_in? %>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle catégorie', new_category_path %></button>
     <% end %>
-  <% end %>
+  </div>
 </div>
-
-
-<% if user_signed_in? %>
-  <%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %>
-<% end %>
