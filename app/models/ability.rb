@@ -11,6 +11,8 @@ class Ability
         else
             can :read, :all
         end
+    else 
+        can :read, :all
     end 
 
 
