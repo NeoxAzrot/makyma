@@ -39,10 +39,12 @@
   </div>
 </div>
 
-<div class="row justify-content-center mt-5">
-  <% if user_signed_in? %>
-    <button type="button" class="btn btn-outline-primary lg-5"><%= link_to 'New Product', new_product_path %></button>
-    <button type="button" class="btn btn-outline-primary"><%= link_to 'Modifier', edit_category_path(@category) %></button>
-  <% end %>
-  <button type="button" class="btn btn-outline-primary"><%= link_to 'Back', categories_path %></button>
+<div class="container">
+  <div class="row mt-5">
+    <% if user_signed_in? %>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
+    <% end %>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %></button>
+  </div>
 </div>
