@@ -28,12 +28,10 @@
       <div class="d-flex flex-wrap justify-content-center">
         <% @product.alternatives.each do |alternative| %>
             <div class="card shadow" style="border:none; border-radius: 13px; width: 300px; height: 500px; margin: 0px 20px 50px;">
-              <div class="card-body d-flex justify-content-center">
-                <h3 class="card-title text-center" style="font-size: 20px"><%= link_to alternative, alternative %></h3>
-                <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
-                <!-- <h3 class="card-title text-center" style="font-size: 20px"></h3> -->
-                <!-- <h3 class="card-title text-center" style="font-size: 20px"></h3> -->
-
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title text-center"><%= link_to alternative, alternative, style:'font-weight: 600; font-size: 22px; color:#707070;' %></h3>
+                <p class="mt-5" style="font-weight: 400; font-size: 15px;"><%= link_to alternative.description, style:'font-weight: 600; font-size: 22px;' %></p>
+                <p class="mt-5" style="font-weight: 400; font-size: 15px;"><%= link_to alternative.source, style:'font-weight: 600; font-size: 22px;' %></p>
               </div>
             </div>
           <% end %>
@@ -43,11 +41,11 @@
 </div>
 
 <div class="container">
-  <div class="row mt-5">
+  <div class="row justify-content-around my-5">
     <% if can? :manage, @product %>
-      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle Alternative', new_alternative_path %></button>
-      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_product_path(@product) %></button>
+      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle Alternative', new_alternative_path %></button>
+      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_product_path(@product) %></button>
     <% end %>
-      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', category_path(@product.category) %></button>
+      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', category_path(@product.category) %></button>
   </div>
 </div>
