@@ -29,8 +29,8 @@
         <div class="card-body row">
           <% @category.products.each do |product| %>
           <div class="col-lg-11 d-flex justify-content-between m-4">
-            <p class="card-title" style="font-weight: 600; font-size: 22px; color:#707070;"><%= link_to product, product %></p>
-            <button type="button" name="button" class="btn btn-outline-primary" style="border-radius: 35px"><%= link_to 'Découvrir', product %></button>
+            <p class="card-title" style="font-weight: 600; font-size: 22px; color:#707070;"><%= link_to product, product, style:'color:#707070; text-decoration: none' %></p>
+            <button type="button" name="button" class="btn btn-outline-primary" style="border-radius: 35px; border-color:#707070;"><%= link_to 'Je change', product, style:'color:#707070; text-decoration: none'%></button>
           </div>
           <% end %>
         </div>
@@ -40,11 +40,11 @@
 </div>
 
 <div class="container">
-  <div class="row mt-5">
+  <div class="row justify-content-around my-5">
     <% if can? :manage, @category %>
-      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
-      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
+      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
+      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
     <% end %>
-      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %></button>
+      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %></button>
   </div>
 </div>
