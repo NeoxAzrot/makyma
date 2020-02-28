@@ -86,7 +86,7 @@
 
 <div class="container">
   <div class="row mt-5">
-    <% if user_signed_in? %>
+    <% if can? :manage, @category %>
       <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle catégorie', new_category_path %></button>
     <% end %>
   </div>

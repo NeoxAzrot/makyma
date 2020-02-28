@@ -20,7 +20,7 @@
   <%= @alternative.source %>
 </p>
 
-<% if user_signed_in? %>
+<% if can? :manage, @alternative %>
 	<%= link_to 'Edit', edit_alternative_path(@alternative) %>
 <% end %>
 <%= link_to 'Back', product_path(@alternative.product) %>

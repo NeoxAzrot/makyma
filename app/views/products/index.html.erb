@@ -28,6 +28,6 @@
 
 <br>
 
-<% if user_signed_in? %>
+<% if can? :manage, @product %>
   <%= link_to 'New Product', new_product_path %>
 <% end %>
