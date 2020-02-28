@@ -21,7 +21,7 @@
         <div class="col-lg-12 mb-5">
             <%= simple_form_for :search, url: products_path, method: "GET", html: { class: 'd-flex justify-content-between form-inline', autocomplete: 'off' } do |f| %>
                 <%= f.input :title, input_html: {placeholder: "exemples : sac plastique, film alimentaire..."}, class: "form-control", label: false %>
-                <%= button_tag( :class => "btn btn-light") do %>
+                <%= button_tag( :class => "btn btn-light", style:"border-radius: 13px") do %>
                   <i class="uil uil-search"></i>
                 <% end %>
             <% end %>
@@ -60,15 +60,15 @@
   </div>
 </div>
 
-<h3 class="text-center" style="font-size: 2rem; font-weight: 600; color:#FF9469">Les catégories</h3>
+<h3 class="text-center" style="font-size: 2rem; font-weight: 600; color:#FF9469; margin-top: -100px">Les catégories</h3>
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-lg-10">
+    <div class="col-lg-12">
       <div class="d-flex flex-wrap justify-content-center">
         <% @categories.each do |category| %>
           <%= link_to category do %>
-            <div class="card shadow m-5" style="border:none; border-radius: 13px; width: 200px; height: 215px;">
+            <div class="card shadow" style="border:none; border-radius: 13px; width: 200px; height: 215px; margin: 50px 65px;">
               <!--
               <img src="..." class="card-img-top" alt="...">
               -->
