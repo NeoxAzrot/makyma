@@ -1,23 +1,53 @@
-<p id="notice"><%= notice %></p>
+<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" style="position:absolute; pointer-events: none;"
+  <defs>
+    <clipPath id="myClip" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+        <clipPath id="myClipFooter" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+  </defs>
+</svg>
 
-<p>
-  <strong>Cate:</strong>
-  <%= @product.category %>
-</p>
+<div class="d-flex justify-content-center jumbotron position-relative" style="top:-48px; padding-bottom: 200px">
+  <div class="container row justify-content-center">
+    <div class="row col-lg-11">
+      <h1 class="col mb-4 pt-4">
+        <div class="row mt-2">
+          <span class="col-lg-6" style="font-size: 3rem"><%= @product.title %>
+        </div>
+      </h1>
+      <!-- <p class=" col-lg-11 lead mb-5"></p> -->
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+<div class="container position-relative" style="top: -200px">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="d-flex flex-wrap justify-content-center">
+        <% @product.alternatives.each do |alternative| %>
+            <div class="card shadow" style="border:none; border-radius: 13px; width: 300px; height: 500px; margin: 0px 20px 50px;">
+              <div class="card-body d-flex justify-content-center">
+                <h3 class="card-title text-center" style="font-size: 20px"><%= link_to alternative, alternative %></h3>
+                <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+                <!-- <h3 class="card-title text-center" style="font-size: 20px"></h3> -->
+                <!-- <h3 class="card-title text-center" style="font-size: 20px"></h3> -->
 
-<ul>
-	<% @product.alternatives.each do |alternative| %>
-		<li><%= link_to alternative, alternative %></li>
-	<% end %>
-</ul>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% if user_signed_in? %>
-	<%= link_to 'New Alternative', new_alternative_path %>
-	<%= link_to 'Edit', edit_product_path(@product) %>
-<% end %>
-<%= link_to 'Back', category_path(@product.category) %>
+<div class="container">
+  <div class="row mt-5">
+    <% if user_signed_in? %>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle Alternative', new_alternative_path %></button>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_product_path(@product) %></button>
+    <% end %>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', category_path(@product.category) %></button>
+  </div>
+</div>

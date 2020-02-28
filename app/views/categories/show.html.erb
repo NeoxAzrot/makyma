@@ -1,36 +1,50 @@
-<div class="row justify-content-center">
-    <h1>
-      <strong><%= @category %></strong>
-    </h1>
+<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" style="position:absolute; pointer-events: none;"
+  <defs>
+    <clipPath id="myClip" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+        <clipPath id="myClipFooter" clipPathUnits="objectBoundingBox">
+        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<div class="d-flex justify-content-center jumbotron position-relative" style="top:-48px;">
+  <div class="container row justify-content-center">
+    <div class="row col-lg-11">
+      <h1 class="col mb-4 pt-4">
+        <div class="row mt-2">
+          <span class="col-lg-6" style="font-size: 3rem"><%= @category %></span>
+        </div>
+      </h1>
+      <p class=" col-lg-11 lead mb-5"><%= @category.description %></p>
+    </div>
+  </div>
 </div>
 
-<div class="row justify-content-center" style="margin: 0">
-  <p>
-    <%= @category.description %>
-  </p>
-</div>
-
-<p>
-  <strong>Image:</strong>
-  <%= @category.image %>
-</p>
-
-
-<div class="row justify-content-between" style="margin: 0">
-  <% @category.products.each do |product| %>
-		<div class="card" style="width: 18rem; height: 18rem;">
-      <div class="card-body">
-        <%= link_to product, product %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow" style="border:none; border-radius: 13px;">
+        <div class="card-body row">
+          <% @category.products.each do |product| %>
+          <div class="col-lg-11 d-flex justify-content-between m-4">
+            <p class="card-title" style="font-weight: 600; font-size: 22px; color:#707070;"><%= link_to product, product %></p>
+            <button type="button" name="button" class="btn btn-outline-primary" style="border-radius: 35px"><%= link_to 'Découvrir', product %></button>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
-	<% end %>
+  </div>
 </div>
 
-
-<div class="row justify-content-center mt-5">
-  <% if user_signed_in? %>
-    <button type="button" class="btn btn-outline-primary lg-5"><%= link_to 'New Product', new_product_path %></button>
-    <button type="button" class="btn btn-outline-primary"><%= link_to 'Modifier', edit_category_path(@category) %></button>
-  <% end %>
-  <button type="button" class="btn btn-outline-primary"><%= link_to 'Back', categories_path %></button>
+<div class="container">
+  <div class="row mt-5">
+    <% if user_signed_in? %>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
+    <% end %>
+      <button type="button" class="col btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %></button>
+  </div>
 </div>
