@@ -4,7 +4,7 @@
         <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
     </clipPath>
         <clipPath id="myClipFooter" clipPathUnits="objectBoundingBox">
-        <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
+        <path  d="M1,1V0c0,0-0.2,0.1-0.5,0S0,0.1,0,0.1V1H1z"/>
     </clipPath>
   </defs>
 </svg>
@@ -67,14 +67,15 @@
     <div class="col-lg-12">
       <div class="d-flex flex-wrap justify-content-center">
         <% @categories.each do |category| %>
-          <%= link_to category do %>
+
             <div class="card shadow" style="border:none; border-radius: 13px; width: 200px; height: 215px; margin: 50px 65px;">
               <!--
               <img src="..." class="card-img-top" alt="...">
               -->
               <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
-              <div class="card-body d-flex align-items-end justify-content-center">
-                <h3 class="card-title" style="font-size: 20px"><%= link_to category, category%></h3>
+              <%= link_to category do %>
+              <div class="card-body d-flex align-items-end justify-content-center" style="width: 200px; height:215px;">
+                <h3 class="card-title" style="font-size: 20px"><%= category.title %> </h3>
               </div>
             </div>
           <% end %>
