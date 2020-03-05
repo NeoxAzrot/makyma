@@ -14,72 +14,85 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="<%= root_path %>">
-          <%= image_tag "logofinal.svg" %>
+          <%= image_tag "logofinal.svg", class:'logo' %>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item"><a href="#" class="nav-link">Explorer</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Qui sommes nous ?</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-secondary">Explorer</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-secondary">Qui sommes-nous ?</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-secondary">Contact</a></li>
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-secondary" %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
+                <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-secondary" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+                <%= link_to "Login", new_user_session_path, class: "nav-link text-secondary" %>
               </li>
             <% end %>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
 
-    <div class="container-fluid px-0" style="max-width: 100vw;">
-      <div class="container position-relative" style="z-index:10;">
-      <ol class="breadcrumb mb-0" style="border-radius:0px; background-color:rgba(0,0,0,0); color:#FFF; font-weight: 300; font-style: italic">
+    <div class="container position-relative" style="z-index: 10;">
+      <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic">
         <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;>&nbsp;" %>
       </ol>
     </div>
-      <%= yield %>
 
-      <footer class="footer bg-secondary py-5">
-          <div class="container">
-            <div class="row">
-              <div class="d-flex col-lg-6 flex-column justify-content-start">
-                <span class="footerMakyma">© Makyma 2020</span>
-                <a href="#">CGU</a>
-                <a href="#">Mentions Legales</a>
+    <%= yield %>
 
+      <div class="footer bg-dark">
+        <div class="container">
+          <div class="row align-items-center flex-wrap-reverse flex-md-nowrap py-5">
+            <div class="col-12 col-sm-4 mt-5 mt-sm-0">
+              <div class="row">
+                <div class="col text-center text-sm-left">
+                  <span class="footerMakyma text-secondary">© Makyma 2020</span>
+                </div>
               </div>
-              <div class="col-lg-6" >
-                <ul class="d-flex list-unstyled mb-0 justify-content-end">
-                  <li><a href="#">A Propos</a></li>
-                  <li class="ml-4"><a href="#">Explorer</a></li>
-                  <li class="ml-4"><a href="#">Contact</a></li>
-                  <li class="ml-4"><a href="#">S'inscrire</a></li>
-                  <li class="ml-4"><a href="#">Connexion</a></li>
-                </ul>
-                <ul class="d-flex list-unstyled mb-0 justify-content-end">
-                  <li><a href="#">Facebook</a></li>
-                  <li class="ml-4"><a href="#">Instragram</a></li>
-                  <li class="ml-4"><a href="#">Twitter</a></li>
-              </ul>
+              <div class="row">
+                <div class="col text-center text-sm-left">
+                  <a href="#" class="text-secondary">CGU</a>
+                </div>
               </div>
+              <div class="row">
+                <div class="col text-center text-sm-left">
+                  <a href="#" class="text-secondary">Mentions Légales</a>
+                </div>
+              </div>
+            </div>
 
+            <div class="col-12 col-sm-8" >
+              <div class="row">
+                <div class="col text-center text-sm-right">
+                  <a href="#" class="text-secondary">A Propos</a>
+                  <a class="ml-4 text-secondary" href="#">Explorer</a>
+                  <a class="ml-4 text-secondary" href="#">Contact</a>
+                  <%= link_to "Sign up", new_user_registration_path, class:"ml-4 text-secondary" %>
+                  <%= link_to "Login", new_user_session_path, class:"ml-4 text-secondary" %>
+                </div>
+              </div>
+              <div class="row mt-1 mt-lg-4">
+                <div class="col text-center text-sm-right">
+                  <a href="#" class="text-secondary">Facebook</a>
+                  <a class="ml-4 text-secondary" href="#">Instragram</a>
+                  <a class="ml-4 text-secondary" href="#">Twitter</a>
+                </div>
+              </div>
             </div>
           </div>
-      </footer>
-    </div>
-
+        </div>
+      </div>
   </body>
 </html>

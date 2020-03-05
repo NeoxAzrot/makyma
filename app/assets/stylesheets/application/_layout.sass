@@ -1,33 +1,37 @@
-.jumbotron
-	color: #FFFFFF
+header
 	background: linear-gradient(40deg, #FF8F66, #ffeb9a 120%)
-	border-radius: unset
 	clip-path: url(#myClip)
 
-	h1
-		font-weight: bold
-		font-size: 1.1rem
-		span
-			font-weight: bold
-			font-size: 2rem
-			display: block
-	p
-		font-weight: 500
-		font-size: 1rem
+.jumbotron
+	color: #FFFFFF
+	border-radius: unset
+
+h1
+	font-weight: bold
+	font-size: 1.4rem
+span
+	font-weight: bold
+	font-size: 2rem
+p
+	font-weight: 500
+	font-size: 1rem
 
 
-
-
-footer
-	color: #707070
+.footer
 	clip-path: url(#myClipFooter)
-
-	a
-		color: #707070
 
 	a:hover
 		text-decoration: none
-		
+
+
 .footerMakyma
 	font-size: 1.1rem
 	font-weight: 500
+
+
+@media screen and (max-width: 400px)
+	.navbar-brand
+		width: 140px
+
+	.logo
+		width: 140px

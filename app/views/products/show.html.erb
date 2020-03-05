@@ -9,36 +9,38 @@
   </defs>
 </svg>
 
-<div class="d-flex justify-content-center jumbotron position-relative" style="top:-48px; padding-bottom: 200px">
-  <div class="container row justify-content-center">
-    <div class="row col-lg-11">
-      <h1 class="col mb-4 pt-4">
-        <div class="row mt-2">
-          <span class="col-lg-6" style="font-size: 3rem"><%= @product.title %>
-        </div>
-      </h1>
-      <!-- <p class=" col-lg-11 lead mb-5"></p> -->
-    </div>
-  </div>
-</div>
 
-<div class="container position-relative" style="top: -200px">
-  <div class="row justify-content-center">
-    <div class="col-lg-12">
-      <div class="d-flex flex-wrap justify-content-center">
-        <% @product.alternatives.each do |alternative| %>
-            <div class="card shadow" style="border:none; border-radius: 13px; width: 300px; height: 500px; margin: 0px 20px 50px;">
-              <div class="card-body d-flex flex-column">
-                <h3 class="card-title text-center"><%= link_to alternative, alternative, style:'font-weight: 600; font-size: 22px; color:#707070;' %></h3>
-                <p class="mt-5" style="font-weight: 400; font-size: 15px;"><%= link_to alternative.description, style:'font-weight: 600; font-size: 22px;' %></p>
-                <p class="mt-5" style="font-weight: 400; font-size: 15px;"><%= link_to alternative.source, style:'font-weight: 600; font-size: 22px;' %></p>
-              </div>
-            </div>
-          <% end %>
+<header class="position-relative" style="top:-48px; padding-bottom:200px">
+  <div class="container">
+    <div class="jumbotron bg-transparent">
+      <div class="row">
+        <div class="col-12 col-md-8 col-lg-6">
+          <span><%= @product.title %></span>
+        </div>
       </div>
     </div>
   </div>
+</header>
+
+
+<div class="container position-relative" style="top: -200px">
+  <div class="row justify-content-center no-gutters">
+    <% @product.alternatives.each do |alternative| %>
+      <div class="col-10 my-5 col-md-5 m-md-4  col-lg-3 my-lg-0" >
+        <div class="card shadow border-0" style="border-radius: 13px; min-height: 450px">
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <h1><%= link_to alternative, alternative, class:'text-secondary', style:'font-weight: 600;' %></h1>
+            <p class="" style="color: black"><%= link_to alternative.description, class:'text-secondary', style:'color: black'%></p>
+            <p class="" style=""><%= link_to alternative.source, style:'' %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+
+
 
 <div class="container">
   <div class="row justify-content-around my-5">
@@ -46,6 +48,5 @@
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle Alternative', new_alternative_path %></button>
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_product_path(@product) %></button>
     <% end %>
-      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', category_path(@product.category) %></button>
   </div>
 </div>

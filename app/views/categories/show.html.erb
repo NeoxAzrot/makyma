@@ -1,4 +1,4 @@
-<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" style="position:absolute; pointer-events: none;"
+<svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" style="position:absolute; pointer-events: none;">
   <defs>
     <clipPath id="myClip" clipPathUnits="objectBoundingBox">
         <path  d="M0,0v0.9c0,0,0.2,0.1,0.5,0S1,1,1,1V0H0z"/>
@@ -9,35 +9,41 @@
   </defs>
 </svg>
 
-<div class="d-flex justify-content-center jumbotron position-relative" style="top:-48px;">
-  <div class="container row justify-content-center">
-    <div class="row col-lg-11">
-      <h1 class="col mb-4 pt-4">
-        <div class="row mt-2">
-          <span class="col-lg-6" style="font-size: 3rem"><%= @category %></span>
-        </div>
-      </h1>
-      <p class=" col-lg-11 lead mb-5"><%= @category.description %></p>
-    </div>
-  </div>
-</div>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card shadow" style="border:none; border-radius: 13px;">
-        <div class="card-body row">
-          <% @category.products.each do |product| %>
-          <div class="col-lg-11 d-flex justify-content-between m-4">
-            <p class="card-title" style="font-weight: 600; font-size: 22px; color:#707070;"><%= link_to product, product, style:'color:#707070; text-decoration: none' %></p>
-            <button type="button" name="button" class="btn btn-outline-primary" style="border-radius: 35px; border-color:#707070;"><%= link_to 'Je change', product, style:'color:#707070; text-decoration: none'%></button>
-          </div>
-          <% end %>
+<header class="position-relative" style="top:-48px;">
+  <div class="container">
+    <div class="jumbotron bg-transparent">
+      <div class="row">
+        <div class="col-12 col-md-8 col-lg-6">
+          <span><%= @category %></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p><%= @category.description %></p>
         </div>
       </div>
     </div>
   </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col shadow">
+      <% @category.products.each do |product| %>
+      <div class="row justify-content-center my-4">
+        <div class="col-6 col-md-5 text-left">
+          <h1><%= link_to product, product, style:'color:#707070; text-decoration: none' %></h1>
+        </div>
+        <div class="col-6 col-md-5 text-right">
+          <%= link_to 'Je change', product, style:'color:#707070; text-decoration: none'%>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+
 
 <div class="container">
   <div class="row justify-content-around my-5">
@@ -45,6 +51,6 @@
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
     <% end %>
-      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %></button>
+      <%# <!-- <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %>
   </div>
 </div>
