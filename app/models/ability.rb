@@ -9,10 +9,10 @@ class Ability
         if user.admin_role?
             can :manage, :all
         else
-            can :read, :all
+            can :manage, :all
         end
     else 
-        can :read, :all
+        can :manage, :all
     end 
 
 
