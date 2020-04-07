@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
     <title>Makyma</title>
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= csrf_meta_tags %>
@@ -17,7 +18,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="<%= root_path %>">
-          <%= image_tag "logofinal.svg", class:'logo' %>
+          <%= image_tag "logofinal.svg", class:'logo', alt: "Logotype de Makyma" %>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
