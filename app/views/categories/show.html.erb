@@ -31,35 +31,47 @@
   <div class="row justify-content-center">
     <div class="col-lg-4">
       <div class="row">
-        <a class="col-8 shadow bg-white p-3 justify-content-center hoverBtn mb-3 " style="border-radius:13px">
-          Cuisson
+        <a href="#" class="col-8 shadow bg-white p-3 justify-content-between hoverBtn mb-3">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 d-flex justify-content-around align-items-center">
+              <h2>Aspirateur</h2>
+              <span>></span>
+            </div>
+          </div>
         </a>
       </div>
       <div class="row">
-        <a class="col-8 shadow bg-white p-3 justify-content-center hoverBtn mb-3 " style="border-radius:13px">
-          Cuisson
+        <a href="#" class="col-8 shadow bg-white p-3 justify-content-between hoverBtn mb-3">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 d-flex justify-content-around align-items-center">
+              <h2>Aspirateur</h2>
+              <span>></span>
+            </div>
+          </div>
         </a>
       </div>
       <div class="row">
-        <a class="col-8 shadow bg-white p-3 justify-content-center hoverBtn mb-3 " style="border-radius:13px">
-          Cuisson
-        </a>
-      </div>
-      <div class="row">
-        <a class="col-8 shadow bg-white p-3 justify-content-center hoverBtn mb-3 " style="border-radius:13px">
-          Cuisson
+        <a href="#" class="col-8 shadow bg-white p-3 justify-content-between hoverBtn mb-3">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 d-flex justify-content-around align-items-center">
+              <h2>Aspirateur</h2>
+              <span>></span>
+            </div>
+          </div>
         </a>
       </div>
 
     </div>
     <div class="col-12 col-md-10 col-lg-8 col-xl-7 shadow" style="border-radius:13px">
       <% @category.products.each do |product| %>
-      <div class="row my-4 mx-1">
-        <div class="col">
-          <h1><%= link_to product, product, style:'color:#707070; text-decoration: none' %></h1>
-        </div>
-        <div class="col text-right">
-          <%= link_to 'Je change', product, style:'color:#707070; text-decoration: none'%>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="d-flex justify-content-between align-items-center my-4 mx-1">
+            <div class="">
+              <h3><%= link_to product, product, style:'color:#707070; text-decoration: none' %></h3>
+            </div>
+            <%= link_to 'Je change', product, class:'shadow hoverBtn text-right p-2', style:'color:#707070; text-decoration: none'%>
+          </div>
         </div>
       </div>
       <% end %>
