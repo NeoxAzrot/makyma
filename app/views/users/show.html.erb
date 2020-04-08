@@ -1,1 +1,3 @@
-<%= @user.email %>
+<% if can? :manage, @user %>
+	<%= @user.email %>
+<% end %>
