@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="<%= root_path %>">
@@ -45,7 +45,7 @@
     </div>
 
     <div class="container position-relative" style="z-index: 10;">
-      <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic">
+      <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic" id="ariane">
         <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;>&nbsp;" %>
       </ol>
     </div>
