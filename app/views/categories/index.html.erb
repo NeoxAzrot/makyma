@@ -9,7 +9,7 @@
   </defs>
 </svg>
 
-<header class="position-relative" style="top:-48px; padding-bottom:200px;">
+<header class="position-relative" style="top:0px; padding-bottom:200px;">
   <div class="container">
     <div class="jumbotron bg-transparent">
       <h1>makyma</h1>
@@ -18,14 +18,7 @@
           <span>Le compagnon pour ta transition responsable.</span>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <%= simple_form_for :search, url: products_path, method: "GET", html: { class: "my-5" } do |f| %>
-            <%= f.input :title, input_html: {class:''}, label:false, placeholder: 'exemple : sac plastique, film alimentaire...' %>
-            <%# <%= f.button :submit, class: "btn btn-light" %>
-          <% end %>
-        </div>
-      </div>
+      <p><%= @alternatives.count %> alternatives</p>
       <div class="row">
         <div class="col">
           <p>Tu as pris conscience de ton impact écologique et tu souhaites le réduire sans changer tes habitudes. Découvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement éco-responsable.</p>
@@ -44,13 +37,13 @@
 
   <div class="row justify-content-center mt-5" style="margin-bottom: 130px;">
     <% @categories.each do |category| %>
-      <div class="col-3 shadow m-3 hoverBtn" style="max-height: 100px; border-radius: 13px">
+      <div class="col-10 col-sm-8 col-md-5 col-lg-4 col-xl-3 m-2 m-md-2 m-lg-2 m-xl-3 shadow hoverBtn" style="max-height: 100px; border-radius: 13px">
         <%= link_to category do %>
           <div class="row align-items-center justify-content-center p-3">
-            <%= image_tag category.image, style:"max-width: 100px", class:"col", alt: "Icône symbolisant la catégorie "+category.title %>
+            <%= image_tag category.image, style:"max-width: 100px", class:"col", alt: "Icône symbolisant la catégorie "+category.title if category.image %>
             <p class="col m-0" style="text-decoration: none; font-size: 21px; font-weight: 600;"><%= category.title %></p>
           </div>
-        <% end %>
+        <% end %>  
       </div>
     <% end %>
   </div>
@@ -61,3 +54,7 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  $('#ariane').hide();
+<% end %>
