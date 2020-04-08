@@ -28,14 +28,29 @@
 </header>
 
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row mb-5 pb-5">
+    <div class="col-lg-3 d-flex justify-content-end align-items-center">
+      Trier par
+    </div>
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-around align-items-center">
+          <div class="hoverBtn shadow p-3 pr-4 pl-4 border-13 cursor-p btnActive">Tout</div>
+          <div class="hoverBtn shadow p-3 pr-4 pl-4 border-13 cursor-p">À côté de chez vous 🧺</div>
+          <div class="hoverBtn shadow p-3 pr-4 pl-4 border-13 cursor-p">À faire soi-même 🛠 </div>
+          <div class="hoverBtn shadow p-3 pr-4 pl-4 border-13 cursor-p">En ligne 🌐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-lg-4">
       <div class="row">
-        <a href="#" class="col-8 shadow bg-white p-3 justify-content-between hoverBtn mb-3">
+        <a href="#" class="col-8 shadow bg-white p-3 justify-content-between hoverBtn btnActive mb-3">
           <div class="row justify-content-center">
             <div class="col-lg-12 d-flex justify-content-around align-items-center">
               <h2>Aspirateur</h2>
-              <span>></span>
+              <%= image_tag "flecheRight(1).svg", class:'logo mt-1', alt: "fleche dirigeant vers la droite" %>
             </div>
           </div>
         </a>
@@ -45,7 +60,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-12 d-flex justify-content-around align-items-center">
               <h2>Aspirateur</h2>
-              <span>></span>
+              <%= image_tag "flecheRight(1).svg", class:'logo mt-1', alt: "fleche dirigeant vers la droite" %>
             </div>
           </div>
         </a>
@@ -55,22 +70,40 @@
           <div class="row justify-content-center">
             <div class="col-lg-12 d-flex justify-content-around align-items-center">
               <h2>Aspirateur</h2>
-              <span>></span>
+              <%= image_tag "flecheRight(1).svg", class:'logo mt-1', alt: "fleche dirigeant vers la droite" %>
             </div>
           </div>
         </a>
       </div>
+      <div class="row">
+        <a href="#" class="col-8 shadow bg-white p-3 justify-content-between hoverBtn mb-3">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 d-flex justify-content-around align-items-center">
+              <h2>Aspirateur</h2>
+              <%= image_tag "flecheRight(1).svg", class:'logo mt-1', alt: "fleche dirigeant vers la droite" %>
+            </div>
+          </div>
+        </a>
+      </div>
+      
 
     </div>
-    <div class="col-12 col-md-10 col-lg-8 col-xl-7 shadow" style="border-radius:13px">
+    <div class="col-lg-8 shadow" style="border-radius:25px">
       <% @category.products.each do |product| %>
-      <div class="row justify-content-center">
+
+      <div class="row justify-content-center  ">
         <div class="col-lg-10">
           <div class="d-flex justify-content-between align-items-center my-4 mx-1">
-            <div class="">
               <h3><%= link_to product, product, style:'color:#707070; text-decoration: none' %></h3>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="pr-3">
+                <span>🧺</span>
+                <span>🛠</span>
+                <span>🌐</span>
+
+              </div>
+              <%= link_to 'Je change', product, class:'shadow hoverBtn text-right p-2 pt-3 pb-3', style:'color:#707070; text-decoration: none'%>
             </div>
-            <%= link_to 'Je change', product, class:'shadow hoverBtn text-right p-2', style:'color:#707070; text-decoration: none'%>
           </div>
         </div>
       </div>
