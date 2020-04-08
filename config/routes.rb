@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subcategories
   match '/users', to: 'users#index', via: 'get'
 
   resources :alternatives

@@ -30,6 +30,20 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8 col-xl-7 shadow" style="border-radius:13px">
+      <% @category.subcategories.each do |subcat| %>
+      <div class="row my-4 mx-1">
+        <div class="col">
+          <h1 style="color:#707070; text-decoration: none"><%= subcat %></h1>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 col-xl-7 shadow" style="border-radius:13px">
       <% @category.products.each do |product| %>
       <div class="row my-4 mx-1">
         <div class="col">
