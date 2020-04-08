@@ -16,9 +16,9 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-sm navbar-light" style="padding: 5px 0">
         <a class="navbar-brand" href="<%= root_path %>">
-          <%= image_tag "logofinal.svg", class:'logo', alt: "Logotype de Makyma" %>
+          <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -26,19 +26,6 @@
         <div class="collapse navbar-collapse  justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item"><a href="#" class="nav-link text-secondary">Qui sommes-nous ?</a></li>
-            <li class="nav-item"><a href="#" class="nav-link text-secondary">Contact</a></li>
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link text-secondary" %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "Connexion", new_user_session_path, class: "nav-link text-secondary" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link text-secondary" %>
-              </li>
-            <% end %>
           </ul>
         </div>
       </nav>
@@ -73,8 +60,11 @@
                 <div class="col text-center text-sm-right">
                   <a href="#" class="text-secondary">A Propos</a>
                   <a class="ml-4 text-secondary" href="#">Contact</a>
+<<<<<<< HEAD
                   <%= link_to "S'inscrire", new_user_registration_path, class:"ml-4 text-secondary" %>
                   <%= link_to "Connexion", new_user_session_path, class:"ml-4 text-secondary" %>
+=======
+>>>>>>> 80208181eacd9d6d1f1bc5e9b94395958f2504dd
                 </div>
               </div>
               <div class="row mt-1 mt-lg-4">
