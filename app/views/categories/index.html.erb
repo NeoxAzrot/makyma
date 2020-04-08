@@ -16,6 +16,7 @@
       <div class="row">
         <div class="col-12 col-md-8 col-lg-6">
           <span>Le compagnon pour ta transition responsable.</span>
+          <p><%= @alternatives.count %> alternatives</p>
         </div>
       </div>
       <div class="row">
@@ -83,7 +84,7 @@
         <div class="card shadow border-0" style="border-radius: 13px;">
           <%= link_to category do %>
           <div class="card-body d-flex flex-column align-items-center">
-            <%= image_tag category.image, class:'m-5', style:"width:60%"%>
+            <%= image_tag category.image, class:'m-5', style:"width:60%" if category.image %>
             <p class="card-title font-weight-normal text-secondary"><%= category.title %></p>
           </div>
         </div>
