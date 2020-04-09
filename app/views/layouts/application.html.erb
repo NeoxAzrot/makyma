@@ -41,33 +41,29 @@
     <%= yield %>
 
       <div class="footer bg-dark">
-        <div class="container">
-          <div class="row align-items-center flex-wrap-reverse flex-md-nowrap py-5">
-            <div class="col-12 col-sm-4 mt-5 mt-sm-0">
+        <div class="container pt-5">
+          <div class="row py-5">
+            <div class="col-lg-4">
               <div class="row">
-                <div class="col text-center text-sm-left">
+                <div class="col ">
                   <span class="footerMakyma text-secondary">© Makyma <%= Date.today.year %></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col text-center text-sm-left">
-                  <a href="/pages/cgu" class="text-secondary">Mentions légales</a>
                 </div>
               </div>
             </div>
 
-            <div class="col-12 col-sm-8" >
+            <div class="col-lg-8 d-flex justify-content-around" >
               <div class="row">
-                <div class="col text-center text-sm-right">
-                  <a href="/pages/about" class="text-secondary">A Propos</a>
-                  <a class="ml-4 text-secondary" href="/pages/contact">Contact</a>
+                <div class="col-lg-12 d-flex flex-column">
+                  <a href="/pages/about" class="mb-4 text-secondary">A Propos</a>
+                  <a class="mb-4 text-secondary" href="/pages/contact">Contact</a>
+                  <a href="/pages/cgu" class="mb-4 text-secondary">Mentions légales</a>
                 </div>
               </div>
-              <div class="row mt-1 mt-lg-4">
-                <div class="col text-center text-sm-right">
-                  <a class="text-secondary" href="https://www.facebook.com/makymaorg/">Facebook</a>
-                  <a class="ml-4 text-secondary" href="https://www.instagram.com/makyma_app/">Instragram</a>
-                  <a class="ml-4 text-secondary" href="https://twitter.com/makyma_app">Twitter</a>
+              <div class="row">
+                <div class="col-lg-12 d-flex flex-column">
+                  <a class="mb-4 text-secondary" href="https://www.facebook.com/makymaorg/">Facebook</a>
+                  <a class="mb-4 text-secondary" href="https://www.instagram.com/makyma_app/">Instragram</a>
+                  <a class="mb-4 text-secondary" href="https://twitter.com/makyma_app">Twitter</a>
                 </div>
               </div>
             </div>
