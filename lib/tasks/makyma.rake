@@ -3,9 +3,9 @@ namespace :makyma do
   task import: :environment do
     {
         hygiene: 'Hygiène',
-        electromenager: 'Électroménager',
+        electronique: 'Électronique',
         maison: 'Maison',
-        exterieur: 'Exterieur',
+        exterieur: 'Extérieur',
         entretien: 'Entretien'
     }.each do |file, title|
         puts "Import #{title}"
