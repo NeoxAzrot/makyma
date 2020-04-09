@@ -39,17 +39,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_130614) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "subcategory_id"
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
-  end
-
-  create_table "subcategories", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,6 +57,4 @@ ActiveRecord::Schema.define(version: 2020_04_09_130614) do
 
   add_foreign_key "alternatives", "products"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "subcategories"
-  add_foreign_key "subcategories", "categories"
 end

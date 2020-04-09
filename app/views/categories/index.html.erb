@@ -1,16 +1,21 @@
-<header class="position-relative" style="top:-110px; padding-bottom:200px;">
+<header class="position-relative" style="top:-110px">
   <div class="container"style="padding-top:100px; padding-bottom:50px">
     <div class="jumbotron bg-transparent">
-      <h1>makyma</h1>
-      <div class="row">
-        <div class="col-12 col-md-8 col-lg-6">
-          <span>Le compagnon pour ta transition responsable.</span>
+      <div class="row mb-4 justify-content-center">
+        <div class="col-lg-8">
+          <span>
+            Le compagnon pour ta
+            transition responsable
+            qui te propose déjà <%= @alternatives.count %> alternatives !
+          </span>
         </div>
       </div>
-      <p><%= @alternatives.count %> alternatives</p>
-      <div class="row">
-        <div class="col">
-          <p>Tu as pris conscience de ton impact écologique et tu souhaites le réduire sans changer tes habitudes. Découvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement éco-responsable.</p>
+      <span class="position-fixed" style="opacity:0.27; right:-20px; top:-50px; ;font-size:396px "><%= @alternatives.count %></span>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p>
+            Tu as pris conscience de ton impact écologique et tu souhaites le réduire sans changer tes habitudes. Découvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement éco-responsable.
+          </p>
         </div>
       </div>
     </div>
