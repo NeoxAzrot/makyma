@@ -28,5 +28,9 @@ namespace :makyma do
         end
     end
   end
-  User.where(email: "makymaorg@gmail.com", password: "Makyma33!", admin_role: true).first_or_create
+  #u = User.new
+  #u.email = "makymaorg@gmail.com"
+  #u.password = "Makyma33!"
+  #u.admin_role = true
+  #u.save
 end
