@@ -36,7 +36,7 @@
                 <!-- <span>🧺</span>
                 <span>🛠</span>
                 <span>🌐</span> -->
-                <span class="infoProduit"> solutions alternatives</span>
+                <span class="infoProduit"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></span>
               </div>
               <%= link_to 'Je change', product, class:'shadow hoverBtn text-right p-2', style:'color:#707070; text-decoration: none'%>
             </div>
