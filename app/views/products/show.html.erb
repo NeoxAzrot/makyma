@@ -9,34 +9,37 @@
         </div>
       </div>
       <span class="position-fixed count" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px "><%= @product.alternatives.count %></span>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <p>
-            
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </header>
 
 
 <div class="container position-relative" style="top: -200px">
-  <div class="row justify-content-center no-gutters">
+  <div class="row justify-content-between no-gutters">
     <% @product.alternatives.each do |alternative| %>
-      <div class="col-10 my-5 col-md-5 m-md-4  col-lg-3 my-lg-0" >
-        <div class="card shadow border-0" style="border-radius: 13px; min-height: 450px">
-          <div class="card-body d-flex flex-column align-items-center text-center">
-            <h1 class="text-secondary" style="font-weight: 600;"><%= alternative %></h1>
-            <p class="text-secondary" style="color: black"><%= alternative.description %></p>
-            <p class="text-secondary" style="color: black"><%= alternative.find %></p>
-            <a href="<%= alternative.source %>">Je fonce !</a>
+      <div class="col" >
+        <div class="card shadow border-0 p-3 m-3" style="border-radius: 13px; min-height: 450px">
+          <div class="card-body d-flex flex-column align-items-start">
+            <h2 class="mb-5"><%= alternative %></h2>
+            <p class="mb-5" style="color: black"><%= alternative.description %></p>
+            <h3 class="text-left sousTitreNoir mb-5">Où trouver ?</h3>
+            <p class="mb-5" style="color: black"><%= alternative.find %></p>
+            <a href="<%= alternative.source %>" class="hoverBtn btnActive px-4 py-3 border-13 shadow" style="font-weight:bold">Je fonce !</a>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+<div class="container ">
+  <div class="row justify-content-center">
+      <div class="col-lg-8" >
+            <p class="sousTitreNoir mb-5">Tu connais une <strong>alternative</strong> que nous avons oubliée ?</p>
+            <p class="mb-5">Nous travaillons chaque jour à te proposer les meilleurs alternatives pour t’aider à changer ton quotidien et à protéger notre belle planète bleue. Cependant, nous sommes humains et nous avons peut être oublié une alternative, alors prends part à l’aventure en nous envoyant par mail ton alternative !</p>
+            <a href="#" class="hoverBtn btnActive px-4 py-3 border-13 shadow " style="font-weight:bold">Contacte-nous</a>
+        </div>
+      </div>
+  </div>
 
 
 
