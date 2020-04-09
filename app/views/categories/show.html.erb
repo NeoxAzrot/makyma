@@ -8,7 +8,7 @@
           </span>
         </div>
       </div>
-      <span class="position-fixed" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px "><%= @category.alternatives.count %></span>
+      <span class="position-fixed count" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px "><%= @category.alternatives.count %></span>
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <p>
@@ -115,3 +115,17 @@
       <%# <!-- <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  $('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 2000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+<% end %>
