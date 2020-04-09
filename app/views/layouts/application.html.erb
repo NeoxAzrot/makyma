@@ -29,13 +29,13 @@
 
 
     <div class="container position-relative" style="z-index: 10;">
-      <nav class="navbar navbar-expand-sm navbar-light" style="padding: 5px 0; background-color:rgba(0,0,0,0);">
+      <nav class="navbar navbar-expand-sm navbar-light mt-3" style="padding: 5px 0; background-color:rgba(0,0,0,0);">
         <a class="navbar-brand" href="<%= root_path %>">
           <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
         </a>
       </nav>
       <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic" id="ariane">
-        <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;>&nbsp;" %>
+        <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
       </ol>
     </div>
 
@@ -45,13 +45,13 @@
       <div class="container pt-5">
         <div class="row py-5">
           <div class="col-lg-6">
-            © Makyma <%= Date.today.year %>
+            <a href="<%= root_path %>">© Makyma <%= Date.today.year %></a>
           </div>
           <div class="col-lg-3">
             <ul class="list-unstyled">
-              <li class="mb-3"><a href="/pages/about">A Propos</a></li>
-              <li class="mb-3"><a href="/pages/contact">Contact</a></li>
-              <li class="mb-3"><a href="/pages/cgu">Mentions légales</a></li>
+              <li class="mb-3"><a href="/about">A Propos</a></li>
+              <li class="mb-3"><a href="/contact">Contact</a></li>
+              <li class="mb-3"><a href="/cgu">Mentions légales</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
