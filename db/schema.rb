@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_090719) do
+ActiveRecord::Schema.define(version: 2020_04_09_130614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_090719) do
     t.text "source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "find"
     t.index ["product_id"], name: "index_alternatives_on_product_id"
   end
 
