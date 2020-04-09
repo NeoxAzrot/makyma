@@ -17,9 +17,10 @@ namespace :makyma do
             next if product_title.blank?
             product = Product.where(category: category, title: product_title).first_or_create
             alternative_title = row[3]
+            alternative_description = row[4]
             next if alternative_title.blank?
-            alternative = Alternative.where(product: product, title: alternative_title).first_or_create #TODO: change to add more link for 1 alternative
-            alternative.description = row[4]
+            alternative = Alternative.where(product: product, title: alternative_title, description: alternative_description).first_or_create
+            #alternative.description = row[4]
             alternative.find = row[5]
             alternative.source = row[6]
             alternative.save
@@ -27,4 +28,5 @@ namespace :makyma do
         end
     end
   end
+  User.where(email: "makymaorg@gmail.com", password: "Makyma33!", admin_role: true).first_or_create
 end
