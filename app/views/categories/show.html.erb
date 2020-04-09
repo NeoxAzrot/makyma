@@ -1,15 +1,19 @@
-<header class="position-relative" style="top:-130px;">
+<header class="position-relative" style="top:-130px">
   <div class="container"style="padding-top:120px; padding-bottom:50px">
     <div class="jumbotron bg-transparent">
-      <div class="row">
-        <div class="col-12 col-md-8 col-lg-6">
-          <span><%= @category %></span>
+      <div class="row mb-4 justify-content-center">
+        <div class="col-lg-8">
+          <span>
+            <h1><%= @category %></h1>
+          </span>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <p><%= @category.description %></p>
-          <p><%= @category.alternatives.count %> alternatives</p>
+      <span class="position-fixed" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px "><%= @category.alternatives.count %></span>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p>
+            <%= @category.description %>
+          </p>
         </div>
       </div>
     </div>

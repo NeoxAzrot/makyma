@@ -33,43 +33,36 @@
         <a class="navbar-brand" href="<%= root_path %>">
           <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
         </a>
+        <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic" id="ariane">
+          <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
+        </ol>
       </nav>
-      <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic" id="ariane">
-        <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;>&nbsp;" %>
-      </ol>
     </div>
 
     <%= yield %>
 
-      <div class="footer bg-dark">
-        <div class="container pt-5">
-          <div class="row py-5">
-            <div class="col-lg-4">
-              <div class="row">
-                <div class="col ">
-                  <span class="footerMakyma text-secondary">© Makyma <%= Date.today.year %></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-8 d-flex justify-content-around" >
-              <div class="row">
-                <div class="col-lg-12 d-flex flex-column">
-                  <a href="/pages/about" class="mb-4 text-secondary">A Propos</a>
-                  <a class="mb-4 text-secondary" href="/pages/contact">Contact</a>
-                  <a href="/pages/cgu" class="mb-4 text-secondary">Mentions légales</a>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 d-flex flex-column">
-                  <a class="mb-4 text-secondary" href="https://www.facebook.com/makymaorg/">Facebook</a>
-                  <a class="mb-4 text-secondary" href="https://www.instagram.com/makyma_app/">Instragram</a>
-                  <a class="mb-4 text-secondary" href="https://twitter.com/makyma_app">Twitter</a>
-                </div>
-              </div>
-            </div>
+    <footer class="footer bg-dark small">
+      <div class="container pt-5">
+        <div class="row py-5">
+          <div class="col-lg-6">
+            <a href="<%= root_path %>">© Makyma <%= Date.today.year %></a>
+          </div>
+          <div class="col-lg-3">
+            <ul class="list-unstyled">
+              <li class="mb-3"><a href="/about">A Propos</a></li>
+              <li class="mb-3"><a href="/contact">Contact</a></li>
+              <li class="mb-3"><a href="/cgu">Mentions légales</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <ul class="list-unstyled">
+              <li class="mb-3"><a href="https://www.facebook.com/makymaorg">Facebook</a></li>
+              <li class="mb-3"><a href="https://www.instagram.com/makyma_app">Instagram</a></li>
+              <li class="mb-3"><a href="https://twitter.com/makyma_app">Twitter</a></li>
+            </ul>
           </div>
         </div>
       </div>
+    </footer>
   </body>
 </html>

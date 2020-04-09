@@ -4,13 +4,13 @@
       <div class="row mb-4 justify-content-center">
         <div class="col-lg-8">
           <span>
-            Le compagnon pour ta
+            <h1>Le compagnon pour ta
             transition responsable
-            qui te propose déjà <%= @alternatives.count %> alternatives !
+            qui te propose déjà <%= @alternatives.count %> alternatives !</h1>
           </span>
         </div>
       </div>
-      <span class="position-fixed" style="opacity:0.27; right:-20px; top:-50px; ;font-size:396px "><%= @alternatives.count %></span>
+      <span class="position-fixed" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px "><%= @alternatives.count %></span>
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <p>
@@ -25,13 +25,13 @@
 <div class="container">
   <div class="row justify-content-center" style="margin-bottom: 130px;">
     <% @categories.each do |category| %>
-      <div class="col-10 col-sm-8 col-md-5 col-lg-4 col-xl-3 m-2 m-md-2 m-lg-2 m-xl-3 shadow hoverBtn " style="max-height: 100px; border-radius: 13px">
+      <div class="col-10 col-sm-8 col-md-5 col-lg-4 col-xl-3 m-2 m-md-2 m-lg-2 m-xl-3 shadow hoverBtn" style="max-height: 100px; border-radius: 13px">
         <%= link_to category do %>
           <div class="row align-items-center justify-content-center p-3">
             <%= image_tag category.image, style:"max-width: 100px", class:"col", alt: "Icône symbolisant la catégorie "+category.title if category.image %>
             <h2 class="col m-0" style="text-decoration: none; font-size: 21px; font-weight: 600;"><%= category.title %></h2>
           </div>
-        <% end %>  
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -42,7 +42,3 @@
     <% end %>
   </div>
 </div>
-
-<%= javascript_tag do %>
-  $('#ariane').hide();
-<% end %>

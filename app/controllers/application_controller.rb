@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
-	add_breadcrumb "Makyma", :root_path
+	add_breadcrumb "", :root_path
 
 end
