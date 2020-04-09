@@ -33,10 +33,10 @@
         <a class="navbar-brand" href="<%= root_path %>">
           <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
         </a>
+        <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic" id="ariane">
+          <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
+        </ol>
       </nav>
-      <ol class="breadcrumb mb-0 text-white bg-transparent font-weight-light font-italic" id="ariane">
-        <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
-      </ol>
     </div>
 
     <%= yield %>
