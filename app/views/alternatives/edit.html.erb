@@ -1,6 +1,9 @@
-<h1>Editing Alternative</h1>
+<% if can? :manage, @atlernative %>
 
-<%= render 'form', alternative: @alternative %>
+	<h1>Editing Alternative</h1>
 
-<%= link_to 'Show', @alternative %> |
-<%= link_to 'Back', alternatives_path %>
+	<%= render 'form', alternative: @alternative %>
+
+	<%= link_to 'Show', @alternative %> |
+	<%= link_to 'Back', alternatives_path %>
+<% end %>

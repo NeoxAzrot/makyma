@@ -1,6 +1,10 @@
-<h1>Editing Product</h1>
+<% if can? :manage, @product %>
 
-<%= render 'form', product: @product %>
+	<h1>Editing Product</h1>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+	<%= render 'form', product: @product %>
+
+	<%= link_to 'Show', @product %> |
+	<%= link_to 'Back', products_path %>
+
+	<% end %>
