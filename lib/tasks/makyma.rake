@@ -2,11 +2,11 @@ namespace :makyma do
   desc "Data import"
   task import: :environment do
     {
-        hygiene: ['Hygiène', 'bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits de beauté ! Makyma te conseille les alternatives qui prennent tout autant soin de ta peau que de la planète. Que souhaites-tu changer dans ta salle de bain ?'],
-        electronique: ['Électronique', 'plug.png', 'Déniche les alternatives vertes, durables et écoresponsables aux produits électroniques habituels ! Makyma te mets au courant des alternatives que te permettent de rester autant connecter à internet qu’à la planète. Quel produit électronique souhaites-tu découvrir ?'],
-        maison: ['Maison', 'house.png', 'Remplace les objets de ton quotidien par des alternatives vertes, durables et écoresponsables ! Makyma te donne toutes les clefs pour devenir le maître ton foyer. Que souhaites-tu améliorer dans ta maison ?'],
-        exterieur: ['Extérieur', 'herb.png', 'Découvre les alternatives vertes, durables et écoresponsables aux produits de jardinage habituel ! Makyma te présente les alternatives qui s’occupent autant de tes plantes vertes que de la planète bleue. Que souhaites-tu remplacer dans ton jardin ?'],
-        entretien: ['Entretien', 'broom.png', 'Change tes produits et objets d’entretien par les alternatives vertes, durables et écoresponsables qui te plaisent ! Makyma te propose les alternatives pour une maison propre sans salir notre planète. Que souhaites-tu remplacer dans tes produits d’entretien ?'],
+        hygiene: ['Hygiène', 'bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits de beauté ! Makyma te conseille les alternatives qui prennent tout autant soin de ta peau que de la planète. La seule hygiène qui vaille, c\'est celle qui dure '],
+        electronique: ['Électronique', 'plug.png', 'Déniche les alternatives vertes, durables et écoresponsables aux produits électroniques habituels ! Makyma te mets au courant des alternatives que te permettent de rester autant connecter à internet qu’à la planète. Réveille le geek-écolo qui sommeille en toi !'],
+        maison: ['Maison', 'house.png', 'Remplace les objets de ton quotidien par des alternatives vertes, durables et écoresponsables ! Makyma te donne toutes les clefs pour devenir le maître ton foyer. On te sert des solutions sur un plateau, c’est du tout cuit !'],
+        exterieur: ['Extérieur', 'herb.png', 'Découvre les alternatives vertes, durables et écoresponsables aux produits de jardinage habituel ! Makyma te présente les alternatives qui s’occupent autant de tes plantes vertes que de la planète bleue. Prend l’air vert !'],
+        entretien: ['Entretien', 'broom.png', 'Change tes produits et objets d’entretien par les alternatives vertes, durables et écoresponsables qui te plaisent ! Makyma te propose les alternatives pour une maison propre sans salir notre planète. Des produits durables pour un entretien d’enfer !'],
     }.each do |file, cat|
         puts "Import #{cat}"
         path = "vendor/data/#{file}.csv"
