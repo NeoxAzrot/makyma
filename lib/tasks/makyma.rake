@@ -28,9 +28,4 @@ namespace :makyma do
         end
     end
   end
-  #u = User.new
-  #u.email = "makymaorg@gmail.com"
-  #u.password = "Makyma33!"
-  #u.admin_role = true
-  #u.save
 end
