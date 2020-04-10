@@ -47,13 +47,28 @@
     <meta name="Revisit-After" content="15 days" />
     <meta name="Category" content="Écologie, Transition, Alternatives" />
 
-    <meta property="og:title" content="Makyma - Ton compagnon écoresponsable">
+    <% if @product then %>
+      <meta property="og:title" content="Makyma - <%= @product.category %> | <%= @product %>, les alternatives">
+    <% elsif @category then %>
+      <meta property="og:title" content="Makyma - <%= @category %>">
+    <% else %>
+      <meta property="og:title" content="Makyma - Ton compagnon écoresponsable">
+    <% end %>
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.makyma.org/">
-    <meta property="og:image" content="http://www.makyma.org<%= asset_path('logo_og.svg') %>">
+    <meta property="og:image" content="http://www.makyma.org<%= asset_path('logo_og.png') %>">
+    <meta property="og:image:secure_url" content="http://www.makyma.org<%= asset_path('logo_og.png') %>" /> 
+    <meta property="og:image:width" content="612" /> 
+    <meta property="og:image:height" content="469" />
     <meta property="og:description" content="Le compagnon pour ta transition écologique qui te propose des alternatives vertes, durables et éco-responsables à tes produits du quotidien !">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:site_name" content="Makyma - Ton compagnon écoresponsable">
+    <% if @product then %>
+      <meta property="og:site_name" content="Makyma - <%= @product.category %> | <%= @product %>, les alternatives">
+    <% elsif @category then %>
+      <meta property="og:site_name" content="Makyma - <%= @category %>">
+    <% else %>
+      <meta property="og:site_name" content="Makyma - Ton compagnon écoresponsable">
+    <% end %>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
