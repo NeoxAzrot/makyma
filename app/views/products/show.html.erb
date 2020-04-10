@@ -15,7 +15,7 @@
 
 
 <div class="container position-relative" style="top: -200px">
-  <div class="row justify-content-between no-gutters"> <!-- col-12 -->
+  <div class="row justify-content-between no-gutters" id="alternatives"> <!-- col-12 -->
     <% @product.alternatives.sort{|a,b| a.title <=> b.title}.each do |alternative| %>
       <div class="col"> <!-- col-4 -->
         <div class="card shadow border-0 p-3 m-3" style="border-radius: 13px; min-height: 450px">
