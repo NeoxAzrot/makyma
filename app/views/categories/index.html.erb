@@ -24,8 +24,8 @@
 
 <div class="container">
   <div class="row justify-content-center" style="margin-bottom: 130px;">
-    <% @categories.each do |category| %>
-      <div class="col-10 col-sm-8 col-md-5 col-lg-4 col-xl-3 m-2 m-md-2 m-lg-2 m-xl-3 shadow hoverBtn" style="max-height: 100px; border-radius: 13px">
+    <% @categories.sort{|a,b| a.id <=> b.id}.each do |category| %>
+      <div class="col-10 col-sm-8 col-md-5 col-lg-4 col-xl-4 m-2 m-md-2 m-lg-2 m-xl-3 shadow hoverBtn" style="max-height: 100px; border-radius: 13px"> <!-- col-xl-3 with plug not in the div in large screen -->
         <%= link_to category do %>
           <div class="row align-items-center justify-content-center p-3">
             <%= image_tag category.image, style:"max-width: 100px", class:"col", alt: "Icône symbolisant la catégorie "+category.title if category.image %>

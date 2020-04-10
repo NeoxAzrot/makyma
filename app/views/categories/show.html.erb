@@ -24,7 +24,7 @@
 
   <div class="row justify-content-center">
     <div class="col-lg-8">
-      <% @category.products.each do |product| %>
+      <% @category.products.sort{|a,b| a.title <=> b.title}.each do |product| %>
 
 
      <div class="row rowHover" >
