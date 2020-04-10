@@ -12,7 +12,13 @@
     </script>
 
     <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
-    <title>Makyma - Ton compagnon écoresponsable</title>
+    <% if @product then %>
+      <title>Makyma - <%= @product.category %> | <%= @product %>, les alternatives</title>
+    <% elsif @category then %>
+      <title>Makyma - <%= @category %></title>
+    <% else %>
+      <title>Makyma - Ton compagnon écoresponsable</title>
+    <% end %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
