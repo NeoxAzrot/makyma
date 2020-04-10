@@ -82,6 +82,11 @@
 
     <footer class="footer bg-dark small">
       <div class="container pt-5">
+          <% if user_signed_in? %>
+            <div>
+              <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+            </div>
+          <% end %>
         <div class="row py-5">
           <div class="col-sm-6" id="copyright">
             <a href="<%= root_path %>">© Makyma <%= Date.today.year %></a>
