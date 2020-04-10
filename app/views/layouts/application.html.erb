@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163339023-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-163339023-1');
+    </script>
+
     <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
-    <title>Makyma</title>
+    <title>Makyma - Ton compagnon écoresponsable</title>
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +20,34 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="Le compagnon pour ta transition responsable qui te propose des alternatives écoresponsables ! Trouve les alternatives vertes, durables et écoresponsables à tes produits du quotidien !"/>
+    <meta name="Language" CONTENT="fr" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index, nofollow" />
+    <meta name="copyright" content="© Makyma <%= Date.today.year %>" />
+    <meta name="publisher" content="Énora IGNACE-RICQUEMAQUE, Justine LE BERVET" />
+    <meta name="googlebot" content="index, nofollow" />
+    <meta name="google" content="translate, sitelinkssearchbox" />
+    <meta name="reply-to" content="makymaorg@gmail.com" />
+    <meta name="google-site-verification" content="PtB1oZryDai7MBGr-yMoGVKV0eL7iNYJiqGPe_wYMMA" />
+    <meta http-equiv="Cache-control" content="public" />
+
+    <meta name="keywords" content="makyma, alternatives, durable, écoresponsable, transition, écologique" />
+    <meta name="Author" content="Manaut BERTON-BOITEL, Hugo BLANCHARD, Tom DESPRES, Apolline GONDEAU, Énora IGNACE-RICQUEMAQUE, Sami LAFRANCE, Justine LE BERVET, Nicolas MAITRE, Martin MALNOË, Stéphane RAZAFINDRAMANANA, Tom SOULIÉ, Leo MELLE, Hugo FAUGEROUX" />
+    <meta name="Identifier-URL" content="http://www.makyma.org" />
+    <meta name="Distribution" content="global" />
+    <meta name="Revisit-After" content="15 days" />
+    <meta name="Category" content="Écologie, Transition, Alternatives" />
+
+    <meta property="og:title" content="Makyma - Ton compagnon écoresponsable">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.makyma.org/">
+    <meta property="og:image" content="<%= image_tag 'logos.svg' %>">
+    <meta property="og:description" content="Description de votre page">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Makyma - Ton compagnon écoresponsable">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
   </head>
