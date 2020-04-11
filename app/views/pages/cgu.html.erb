@@ -1,28 +1,13 @@
-<header class="position-relative" style="top:-130px">
-  <div class="container"style="padding-top:120px; padding-bottom:50px">
-    <div class="jumbotron bg-transparent">
-      <div class="row mb-4 justify-content-center">
-        <div class="col-lg-8">
-          <span>
-            <h1>Mentions Légales</h1>
-          </span>
-        </div>
-      </div>
-      <span class="position-fixed" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px ">CGU</span>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <p>
-            Ici, tu trouveras nos Mentions Légales ! Prépares-toi une bonne tasse de café écoresponsable, ce n’est pas la partie la plus facile à lire de makyma !
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<%= render 'header',
+            title: 'Mentions Légales',
+            text: 'Ici, tu trouveras nos Mentions Légales !
+            Prépares-toi une bonne tasse de café écoresponsable,
+            ce n’est pas la partie la plus facile à lire de makyma !',
+            large: 'CGU' %>
 
-<div class="container pb-5">
-  <div class="row mb-5 justify-content-center">
-    <div class="col-lg-8">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
       <p class="text-right mb-3"><i>Dernière mise à jour : 10/04/2020</i></p> <!-- À changer à chaque mise à jour -->
       <h2 class="mb-4">Définitions</h2>
       <p>

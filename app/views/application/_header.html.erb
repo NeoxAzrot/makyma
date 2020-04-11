@@ -1,0 +1,33 @@
+<%
+count ||= nil
+large ||= nil
+%>
+<header class="jumbotron bg-transparent text-white">
+  <span class="position-fixed count" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px ">
+    <%= count %>
+    <%= large %>
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1><%= raw title %></h1>
+        <p><%= raw text %></p>
+      </div>
+    </div>
+  </div>
+</header>
+<% if count %>
+  <%= javascript_tag do %>
+    $('.count').each(function () {
+      $(this).prop('Counter', 0).animate({
+          Counter: $(this).text()
+      }, {
+          duration: 8000,
+          easing: 'swing',
+          step: function (now) {
+              $(this).text(Math.ceil(now));
+          }
+      });
+    });
+  <% end %>
+<% end %>

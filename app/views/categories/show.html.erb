@@ -1,74 +1,38 @@
-<header class="position-relative" style="top:-130px">
-  <div class="container"style="padding-top:120px; padding-bottom:50px">
-    <div class="jumbotron bg-transparent">
-      <div class="row mb-4 justify-content-center">
-        <div class="col-lg-8">
-          <span>
-            <h1><%= @category %></h1>
-          </span>
-        </div>
-      </div>
-      <span class="position-fixed count" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px "><%= @category.alternatives.count %></span>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <p>
-            <%= @category.description %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<%= render 'header',
+            title: @category.title,
+            text: @category.description,
+            count: @category.alternatives.count %>
 
-<div class="container">
-
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <% @category.products.sort{|a,b| a.title <=> b.title}.each do |product| %>
-
-
-     <div class="row rowHover" >
-        <div class="col-lg-12">
-          <div class="d-flex justify-content-between align-items-center my-4 pl-3 pr-3">
-              <h3 class="p-0 m-0 d-flex align-items-center"><%= link_to product, product, style:'color:#707070; text-decoration: none' %></h3>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="pr-3">
-                <!-- <span>🧺</span>
-                <span>🛠</span>
-                <span>🌐</span> -->
-                <span class="infoProduit"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></span>
+<div class="container category__products">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <% @category.products.each do |product| %>
+        <div class="category__product">
+          <div class="category__product__inner">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <%= link_to product, product %>
               </div>
-              <%= link_to 'Je change', product, class:'shadow hoverBtn text-right p-2 ', style:'color:#ff8f66;font-weight:bold ;text-decoration: none'%>
+              <div class="col-md-3 text-right small text-muted">
+                <%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %>
+              </div>
+              <div class="col-md-3 text-right">
+                <%= link_to 'Je change', product, class:'btn mt-2 mb-2' %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
 </div>
 
-
-<div class="container">
-  <div class="row justify-content-around my-5">
-    <% if can? :manage, @category %>
+<% if can? :manage, @category %>
+  <div class="container">
+    <div class="row justify-content-around my-5">
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
-    <% end %>
       <%# <!-- <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %>
+    </div>
   </div>
-</div>
-
-<%= javascript_tag do %>
-  $('.count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-    }, {
-        duration: 4000,
-        easing: 'swing',
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
 <% end %>

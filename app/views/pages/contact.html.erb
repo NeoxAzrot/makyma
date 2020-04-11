@@ -1,47 +1,25 @@
-<header class="position-relative" style="top:-130px">
-  <div class="container"style="padding-top:120px; padding-bottom:50px">
-    <div class="jumbotron bg-transparent">
-      <div class="row mb-4 justify-content-center">
-        <div class="col-lg-8">
-          <span>
-            <h1>Prenons contact !</h1>
-          </span>
-        </div>
-      </div>
-      <span class="position-fixed" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px ">!!!</span>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <p>
-            Parce notre priorité, c’est toi ! <br>
-            Nous serons ravies d’entendre le son de ta voix !
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<%= render 'header',
+            title: 'Prenons contact !',
+            text: 'Parce notre priorité, c’est toi ! <br>
+            Nous serons ravies d’entendre le son de ta voix !',
+            large: '!!!' %>
 
-<div class="container mb-5">
+<div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <h2 class="mb-5">Viens nous parler !</h2>
-        </div>
-      </div>
-      <div class="row mb-5 justify-content-center">
-        <div class="col-lg-8">
-          <p class="sousTitreNoir">Tu as des <strong>questions</strong> ? Tu souhaites <strong>en savoir plus</strong> sur nous ?</p>
-          <p>
-            Makyma est un projet humain et collaboratif. Nous souhaitons te proposer les meilleures alternatives et être le plus proche possible de toi !<br>
-            Alors, si tu as des questions, des remarques, n’hésites pas ! Nous serons ravies de recevoir tes mots doux !</p>
-        </div>
-      </div>
-      <div class="row mb-5 justify-content-center">
-        <div class="col-lg-8">
-          <a href="mailto:contact@makyma.org" class="hoverBtn btnActive p-3 pr-4 pl-4 border-13 shadow">Contacte-nous</a>
-        </div>
-      </div>
+    <div class="col-md-8 offset-md-2">
+      <h2>Viens nous parler !</h2>
+      <h3>
+        Tu as des <strong>questions</strong> ?
+        Tu souhaites <strong>en savoir plus</strong> sur nous ?
+      </h3>
+      <p>
+        Makyma est un projet humain et collaboratif.
+        Nous souhaitons te proposer les meilleures alternatives
+        et être le plus proche possible de toi !<br>
+        Alors, si tu as des questions, des remarques, n’hésites pas !
+        Nous serons ravies de recevoir tes mots doux !
+      </p>
+      <a href="mailto:contact@makyma.org" class="btn btn-primary">Contacte-nous</a>
     </div>
   </div>
 </div>

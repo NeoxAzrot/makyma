@@ -1,56 +1,37 @@
-<header class="position-relative" style="top:-130px">
-  <div class="container"style="padding-top:120px; padding-bottom:50px">
-    <div class="jumbotron bg-transparent">
-      <div class="row mb-4 justify-content-center">
-        <div class="col-lg-8">
-          <span>
-            <h1>Le compagnon pour ta transition <br>éco-responsable qui te propose déjà <%= @alternatives.count %> alternatives !</h1>
-          </span>
-        </div>
-      </div>
-      <span class="position-fixed count" style="opacity:0.27; right:-60px; top:-50px; ;font-size:396px "><%= @alternatives.count %></span>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <p>
-            Tu as pris conscience de ton impact écologique et tu souhaites le réduire sans changer tes habitudes. Découvre les alternatives vertes aux produits de ton quotidien, et adopte un comportement éco-responsable.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<%= render 'header',
+            title: "Le compagnon pour ta transition <br>
+            éco-responsable qui te propose déjà #{@alternatives.count}&nbsp;alternatives !",
+            text: 'Tu as pris conscience de ton impact écologique et tu souhaites le réduire
+            sans changer tes habitudes. Découvre les alternatives vertes aux produits
+            de ton quotidien, et adopte un comportement éco-responsable.',
+            count: @alternatives.count %>
 
 <div class="container">
   <div class="row justify-content-center" style="margin-bottom: 130px;">
-    <% @categories.sort{|a,b| a.id <=> b.id}.each do |category| %>
-      <div class="col-10 col-sm-8 col-md-5 col-lg-4 col-xl-4 m-2 m-md-2 m-lg-2 m-xl-3 shadow hoverBtn" style="max-height: 100px; border-radius: 13px"> <!-- col-xl-3 with plug not in the div in large screen -->
+    <% @categories.each do |category| %>
+      <div class="col-md-4">
         <%= link_to category do %>
-          <div class="row align-items-center justify-content-center p-3 m-0">
-            <%= image_tag category.image, style:"max-width: 100px", class:"col", alt: "Icône symbolisant la catégorie "+category.title if category.image %>
-            <h2 class="col m-0" style="text-decoration: none; font-size: 20px; font-weight: 600;"><%= category.title %></h2>
+          <div class="card category mb-4">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-4">
+                  <%#= image_tag 'http://www.makyma.org/assets/bottle-41f43f6483d94e76d6813467a4942b9d97dd790973dad6b12c861866da5359ab.png', class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" %>
+                  <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
+                </div>
+                <div class="col-8">
+                  <h3 class="pt-2"><%= category %></h3>
+                </div>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
 
-  <div class="row justify-content-around">
-    <% if can? :manage, @category %>
+  <% if can? :manage, @category %>
+    <div class="row justify-content-around">
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle catégorie', new_category_path %></button>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
-
-<%= javascript_tag do %>
-  $('.count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-    }, {
-        duration: 8000,
-        easing: 'swing',
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
-<% end %>

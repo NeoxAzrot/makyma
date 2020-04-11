@@ -1,137 +1,137 @@
-header
+.jumbotron
+	position: relative
+	margin-top: -130px
+	padding: 180px 0 150px 0
+	border-radius: unset
 	background: linear-gradient(40deg, #FF8F66, #ffeb9a 120%)
 	clip-path: url(#myClip)
-
-.jumbotron
-	color: #FFFFFF
-	border-radius: unset
-
+	z-index: -1
+	.count
+		font-weight: bold
 h1
 	font-weight: bold
 	font-size: 2rem
+	margin-bottom: 15px
 h2
 	font-weight: bold
-	font-size: 2rem
-	margin: 0
-	color: #ff8f66
-span
-	font-weight: bold
-	font-size: 2rem
-a:hover
-	text-decoration: none
-	color: #ff8f66 !important
-
-.infoProduit
-	font-size: 0.8rem
-	font-weight: 400
-.rowHover
-	border-radius: 13px
-	box-shadow: 0 0 0 rgba(0,0,0,0)
-
-	transition-duration: 0.2s
-
-
-.rowHover:hover
-	box-shadow: 0 5px 15px rgba(0,0,0,0.2)
-	border-radius: 40px
-
-
-
-
-.sousTitre
-	font-weight: 500 !important
-	font-size: 1.5rem !important
-	color: #ff8f66 !important
-.sousTitreNoir
-	font-weight: bold !important
-	font-size: 1.3rem !important
-	color: #707070 !important
-
-strong 
-	color: #ff8f66 !important
+	font-size: 1.5rem
+	margin-bottom: 15px
+	color: $primary
 h3
 	font-weight: 500
 	font-size: 1.1rem
-
+	margin-bottom: 15px
 p
-	font-weight: 400
-	font-size: 1rem
-
-.cursor-p
-	cursor: pointer
-
-.border-13
-	border-radius: 13px !important
-
-.hoverBtn
-	h2
-		font-size: 1.4rem
-		transition-duration: 0.1s
-		color: #707070 !important
-	border-radius: 25px
-	transition-duration: 0.1s
-	color: #707070 
-
-	
-
-.hoverBtn:hover
-	h2
-		color: #ffffff !important
-		text-decoration: none
-	color: #ffffff !important
-	background-color: #ff8f66 !important
-	text-decoration: none
-.hoverBtn.btnActive
-	color: #ffffff !important
-
-	h2
-		font-size: 1.4rem
-		color: #ffffff !important
-	color: #ffffff !important
-	background-color: #ff8f66 !important
-	text-decoration: none
-
+	font-size: 0.95rem
+	line-height: 1.4rem
 
 .footer
+	margin-top: 60px
 	clip-path: url(#myClipFooter)
+	a
+		color: black
+		&:hover
+			text-decoration: none
+//
+// span
+// 	font-weight: bold
+// 	font-size: 2rem
+// a:hover
+// 	text-decoration: none
+// 	color: #ff8f66 !important
+//
+// .infoProduit
+// 	font-size: 0.8rem
+// 	font-weight: 400
+// .rowHover
+// 	border-radius: 13px
+// 	box-shadow: 0 0 0 rgba(0,0,0,0)
+//
+// 	transition-duration: 0.2s
+//
+//
+// .rowHover:hover
+// 	box-shadow: 0 5px 15px rgba(0,0,0,0.2)
+// 	border-radius: 40px
+//
+//
+//
+//
+// .sousTitre
+// 	font-weight: 500 !important
+// 	font-size: 1.5rem !important
+// 	color: #ff8f66 !important
+// .sousTitreNoir
+// 	font-weight: bold !important
+// 	font-size: 1.3rem !important
+// 	color: #707070 !important
+//
+// strong
+// 	color: #ff8f66 !important
+//
+// .cursor-p
+// 	cursor: pointer
+//
+// .border-13
+// 	border-radius: 13px !important
+//
+// .hoverBtn
+// 	h2
+// 		font-size: 1.4rem
+// 		transition-duration: 0.1s
+// 		color: #707070 !important
+// 	border-radius: 25px
+// 	transition-duration: 0.1s
+// 	color: #707070
+//
+//
+//
+// .hoverBtn:hover
+// 	h2
+// 		color: #ffffff !important
+// 		text-decoration: none
+// 	color: #ffffff !important
+// 	background-color: #ff8f66 !important
+// 	text-decoration: none
+// .hoverBtn.btnActive
+// 	color: #ffffff !important
+//
+// 	h2
+// 		font-size: 1.4rem
+// 		color: #ffffff !important
+// 	color: #ffffff !important
+// 	background-color: #ff8f66 !important
+// 	text-decoration: none
+//
+//
 
-	a:hover
-		text-decoration: none
-
-
-.footerMakyma
-	font-size: 1.1rem
-	font-weight: 500
-
-
-@media screen and (max-width: 400px)
-	.navbar-brand
-		width: 140px
-
-	.logo
-		width: 140px
-
-.breadcrumb a
-	color: #ffffff
-
-.breadcrumb a:hover
-	text-decoration: underline
-	color: #ffffff !important
-
-#alternatives p
-	font-size: 0.9rem
-#alternatives
-	justify-content: start
-
-@media screen and (max-width: 992px)
-	#alternatives
-		justify-content: center !important
-
-nav
-	justify-content: start !important
-
-@media screen and (max-width: 768px)
-	#copyright
-		margin-bottom: 40px
-	footer
-		text-align: center
+//
+// @media screen and (max-width: 400px)
+// 	.navbar-brand
+// 		width: 140px
+//
+// 	.logo
+// 		width: 140px
+//
+// .breadcrumb a
+// 	color: #ffffff
+//
+// .breadcrumb a:hover
+// 	text-decoration: underline
+// 	color: #ffffff !important
+//
+// #alternatives p
+// 	font-size: 0.9rem
+// #alternatives
+// 	justify-content: start
+//
+// @media screen and (max-width: 992px)
+// 	#alternatives
+// 		justify-content: center !important
+//
+// nav
+// 	justify-content: start !important
+//
+// @media screen and (max-width: 768px)
+// 	#copyright
+// 		margin-bottom: 40px
