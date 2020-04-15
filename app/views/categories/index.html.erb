@@ -10,7 +10,7 @@
   <div class="row justify-content-center" style="margin-bottom: 130px;">
     <% @categories.each do |category| %>
       <div class="col-md-4">
-        <%= link_to category do %>
+        <%= link_to category, class: "text-decoration-none" do %>
           <div class="card category mb-4">
             <div class="card-body">
               <div class="row align-items-center">
@@ -19,7 +19,7 @@
                   <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
                 </div>
                 <div class="col-8">
-                  <h3 class="pt-2"><%= category %></h3>
+                  <h3 class="pt-2" style="text-decoration: none;"><%= category %></h3>
                 </div>
               </div>
             </div>
