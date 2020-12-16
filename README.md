@@ -14,6 +14,10 @@ Les instructions suivantes vous aideront à la mise en route et à l'utilisation
 * [Installation](https://doc.ubuntu-fr.org/rubyonrails) pour Linux
 * [Installation](https://gorails.com/setup/windows/10) pour Windows
 
+#### PostgreSQL
+
+#### NodeJS
+
 ## Installation des dépendances
 
 PostgreSQL
