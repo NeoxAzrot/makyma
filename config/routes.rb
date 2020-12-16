@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  match '/users', to: 'users#index', via: 'get'
 
   resources :alternatives
   resources :products
@@ -8,7 +7,9 @@ Rails.application.routes.draw do
 
   root to: "categories#index"
 
-  get 'user/:id' => 'users#show'
+  #users roots
+  #get 'user/:id' => 'users#show'
+  #match '/users', to: 'users#index', via: 'get'
   
   get "/pages/:page" => "pages#show"
   match '/about', to: 'pages#about', via: 'get'
