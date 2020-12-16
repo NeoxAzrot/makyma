@@ -1,37 +1,29 @@
-# README
+# Documentation - **[makyma.org](https://www.makyma.org)**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Les instructions suivantes vous aideront à la mise en route et à l'utilisation de l'application.
 
-Things you may want to cover:
+## Prérequis
 
-* Ruby version
+#### Version de Ruby : `2.6.5`
+* [Installation](https://github.com/lewagon/setup/blob/master/macOS.md) pour MacOS
+* [Installation](https://github.com/lewagon/setup/blob/master/UBUNTU.md) pour Linux
+* [Installation](https://github.com/lewagon/setup/blob/master/WINDOWS.md) pour Windows
 
-2.6.5
+#### Version de Ruby on Rails : `5.2.4.1`
+* [Installation](https://www.synbioz.com/blog/tech/installer-ruby-on-rails-sur-mac) pour MacOS
+* [Installation](https://doc.ubuntu-fr.org/rubyonrails) pour Linux
+* [Installation](https://gorails.com/setup/windows/10) pour Windows
 
-* System dependencies
+## Installation des dépendances
 
-* Configuration
+PostgreSQL
 
-* Database creation
+## Configuration
 
-bundle exec rake db:create
-bundle exec rake db:migrate
+## Database creation
 
-* Database initialization
+## Database initialization
 
-psql 
-DROP DATABASE "Makyma_development";
-\q
-heroku pg:pull postgresql-aerodynamic-10743 Makyma_development --app makyma
+## How to run the test suite
 
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-heroku
-
-* ...
+## Deployment instructions

@@ -57,8 +57,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="<%= request.original_url %>">
     <meta property="og:image" content="http://www.makyma.org<%= asset_path('logo_og.png') %>">
-    <meta property="og:image:secure_url" content="http://www.makyma.org<%= asset_path('logo_og.png') %>" /> 
-    <meta property="og:image:width" content="200" /> 
+    <meta property="og:image:secure_url" content="http://www.makyma.org<%= asset_path('logo_og.png') %>" />
+    <meta property="og:image:width" content="200" />
     <meta property="og:image:height" content="200" />
     <meta property="og:description" content="Le compagnon pour ta transition écologique qui te propose des alternatives vertes, durables et éco-responsables à tes produits du quotidien !">
     <meta property="og:locale" content="fr_FR">
@@ -75,7 +75,6 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-
     <svg width="0" height="0"  viewBox="0 0 1 1" preserveAspectRatio="none" class="my-0" style="position:absolute; pointer-events: none;" >
       <defs>
         <clipPath id="myClip" clipPathUnits="objectBoundingBox">
@@ -86,48 +85,8 @@
         </clipPath>
        </defs>
     </svg>
-
-
-    <div class="container position-relative" style="z-index: 10;">
-      <nav class="navbar navbar-expand-sm navbar-light mt-3" style="padding: 5px 0; background-color:rgba(0,0,0,0);">
-        <a class="navbar-brand" href="<%= root_path %>">
-          <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
-        </a>
-        <ol class="breadcrumb mb-0 pb-0 text-white bg-transparent font-weight-light font-italic" id="ariane">
-          <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
-        </ol>
-      </nav>
-    </div>
-
+    <%= render 'nav' %>
     <%= yield %>
-
-    <footer class="footer bg-dark small">
-      <div class="container pt-5">
-          <% if user_signed_in? %>
-            <div>
-              <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
-            </div>
-          <% end %>
-        <div class="row py-5">
-          <div class="col-md-4" id="copyright">
-            <a href="<%= root_path %>">© Makyma <%= Date.today.year %></a>
-          </div>
-          <div class="col-md-3 offset-md-2">
-            <ul class="list-unstyled">
-              <li class="mb-3"><a href="/about">A Propos</a></li>
-              <li class="mb-3"><a href="/contact">Contact</a></li>
-              <li class="mb-3"><a href="/cgu">Mentions légales</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <ul class="list-unstyled">
-              <li class="mb-3"><a href="https://www.facebook.com/makymaorg">Facebook</a></li>
-              <li class="mb-3"><a href="https://www.instagram.com/makyma_app">Instagram</a></li>
-              <li class="mb-3"><a href="https://twitter.com/makyma_app">Twitter</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render 'footer' %>
   </body>
 </html>

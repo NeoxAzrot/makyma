@@ -1,0 +1,16 @@
+<nav>
+  <div class="container pt-4">
+    <div class="row">
+      <div class="col-md-2">
+        <a class="navbar-brand" href="<%= root_path %>">
+          <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
+        </a>
+      </div>
+      <div class="col-md-10">
+        <ol class="breadcrumb pl-0 pt-4 small text-white bg-transparent font-weight-light font-italic" id="ariane">
+          <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</nav>
