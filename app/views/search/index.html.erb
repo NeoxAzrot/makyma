@@ -1,0 +1,53 @@
+<%= form_tag('search', :method => "get") do %>  
+  <div class="">  
+    <%= search_field_tag :id, params[:id], placeholder: "Search"%>  
+    <div>  
+      <%= button_tag "Search",:name => nil%>  
+    </div>  
+  </div>  
+<% end %>
+
+
+<div>
+	Results
+
+	<% if @results.present? %>
+
+		<% if @results['products'].present? %>
+			Products
+			<ul>
+				<% @results['products'].each do |product| %>
+					<li>
+						<%= product.title %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<% if @results['alternatives'].present? %>
+			Alternatives
+			<ul>
+				<% @results['alternatives'].each do |alternative| %>
+					<li>
+						<%= alternative.title %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<% if @results['suggestions'].present? %>
+			Suggestions
+			<ul>
+				<% @results['suggestions'].each do |suggestion| %>
+					<li>
+						<%= suggestion.title %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+	<% end %>
+
+
+
+</div>
