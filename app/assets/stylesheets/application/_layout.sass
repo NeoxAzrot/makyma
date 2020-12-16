@@ -16,7 +16,11 @@
 	clip-path: url(#myClip)
 	z-index: -1
 	.count
+		font-size: 24vw
 		font-weight: bold
+
+		@media screen and (max-width: 1100px)
+			display: none
 h1
 	font-weight: bold
 	font-size: 2rem
@@ -67,26 +71,6 @@ p
 	
 	&:active
 		color: white
-
-.product__alternative
-	background-color: white
-	padding: 8px
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important
-
-	.card-body
-		background-color: transparent
-
-		h3
-			font-weight: bold
-
-		p
-			color: #646464
-
-.alternative-contact 
-	margin-top: 5vw
-
-	h3
-		font-weight: bold
 //
 // span
 // 	font-weight: bold
