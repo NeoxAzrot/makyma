@@ -1,19 +1,22 @@
 .category__product
-    margin: 30px 0
+    margin: 40px 0
     &__inner
         margin: -30px
-        padding: 30px
-        transition: all 0.5s
+        padding: 10px 30px
+        border-radius: 30px
+        transition: all 0.4s
         &:hover
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2)
-            border-radius: 60px
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1)
         .btn
-            border: 1px $primary solid
+            background-color: white
             color: $primary
+            border: none
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
             &:hover
                 background: $primary
                 color: white !important
         a
+            font-weight: bold
             color: $secondary
         a:hover
             color: $primary
