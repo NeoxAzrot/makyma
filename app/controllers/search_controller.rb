@@ -1,26 +1,54 @@
 class SearchController < ApplicationController
 
 	def index
-    @search = params[:id]
+    @search = params[:id].downcase
     @nbOfResults = 0
 
-    if @search.present?
-      @search = @search.downcase
-      @results = Hash.new
-      @results['products'] = Product.where("lower(title) LIKE :search", search: "%#{@search}%")
-      @results['alternatives'] = Alternative.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{@search}%")
+    #fill product dico
+    dico = Array.new
+    Product.all.each do |product|
+      product.title.split(/[^[[:word:]]]+/).map do |word| 
+        if !word.parameterize.in?(dico)
+          dico.push(word.parameterize)
+        end
+      end
+    end
+    Alternative.all.each do |alternative|
+      alternative.title.split(/[^[[:word:]]]+/).map do |word| 
+        if !word.parameterize.in?(dico)
+          dico.push(word.parameterize)
+        end
+      end
+    end
+    dico.sort!
 
-      if !@results['products'].present? && !@results['alternatives'].present?
+    #search search in dico
+    spell_checker = DidYouMean::SpellChecker.new(dictionary: dico)
+    dicoResult = spell_checker.correct(@search).last
+
+    searchItems = [@search, dicoResult]
+
+    #query the dico result
+    if @search.present?
+      @products = Array.new
+      @alternatives = Array.new
+
+      searchItems.each do |item|
+        @products += Product.where("lower(title) LIKE :search", search: "%#{item}%")
+        @alternatives += Alternative.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{item}%")
+      end
+
+      if !@products.present? && !@alternatives.present?
       	nbOfProducts = Product.count
       	nbOfSuggestions = 3
-      	@results['suggestions'] = Array.new(nbOfSuggestions)
+      	@suggestions = Array.new(nbOfSuggestions)
 
-      	@results['suggestions'].map! do |suggestion|
+      	@suggestions.map! do |suggestion|
       		suggestion = Product.find( rand(nbOfProducts))
       	end
       end
 
-      @nbOfResults = @results['products'].count + @results['alternatives'].count
+      @nbOfResults = @products.count + @alternatives.count
     end
 	end
 end

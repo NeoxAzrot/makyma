@@ -4,38 +4,36 @@
             count: @nbOfResults %>
 
 <div class="container search">
-	<% if @results.present? %>
-		<% if @results['products'].present? %>
-			<h4>Produits</h4>
-			<ul>
-				<% @results['products'].each do |product| %>
-					<li>
-						<%= link_to product, product %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
+	<% if @products.present? %>
+		<h4>Produits</h4>
+		<ul>
+			<% @products.each do |product| %>
+				<li>
+					<%= link_to product, product %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
 
-		<% if @results['alternatives'].present? %>
-			<h4>Alternatives</h4>
-			<ul>
-				<% @results['alternatives'].each do |alternative| %>
-					<li>
-						<%= link_to alternative, product_path(alternative.product) %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
+	<% if @alternatives.present? %>
+		<h4>Alternatives</h4>
+		<ul>
+			<% @alternatives.each do |alternative| %>
+				<li>
+					<%= link_to alternative, product_path(alternative.product) %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
 
-		<% if @results['suggestions'].present? %>
-			<h4>Suggestions</h4>
-			<ul>
-				<% @results['suggestions'].each do |suggestion| %>
-					<li>
-						<%= link_to suggestion, suggestion %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
+	<% if @suggestions.present? %>
+		<h4>Suggestions</h4>
+		<ul>
+			<% @suggestions.each do |suggestion| %>
+				<li>
+					<%= link_to suggestion, suggestion %>
+				</li>
+			<% end %>
+		</ul>
 	<% end %>
 </div>
