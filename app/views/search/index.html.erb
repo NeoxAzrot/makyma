@@ -1,0 +1,41 @@
+<%= render 'header',
+            title: "Résultats",
+            text: "Voici les résultats pour ta recherche #{@search}",
+            count: @nbOfResults %>
+
+<div class="container">
+	<% if @results.present? %>
+		<% if @results['products'].present? %>
+			<h4>Produits</h4>
+			<ul>
+				<% @results['products'].each do |product| %>
+					<li>
+						<%= link_to product, product %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<% if @results['alternatives'].present? %>
+			<h4>Alternatives</h4>
+			<ul>
+				<% @results['alternatives'].each do |alternative| %>
+					<li>
+						<%= link_to alternative, product_path(alternative.product) %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<% if @results['suggestions'].present? %>
+			<h4>Suggestions</h4>
+			<ul>
+				<% @results['suggestions'].each do |suggestion| %>
+					<li>
+						<%= link_to suggestion, suggestion %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+	<% end %>
+</div>

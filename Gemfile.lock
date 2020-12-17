@@ -48,6 +48,12 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    algoliasearch (1.27.5)
+      httpclient (~> 2.8, >= 2.8.3)
+      json (>= 1.5.1)
+    algoliasearch-rails (1.25.0)
+      algoliasearch (>= 1.26.0, < 2.0.0)
+      json (>= 1.5.1)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -101,6 +107,7 @@ GEM
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
+    httpclient (2.8.3)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     io-like (0.3.1)
@@ -112,6 +119,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    json (2.4.0)
     kaminari (1.2.0)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.0)
@@ -270,6 +278,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  algoliasearch-rails
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.4.1)
   breadcrumbs_on_rails

@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :alternatives
-  resources :products
+  resources :alternatives, :products, :categories
   devise_for :users
-  resources :categories
 
   root to: "categories#index"
 
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
   #match '/users', to: 'users#index', via: 'get'
   
   get "/pages/:page" => "pages#show"
+  get '/search', to: 'search#index', as: 'search'
   match '/about', to: 'pages#about', via: 'get'
   match '/cgu', to: 'pages#cgu', via: 'get'
   match '/contact', to: 'pages#contact', via: 'get'

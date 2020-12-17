@@ -18,6 +18,8 @@ gem "breadcrumbs_on_rails"
 # Cancancan
 gem 'cancancan'
 gem 'rails_admin', '~> 2.0'
+#algolia
+gem 'algoliasearch-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
