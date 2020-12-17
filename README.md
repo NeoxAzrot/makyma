@@ -104,7 +104,7 @@ rails s
 
 ### Installer le CLI de Heroku
 
-TODO
+:arrow: TODO
 
 ### Commandes de la mise en ligne
 
