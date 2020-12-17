@@ -141,3 +141,5 @@ git push heroku master
 ```bash
 heroku run rails db:migrate
 ```
+
+© [makyma.org](www.makyma.org) 2020
