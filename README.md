@@ -90,7 +90,7 @@ rails makyma:import
 rails makyma:create_admin
 ```
 
-## Comment exécuter le site
+## Exécution du site
 
 Pour **lancer** le serveur rails
 
@@ -104,7 +104,7 @@ rails s
 
 ### Installer le CLI de Heroku
 
-:arrow: TODO
+TODO
 
 ### Commandes de la mise en ligne
 
