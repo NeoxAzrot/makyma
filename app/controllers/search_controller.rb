@@ -1,9 +1,4 @@
 class SearchController < ApplicationController
-	# include AlgoliaSearch
-
-	# algoliasearch do 
-
-	# end
 
 	def index
     @search = params[:id]
