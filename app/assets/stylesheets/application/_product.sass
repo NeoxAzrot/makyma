@@ -8,23 +8,28 @@
 //         margin-top: 40px
 
 .product__alternatives
-    .row
-        .product__alternative
-            background-color: white
-            padding: 8px
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important
+    .card-columns .card
+        margin-bottom: 1.5rem
 
-            .card-body
-                background-color: transparent
+    .product__alternative
+        display: inline-block
+        -webkit-column-break-inside: avoid
+        
+        background-color: white
+        padding: 8px
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important
 
-                h3
-                    font-weight: bold
+        .card-body
+            background-color: transparent
 
-                p
-                    color: #646464
+            h3
+                font-weight: bold
 
-    .alternative-contact 
-        margin-top: 5vw
+            p
+                color: #646464
 
-        h3
-            font-weight: bold
+.alternative-contact 
+    margin-top: 5vw
+
+    h3
+        font-weight: bold
