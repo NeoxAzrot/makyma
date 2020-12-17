@@ -6,10 +6,18 @@
           <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
         </a>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-6">
         <ol class="breadcrumb pl-0 pt-4 small text-white bg-transparent font-weight-light font-italic" id="ariane">
           <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
         </ol>
+      </div>
+      <div class="col-md-4">
+        <%= form_tag('search', :method => "get") do %>  
+          <div class="">  
+            <%= search_field_tag :id, params[:id], placeholder: "Rechercher"%>   
+            <%= button_tag "Rechercher",:name => nil%>   
+          </div>  
+        <% end %>   
       </div>
     </div>
   </div>

@@ -1,53 +1,41 @@
-<%= form_tag('search', :method => "get") do %>  
-  <div class="">  
-    <%= search_field_tag :id, params[:id], placeholder: "Search"%>  
-    <div>  
-      <%= button_tag "Search",:name => nil%>  
-    </div>  
-  </div>  
-<% end %>
+<%= render 'header',
+            title: "Résultats",
+            text: "Voici les résultats pour ta recherche #{@search}",
+            count: @nbOfResults %>
 
-
-<div>
-	Results
-
+<div class="container">
 	<% if @results.present? %>
-
 		<% if @results['products'].present? %>
-			Products
+			<h4>Produits</h4>
 			<ul>
 				<% @results['products'].each do |product| %>
 					<li>
-						<%= product.title %>
+						<%= link_to product, product %>
 					</li>
 				<% end %>
 			</ul>
 		<% end %>
 
 		<% if @results['alternatives'].present? %>
-			Alternatives
+			<h4>Alternatives</h4>
 			<ul>
 				<% @results['alternatives'].each do |alternative| %>
 					<li>
-						<%= alternative.title %>
+						<%= link_to alternative, product_path(alternative.product) %>
 					</li>
 				<% end %>
 			</ul>
 		<% end %>
 
 		<% if @results['suggestions'].present? %>
-			Suggestions
+			<h4>Suggestions</h4>
 			<ul>
 				<% @results['suggestions'].each do |suggestion| %>
 					<li>
-						<%= suggestion.title %>
+						<%= link_to suggestion, suggestion %>
 					</li>
 				<% end %>
 			</ul>
 		<% end %>
-
 	<% end %>
-
-
-
 </div>
