@@ -4,10 +4,8 @@
             count: @product.alternatives.count %>
 
 <div class="container product__alternatives">
-  <div class="row">
+  <div class="card-columns">
     <% @product.alternatives.sort{|a,b| a.title <=> b.title}.each do |alternative| %>
-      <div class="col-md-4">
-      
         <div class="card product__alternative">
           <div class="card-body">
             <h2><%= alternative %></h2>
@@ -17,8 +15,6 @@
             <%= link_to 'Je fonce !', alternative.source, target: :_blank, class: 'btn btn-primary mt-5 btn-product' %>
           </div>
         </div>
-
-      </div>
     <% end %>
   </div>
 
