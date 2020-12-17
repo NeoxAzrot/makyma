@@ -28,7 +28,7 @@ Les instructions suivantes vous aideront à la mise en route et à l'utilisation
 
 ## Configuration
 
-#### Dans le dossier du projet, installer les gems
+### Dans le dossier du projet, installer les gems
 
 ```bash
 bundle install
@@ -36,7 +36,7 @@ bundle install
 
 ## Création de la base de données
 
-#### Dans le dossier du projet, **créer** la database
+### Dans le dossier du projet, **créer** la database
 
 ```bash
 rails db:create
@@ -48,7 +48,7 @@ Si cette commande ne fonctionne pas, exécuter la commande suivante
 bundle exec rake db:create
 ```
 
-#### Effectuer **les migrations** de la database
+### Effectuer **les migrations** de la database
 
 ```bash
 rails db:migrate
@@ -64,7 +64,7 @@ bundle exec rake db:migrate
 
 Pour récupérer les données de la database, il y a **2 façons** de faire :
 
-#### Récupérer les données de la database du site en ligne
+### Récupérer les données de la database du site en ligne
 
 > Pour cette solution, il est impérative d'être invité en tant que collaborateur sur **Heroku**
 
@@ -76,15 +76,15 @@ psql DROP DATABASE "Makyma_development";
 heroku pg:pull postgresql-aerodynamic-10743 Makyma_development --app makyma
 ```
 
-#### Récupérer les données de la database du site local
+### Récupérer les données de la database du site local
 
-* Importer les données
+#### Importer les données
 
 ```bash
 rails makyma:import
 ```
 
-* Créer les comptes admin
+#### Créer les comptes admin
 
 ```bash
 rails makyma:create_admin
@@ -102,7 +102,19 @@ rails s
 
 ## Instructions pour la mise en ligne
 
-#### Installer le CLI de Heroku
+### Installer le CLI de Heroku
 
+TODO
 
-#### Commandes de la mise en ligne
+### Commandes de la mise en ligne
+
+#### GitHub
+
+Add
+Commit
+Push
+
+#### Heroku
+
+Push
+Run
