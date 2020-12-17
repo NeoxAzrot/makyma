@@ -1,4 +1,4 @@
-# Documentation - **[makyma.org](https://www.makyma.org)**
+# Documentation - **[makyma.org](http://www.makyma.org)**
 
 Les instructions suivantes vous aideront à la mise en route et à l'utilisation de l'application.
 
@@ -142,4 +142,4 @@ git push heroku master
 heroku run rails db:migrate
 ```
 
-© [makyma.org](www.makyma.org) 2020
+© [makyma.org](http://www.makyma.org) 2020
