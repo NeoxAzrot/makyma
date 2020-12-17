@@ -10,17 +10,11 @@
 
         <div class="product">
           <div class="product-text">
-            <h4><%= link_to product, product %></h4>
+            <h4><a href="<%= product_url(product) %>"><%= product %></a></h4>
             <p class="alternatives-count"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></p>
           </div>
-          <%= link_to 'Je change', product, class:'btn mt-2 mb-2' %>
+          <a class="btn mt-2 mb-2" href="<%= product_url(product) %>">Je change</a>
         </div>
-        <!--
-          <div class="category__product">
-          <div class="category__product__inner">
-          </div>
-          </div>
-        -->
 
       <% end %>
     </div>
