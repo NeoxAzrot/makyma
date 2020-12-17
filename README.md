@@ -110,12 +110,34 @@ TODO
 
 #### GitHub
 
-Add
-Commit
-Push
+**Ajouter** les fichiers
+
+```bash
+git add .
+```
+
+**Effectuer** le commit
+
+```bash
+git commit -m "message"
+```
+
+**Mettre** en ligne les fichiers
+
+```bash
+git push
+```
 
 #### Heroku
 
-Push
-Database local to heroku or not
-Run
+**Mettre** en ligne les fichiers
+
+```bash
+git push heroku master
+```
+
+**Migrer** la base de donnée
+
+```bash
+heroku run rails db:migrate
+```
