@@ -56,19 +56,19 @@ class SearchController < ApplicationController
       puts (@alternatives)
       #drop_duplicates(@alternatives)
 
-      #create suggestions
-      if @products.empty? && @alternatives.empty?
-      	nbOfProducts = Product.count
-      	nbOfSuggestions = 3
-      	@suggestions = Array.new(nbOfSuggestions)
-
-      	@suggestions.map! do |suggestion|
-      		#suggestion = Product.find( rand(nbOfProducts))
-          suggestion = Product.order("id").offset(rand(nbOfProducts)).first
-      	end
-      end
-
       @nbOfResults = @products.count + @alternatives.count
+    end
+
+    #create suggestions
+    if @products.empty? && @alternatives.empty?
+      nbOfProducts = Product.count
+      nbOfSuggestions = 3
+      @suggestions = Array.new(nbOfSuggestions)
+
+      @suggestions.map! do |suggestion|
+        #suggestion = Product.find( rand(nbOfProducts))
+        suggestion = Product.order("id").offset(rand(nbOfProducts)).first
+      end
     end
 	end
 
