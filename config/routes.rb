@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  match '/users', to: 'users#index', via: 'get'
 
-  resources :alternatives
-  resources :products
-  devise_for :users
   resources :categories
+  resources :alternatives, :products
+  devise_for :users
 
   root to: "categories#index"
 
-  get 'user/:id' => 'users#show'
+  #users roots
+  #get 'user/:id' => 'users#show'
+  #match '/users', to: 'users#index', via: 'get'
   
   get "/pages/:page" => "pages#show"
+  get '/search', to: 'search#index', as: 'search'
   match '/about', to: 'pages#about', via: 'get'
   match '/cgu', to: 'pages#cgu', via: 'get'
   match '/contact', to: 'pages#contact', via: 'get'

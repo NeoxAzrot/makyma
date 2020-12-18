@@ -1,0 +1,56 @@
+<%= render 'header',
+            title: "Résultats",
+            text: "Voici les résultats pour ta recherche #{@search}",
+            count: @nbOfResults %>
+
+<div class="container search">
+	<% if @products.present? %>
+		<h4>Produits</h4>
+		<ul>
+			<% @products.each do |product| %>
+			
+				<div class="product">
+					<div class="product-text">
+						<h4><%= link_to product, product %></h4>
+						<p class="alternatives-count"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></p>
+					</div>
+					<a class="btn mt-2 mb-2" href="<%= product_url(product) %>">Je change</a>
+				</div>
+
+				<%# <li>
+					<%= link_to product, product
+				</li> %>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<% if @alternatives.present? %>
+		<h4>Alternatives</h4>
+		<ul>
+			<% @alternatives.each do |alternative| %>
+				<div class="product">
+					<div class="product-text">
+						<h4><%= link_to alternative, product_path(alternative.product) %></h4>
+					</div>
+					<a class="btn mt-2 mb-2" href="<%= alternative.source %>">Je change</a>
+				</div>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<% if @suggestions.present? %>
+		<h4>Suggestions</h4>
+		<ul>
+			<% @suggestions.each do |suggestion| %>
+				<div class="product">
+					<div class="product-text">
+						<h4><%= link_to suggestion, suggestion %></h4>
+						<p class="alternatives-count"><%= suggestion.alternatives.count %> solution<%= "s" if suggestion.alternatives.count > 1 %> alternative<%= "s" if suggestion.alternatives.count > 1 %>
+						</p>
+					</div>
+					<a class="btn mt-2 mb-2" href="<%= product_url(suggestion) %>">Je change</a>
+				</div>
+			<% end %>
+		</ul>
+	<% end %>
+</div>

@@ -16,7 +16,11 @@
 	clip-path: url(#myClip)
 	z-index: -1
 	.count
+		font-size: 24vw
 		font-weight: bold
+
+		@media screen and (max-width: 1100px)
+			display: none
 h1
 	font-weight: bold
 	font-size: 2rem
@@ -27,7 +31,6 @@ h2
 	margin-bottom: 15px
 	color: $primary
 h3
-	font-weight: 500
 	font-size: 1.1rem
 	margin-bottom: 15px
 p
@@ -52,8 +55,22 @@ p
 	text-decoration: underline
 	color: #ffffff !important
 
-.btn-product:hover
-	color: #ffffff
+.btn-product
+	background-color: $primary
+	color: white
+	font-weight: bold
+	padding: 16px 22px
+	border-radius: 15px
+	box-shadow: 0px 5px 10px #ff734032 //rgba(0, 0, 0, 0.15)
+	transition: background-color 0.3s, box-shadow 0.3s
+
+	&:hover
+		background-color: #ff7340
+		color: white
+		text-decoration: none
+	
+	&:active
+		color: white
 //
 // span
 // 	font-weight: bold

@@ -16,18 +16,21 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8 col-xl-7 shadow" style="border-radius:13px">
       <% @products.each do |product| %>
-      <div class="row my-4 mx-1">
-        <div class="col">
-          <h1 class="text-secondary"><%= product.title %></h1>
-          <%= link_to 'Je change', product, class:'', style:'color:#707070; text-decoration: none'%>
+
+        <div class="row my-4 mx-1">
+          <div class="col">
+            <h1 class="text-secondary"><%= product.title %></h1>
+            <%= link_to 'Je change', product, class:'', style:'color:#707070; text-decoration: none'%>
+          </div>
+          
+          <div class="text-right">
+            <% if user_signed_in? %>
+              <%= link_to 'Edit', edit_product_path(product) %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
         </div>
-        <div class="text-right">
-          <% if user_signed_in? %>
-            <%= link_to 'Edit', edit_product_path(product) %>
-            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </div>
-      </div>
+        
       <% end %>
     </div>
   </div>

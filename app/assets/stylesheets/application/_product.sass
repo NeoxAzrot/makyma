@@ -1,8 +1,35 @@
-.product
-    &__alternatives
-        position: relative
-        margin-top: -140px
-    &__alternative
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2)
-        border: none
-        margin-top: 40px
+// .product
+//     &__alternatives
+//         position: relative
+//         margin-top: -140px
+//     &__alternative
+//         box-shadow: 0 5px 15px rgba(0,0,0,0.2)
+//         border: none
+//         margin-top: 40px
+
+.product__alternatives
+    .card-columns .card
+        margin-bottom: 1.5rem
+
+    .product__alternative
+        display: inline-block
+        -webkit-column-break-inside: avoid
+        
+        background-color: white
+        padding: 8px
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important
+
+        .card-body
+            background-color: transparent
+
+            h3
+                font-weight: bold
+
+            p
+                color: #646464
+
+.alternative-contact 
+    margin-top: 5vw
+
+    h3
+        font-weight: bold
