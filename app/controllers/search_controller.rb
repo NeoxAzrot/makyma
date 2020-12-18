@@ -40,7 +40,6 @@ class SearchController < ApplicationController
 
     end
 
-    @params = searchItems
 
     #query the dico result
     if @params.present?
@@ -52,27 +51,37 @@ class SearchController < ApplicationController
         @alternatives += Alternative.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{item}%")
       end
 
-      def has_already?(array)
-         h = (Thread.current[:_has_three_buffer] ||= Hash.new(0)).clear
-         # h = Hash.new(0)
-         array.each do |i|
-            h[i] += 1
-            return true if h[i] >= 2
-         end
-         false
-      end
+      @products = drop_duplicates(@products)
+      @alternatives = drop_duplicates(@alternatives)
+      puts (@alternatives)
+      #drop_duplicates(@alternatives)
 
+      #create suggestions
       if @products.empty? && @alternatives.empty?
       	nbOfProducts = Product.count
       	nbOfSuggestions = 3
       	@suggestions = Array.new(nbOfSuggestions)
 
       	@suggestions.map! do |suggestion|
-      		suggestion = Product.find( rand(nbOfProducts))
+      		#suggestion = Product.find( rand(nbOfProducts))
+          suggestion = Product.order("id").offset(rand(nbOfProducts)).first
       	end
       end
 
       @nbOfResults = @products.count + @alternatives.count
     end
 	end
+
+  #utils
+  def drop_duplicates(array)
+     #h = (Thread.current[:_has_three_buffer] ||= Hash.new(0)).clear
+    h = Array.new(0)
+    array.each do |i|
+      if !i.in?(h)
+        h.push(i)
+      end
+    end
+    return h
+  end
+
 end
