@@ -40,11 +40,11 @@ class SearchController < ApplicationController
 
     end
 
+    @products = Array.new
+    @alternatives = Array.new
 
     #query the dico result
     if @params.present?
-      @products = Array.new
-      @alternatives = Array.new
 
       searchItems.each do |item|
         @products += Product.where("lower(title) LIKE :search", search: "%#{item}%")
