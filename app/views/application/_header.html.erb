@@ -12,7 +12,17 @@ large ||= nil
       <div class="col-md-8 offset-md-2">
         <h1><%= raw title %></h1>
         <p><%= raw text %></p>
+        <%= form_tag(search_path, :method => "get") do %>  
+          <div class="search">
+            <div class="search-bar">
+              <%= search_field_tag :id, current_controller?('search') ? params[:id] : '', placeholder: "Rechercher", 
+              class: "w-50"%>   
+              <%= button_tag "Rechercher",:name => nil%>
+            </div>
+          </div>  
+        <% end %>   
       </div>
+
     </div>
   </div>
 </header>
