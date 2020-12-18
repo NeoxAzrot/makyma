@@ -40,11 +40,11 @@ class SearchController < ApplicationController
 
     end
 
+    @products = Array.new
+    @alternatives = Array.new
 
     #query the dico result
     if @params.present?
-      @products = Array.new
-      @alternatives = Array.new
 
       searchItems.each do |item|
         @products += Product.where("lower(title) LIKE :search", search: "%#{item}%")
@@ -56,19 +56,19 @@ class SearchController < ApplicationController
       puts (@alternatives)
       #drop_duplicates(@alternatives)
 
-      #create suggestions
-      if @products.empty? && @alternatives.empty?
-      	nbOfProducts = Product.count
-      	nbOfSuggestions = 3
-      	@suggestions = Array.new(nbOfSuggestions)
-
-      	@suggestions.map! do |suggestion|
-      		#suggestion = Product.find( rand(nbOfProducts))
-          suggestion = Product.order("id").offset(rand(nbOfProducts)).first
-      	end
-      end
-
       @nbOfResults = @products.count + @alternatives.count
+    end
+
+    #create suggestions
+    if @products.empty? && @alternatives.empty?
+      nbOfProducts = Product.count
+      nbOfSuggestions = 3
+      @suggestions = Array.new(nbOfSuggestions)
+
+      @suggestions.map! do |suggestion|
+        #suggestion = Product.find( rand(nbOfProducts))
+        suggestion = Product.order("id").offset(rand(nbOfProducts)).first
+      end
     end
 	end
 
