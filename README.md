@@ -8,7 +8,7 @@ Les instructions suivantes vous aideront à la mise en route et à l'utilisation
 
 [Installation](https://nodejs.org/en/download/) pour MacOS, Linux et Windows.
 
-#### Version de Ruby : `2.6.5`
+#### Version de Ruby : `2.7.2`
 
 * [Installation](https://github.com/lewagon/setup/blob/master/macOS.md) pour MacOS
 * [Installation](https://github.com/lewagon/setup/blob/master/UBUNTU.md) pour Linux
@@ -69,7 +69,7 @@ Pour récupérer les données de la database, il y a **2 façons** de faire :
 > Pour cette solution, il est impérative d'être invité en tant que collaborateur sur **Heroku**
 
 ```bash
-psql DROP DATABASE "Makyma_development";
+rails db:drop "Makyma_development" 
 ```
 
 ```bash
@@ -104,7 +104,13 @@ rails s
 
 ### Installer le CLI de Heroku
 
-TODO
+[Installation](https://devcenter.heroku.com/articles/heroku-cli)
+
+Puis, **se connecter** à Heroku
+
+```bash
+heroku login
+```
 
 ### Commandes de la mise en ligne
 
@@ -131,6 +137,14 @@ git push
 #### Heroku
 
 **Mettre** en ligne les fichiers
+
+> Si vous avez fait un `git clone` pour créer le répertoire, il faut **exécuter la commande suivante** avant de continuer
+
+```bash
+heroku git:remote -a makyma
+```
+
+Vous pouvez ensuite **push** les fichiers en ligne
 
 ```bash
 git push heroku master
