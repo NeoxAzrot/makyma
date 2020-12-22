@@ -1,8 +1,8 @@
-# Documentation - **[makyma.org](http://www.makyma.org)**
+# Documentation - **[makyma.org](http://www.makyma.org)** 🌊
 
 Les instructions suivantes vous aideront à la mise en route et à l'utilisation de l'application.
 
-## Prérequis
+## Prérequis 🔧
 
 #### NodeJS
 
@@ -26,7 +26,7 @@ Les instructions suivantes vous aideront à la mise en route et à l'utilisation
 * [Installation](https://doc.ubuntu-fr.org/postgresql) pour Linux
 * [Installation](https://www.postgresql.org/download/windows/) pour Windows
 
-## Configuration
+## Configuration ⚙️
 
 ### Dans le dossier du projet, installer les gems
 
@@ -34,7 +34,7 @@ Les instructions suivantes vous aideront à la mise en route et à l'utilisation
 bundle install
 ```
 
-## Création de la base de données
+## Création de la base de données 📚
 
 ### Dans le dossier du projet, **créer** la database
 
@@ -42,7 +42,7 @@ bundle install
 rails db:create
 ```
 
-Si cette commande ne fonctionne pas, exécuter la commande suivante
+⚠️ Si cette commande ne fonctionne pas, exécuter la commande suivante
 
 ```bash
 bundle exec rake db:create
@@ -54,19 +54,19 @@ bundle exec rake db:create
 rails db:migrate
 ```
 
-Si cette commande ne fonctionne pas, exécuter la commande suivante
+⚠️ Si cette commande ne fonctionne pas, exécuter la commande suivante
 
 ```bash
 bundle exec rake db:migrate
 ```
 
-## Initialisation de la base de données
+## Initialisation de la base de données 🔍
 
 Pour récupérer les données de la database, il y a **2 façons** de faire :
 
 ### Récupérer les données de la database du site en ligne
 
-> Pour cette solution, il est impérative d'être invité en tant que collaborateur sur **Heroku**
+> ⚠️ Pour cette solution, il est impératif d'être invité en tant que collaborateur sur **Heroku**
 
 ```bash
 rails db:drop "Makyma_development" 
@@ -90,7 +90,7 @@ rails makyma:import
 rails makyma:create_admin
 ```
 
-## Exécution du site
+## Exécution du site 💻
 
 Pour **lancer** le serveur rails
 
@@ -98,13 +98,13 @@ Pour **lancer** le serveur rails
 rails s
 ```
 
-> Les changements sur le site sont chargé automatiquement, pas besoin de relancer le serveur
+> ⚠️ Les changements sur le site sont chargé automatiquement, pas besoin de relancer le serveur
 
-## Instructions pour la mise en ligne
+## Instructions pour la mise en ligne ✔️
 
 ### Installer le CLI de Heroku
 
-[Installation](https://devcenter.heroku.com/articles/heroku-cli)
+[Installation](https://devcenter.heroku.com/articles/heroku-cli) pour MacOS, Linux et Windows.
 
 Puis, **se connecter** à Heroku
 
@@ -138,7 +138,7 @@ git push
 
 **Mettre** en ligne les fichiers
 
-> Si vous avez fait un `git clone` pour créer le répertoire, il faut **exécuter la commande suivante** avant de continuer
+> ⚠️ Si vous avez fait un `git clone` pour créer le répertoire, il faut **exécuter la commande suivante** avant de continuer
 
 ```bash
 heroku git:remote -a makyma
@@ -156,4 +156,4 @@ git push heroku master
 heroku run rails db:migrate
 ```
 
-© [makyma.org](http://www.makyma.org) 2020
+© [makyma.org](http://www.makyma.org) 2020 🧡
