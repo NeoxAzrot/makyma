@@ -1,4 +1,0 @@
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^(makyma\.org)(:80)? [NC]
-RewriteRule ^(.*) https://www.makyma.org/$1 [R=301,L]
-order deny,allow
