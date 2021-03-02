@@ -26,7 +26,7 @@ class SearchController < ApplicationController
     #fill array of each search word
     @params.each do |word|
 
-      #search exact word in dico and add it to searchItems
+      #search exact param word in dico and add it to searchItems
       if word.in?(dico)
         searchItems.push(word)
       end
@@ -47,7 +47,7 @@ class SearchController < ApplicationController
     if @params.present?
 
       searchItems.each do |item|
-        @products += Product.where("lower(title) LIKE :search", search: "%#{item}%")
+        @products += Product.where("lower(unaccent(title)) LIKE :search", search: "%#{item}%")
         @alternatives += Alternative.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{item}%")
       end
 
