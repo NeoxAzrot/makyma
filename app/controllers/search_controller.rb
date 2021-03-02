@@ -48,7 +48,7 @@ class SearchController < ApplicationController
 
       searchItems.each do |item|
         @products += Product.where("lower(unaccent(title)) LIKE :search", search: "%#{item}%")
-        @alternatives += Alternative.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{item}%")
+        @alternatives += Alternative.where("lower(unaccent(title)) LIKE :search OR lower(unaccent(description)) LIKE :search", search: "%#{item}%")
       end
 
       @products = drop_duplicates(@products)
