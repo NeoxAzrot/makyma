@@ -5,6 +5,8 @@ class SearchController < ApplicationController
     @nbOfResults = 0
     searchItems = Array.new
 
+    # TO SPEED UP THE SEARCH, THE DICO CAN BE STORE IN A DB INSTEAD OF RECREATE IT ANY TIME
+    # FOR SORT RESULTS : multiples dico (title, descriptions, ...)
     #fill product dico
     dico = Array.new
     Product.all.each do |product|
@@ -25,19 +27,32 @@ class SearchController < ApplicationController
 
     #fill array of each search word
     @params.each do |word|
+      findResult = false
 
       #search exact param word in dico and add it to searchItems
       if word.in?(dico)
         searchItems.push(word)
+        findResult = true
       end
-
+      
       #search similar word in dico and add it to searchItems
       spell_checker = DidYouMean::SpellChecker.new(dictionary: dico)
       if spell_checker.correct(word).present?
         dicoResult = spell_checker.correct(word).last
         searchItems.push(dicoResult)
+        findResult = true
       end
 
+      puts (findResult)
+      
+      #search if dico contain substring  
+      if word.length > 2 
+        dico.each do |dicoEntry|
+          if dicoEntry.include?(word)
+            searchItems.push(word)
+          end
+        end    
+      end
     end
 
     @products = Array.new
@@ -51,9 +66,9 @@ class SearchController < ApplicationController
         @alternatives += Alternative.where("lower(unaccent(title)) LIKE :search OR lower(unaccent(description)) LIKE :search", search: "%#{item}%")
       end
 
+      # keep only one element for same word
       @products = drop_duplicates(@products)
       @alternatives = drop_duplicates(@alternatives)
-      puts (@alternatives)
       #drop_duplicates(@alternatives)
 
       @nbOfResults = @products.count + @alternatives.count
