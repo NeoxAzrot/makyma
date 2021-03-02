@@ -23,6 +23,8 @@ namespace :makyma do
             #alternative.description = row[4]
             alternative.find = row[5]
             alternative.source = row[6]
+            alternative.whereToFind = {"diy"=>false, "local"=>false, "online"=>false}
+            alternative.imgUrl = ""
             alternative.save
             puts "  #{product} -> #{alternative}"
         end

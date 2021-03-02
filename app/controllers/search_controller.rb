@@ -42,8 +42,6 @@ class SearchController < ApplicationController
         searchItems.push(dicoResult)
         findResult = true
       end
-
-      puts (findResult)
       
       #search if dico contain substring  
       if word.length > 2 

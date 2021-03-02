@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_100710) do
+ActiveRecord::Schema.define(version: 2021_03_02_153030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_100710) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "find"
+    t.jsonb "whereToFind", default: {"diy"=>false, "local"=>false, "online"=>false}
+    t.string "imgUrl", default: ""
     t.index ["product_id"], name: "index_alternatives_on_product_id"
   end
 
