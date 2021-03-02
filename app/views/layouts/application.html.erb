@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163339023-1"></script>
@@ -11,7 +11,7 @@
       gtag('config', 'UA-163339023-1');
     </script>
 
-    <html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+    <!-- Title -->
     <% if @product then %>
       <title>Makyma - <%= @product.category %> | <%= @product %>, les alternatives</title>
     <% elsif @category then %>
@@ -19,33 +19,52 @@
     <% else %>
       <title>Makyma - Ton compagnon écoresponsable</title>
     <% end %>
-    <%= favicon_link_tag asset_path('favicon.ico') %>
+
+    <!-- Generate by rails -->
+    <%= favicon_link_tag asset_path('favicon/favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Important -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#f18b68"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f18b68">
+    <meta name="apple-mobile-web-app-title" content="Makyma - Ton compagnon écoresponsable">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="<%= asset_path('favicon/apple-touch-icon.png') %>" />
+    <link rel="apple-touch-icon" sizes="57x57" href="<%= asset_path('favicon/apple-touch-icon-57x57.png') %>" />
+    <link rel="apple-touch-icon" sizes="72x72" href="<%= asset_path('favicon/apple-touch-icon-72x72.png') %>" />
+    <link rel="apple-touch-icon" sizes="76x76" href="<%= asset_path('favicon/apple-touch-icon-76x76.png') %>" />
+    <link rel="apple-touch-icon" sizes="114x114" href="<%= asset_path('favicon/apple-touch-icon-114x114.png') %>" />
+    <link rel="apple-touch-icon" sizes="120x120" href="<%= asset_path('favicon/apple-touch-icon-120x120.png') %>" />
+    <link rel="apple-touch-icon" sizes="144x144" href="<%= asset_path('favicon/apple-touch-icon-144x144.png') %>" />
+    <link rel="apple-touch-icon" sizes="152x152" href="<%= asset_path('favicon/apple-touch-icon-152x152.png') %>" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('favicon/apple-touch-icon-180x180.png') %>" />
+
+    <!-- SEO -->
     <meta name="description" content="Le compagnon pour ta transition écologique qui te propose des alternatives vertes, durables et éco-responsables à tes produits du quotidien !"/>
+    <link rel="canonical" href="https://www.makyma.org" />
     <meta name="Language" CONTENT="fr" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="robots" content="index, nofollow" />
     <meta name="copyright" content="© Makyma <%= Date.today.year %>" />
-    <meta name="publisher" content="Énora IGNACE-RICQUEMAQUE, Justine LE BERVET" />
+    <meta name="publisher" content="Sami LAFRANCE" />
     <meta name="googlebot" content="index, nofollow" />
-    <meta name="google" content="translate, sitelinkssearchbox" />
+    <!--<meta name="google" content="translate, sitelinkssearchbox" />-->
     <meta name="reply-to" content="makymaorg@gmail.com" />
     <meta name="google-site-verification" content="PtB1oZryDai7MBGr-yMoGVKV0eL7iNYJiqGPe_wYMMA" />
     <meta http-equiv="Cache-control" content="public" />
-    <link rel="canonical" href="http://www.makyma.org" />
 
-    <meta name="keywords" content="makyma, alternatives, durable, écoresponsable, transition, écologique" />
-    <meta name="Author" content="Manaut BERTON-BOITEL, Hugo BLANCHARD, Tom DESPRES, Apolline GONDEAU, Énora IGNACE-RICQUEMAQUE, Sami LAFRANCE, Justine LE BERVET, Nicolas MAITRE, Martin MALNOË, Stéphane RAZAFINDRAMANANA, Tom SOULIÉ, Leo MELLE, Hugo FAUGEROUX" />
-    <meta name="Identifier-URL" content="http://www.makyma.org" />
+    <meta name="keywords" content="makyma, alternatives, durable, écoresponsable, transition, écologique, développement, environnement, consommation, nature, responsable, écologie, planète" />
+    <meta name="Author" content="Sami LAFRANCE, Hugo BLANCHARD, Nicolas MAITRE, Tom SOULIÉ, Leo MELLE, Hugo FAUGEROUX, Elise ECHASSERIAU, Adel SANAA, Anaïs MANCHO, Clément RENOU, Gabriel ROULEAU" />
+    <meta name="Generator" content="Ruby on Rails" />
+    <meta name="Identifier-URL" content="https://www.makyma.org" />
     <meta name="Distribution" content="global" />
     <meta name="Revisit-After" content="15 days" />
-    <meta name="Category" content="Écologie, Transition, Alternatives" />
+    <meta name="Category" content="Écologie, Transition, Alternatives, Environnement, Planète" />
 
     <% if @product then %>
       <meta property="og:title" content="Makyma - <%= @product.category %> | <%= @product %>, les alternatives">
@@ -56,8 +75,8 @@
     <% end %>
     <meta property="og:type" content="website">
     <meta property="og:url" content="<%= request.original_url %>">
-    <meta property="og:image" content="http://www.makyma.org<%= asset_path('logo_og.png') %>">
-    <meta property="og:image:secure_url" content="http://www.makyma.org<%= asset_path('logo_og.png') %>" />
+    <meta property="og:image" content="https://www.makyma.org<%= asset_path('logo_og.png') %>">
+    <meta property="og:image:secure_url" content="https://www.makyma.org<%= asset_path('logo_og.png') %>" />
     <meta property="og:image:width" content="200" />
     <meta property="og:image:height" content="200" />
     <meta property="og:description" content="Le compagnon pour ta transition écologique qui te propose des alternatives vertes, durables et éco-responsables à tes produits du quotidien !">
@@ -69,6 +88,20 @@
     <% else %>
       <meta property="og:site_name" content="Makyma - Ton compagnon écoresponsable">
     <% end %>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@makyma_app" />
+    <meta name="twitter:creator" content="@makyma_app" />
+    <% if @product then %>
+      <meta name="twitter:title" content="Makyma - <%= @product.category %> | <%= @product %>, les alternatives">
+    <% elsif @category then %>
+      <meta name="twitter:title" content="Makyma - <%= @category %>">
+    <% else %>
+      <meta name="twitter:title" content="Makyma - Ton compagnon écoresponsable">
+    <% end %>
+    <meta name="twitter:description" content="Le compagnon pour ta transition écologique qui te propose des alternatives vertes, durables et éco-responsables à tes produits du quotidien !" />
+    <meta name="twitter:image" content="https://www.makyma.org<%= asset_path('logo_og.png') %>" />
+    <meta name="twitter:image:alt" content="Logo du site web makyma.org" />
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">

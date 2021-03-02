@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_130614) do
+ActiveRecord::Schema.define(version: 2021_03_02_100710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "alternatives", force: :cascade do |t|
     t.bigint "product_id"
