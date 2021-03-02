@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   match '/about', to: 'pages#about', via: 'get'
   match '/cgu', to: 'pages#cgu', via: 'get'
   match '/contact', to: 'pages#contact', via: 'get'
+  match '/presse', to: 'pages#presse', via: 'get'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
