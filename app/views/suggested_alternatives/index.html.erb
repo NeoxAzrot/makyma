@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Suggested Alternatives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Source</th>
+      <th>Find</th>
+      <th>Wheretofind</th>
+      <th>Imgurl</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suggested_alternatives.each do |suggested_alternative| %>
+      <tr>
+        <td><%= suggested_alternative.product %></td>
+        <td><%= suggested_alternative.title %></td>
+        <td><%= suggested_alternative.description %></td>
+        <td><%= suggested_alternative.source %></td>
+        <td><%= suggested_alternative.find %></td>
+        <td><%= suggested_alternative.whereToFind %></td>
+        <td><%= suggested_alternative.imgUrl %></td>
+        <td><%= link_to 'Show', suggested_alternative %></td>
+        <td><%= link_to 'Edit', edit_suggested_alternative_path(suggested_alternative) %></td>
+        <td><%= link_to 'Destroy', suggested_alternative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Suggested Alternative', new_suggested_alternative_path %>
