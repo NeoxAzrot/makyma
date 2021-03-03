@@ -1,7 +1,8 @@
 class SearchController < ApplicationController
 
 	def index
-    @params = params[:id].parameterize.split('-')
+    @search = params[:id]
+    @params = @search.parameterize.split('-')
     @nbOfResults = 0
     searchItems = Array.new
 

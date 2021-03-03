@@ -1,6 +1,6 @@
 <%= render 'header',
             title: "Résultats",
-            text: "Voici les résultats pour ta recherche #{@search}",
+            text: "Il y a #{@nbOfResults} résultat#{"s" if @nbOfResults > 1} pour ta recherche #{@search}",
             count: @nbOfResults %>
 
 <div class="container search">
