@@ -74,6 +74,6 @@ class AlternativesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def alternative_params
-      params.require(:alternative).permit(:product_id, :title, :description, :find, :source)
+      params.require(:alternative).permit(:product_id, :title, :description, :find, :source, :alternative_type_filter_id)
     end
 end

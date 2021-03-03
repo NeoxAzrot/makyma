@@ -6,7 +6,6 @@ class CreateSuggestedAlternatives < ActiveRecord::Migration[5.2]
       t.text :description
       t.text :source
       t.text :find
-      t.jsonb :whereToFind, default: {"local": false, "diy": false, "online": false}
       t.string :imgUrl
 
       t.timestamps

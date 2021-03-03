@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_095828) do
+ActiveRecord::Schema.define(version: 2021_03_03_132424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+
+  create_table "alternative_type_filters", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "alternatives", force: :cascade do |t|
     t.bigint "product_id"
@@ -26,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_03_03_095828) do
     t.text "find"
     t.jsonb "whereToFind", default: {"diy"=>false, "local"=>false, "online"=>false}
     t.string "imgUrl", default: ""
+    t.bigint "alternative_type_filter_id"
+    t.index ["alternative_type_filter_id"], name: "index_alternatives_on_alternative_type_filter_id"
     t.index ["product_id"], name: "index_alternatives_on_product_id"
   end
 
@@ -45,29 +53,17 @@ ActiveRecord::Schema.define(version: 2021_03_03_095828) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  create_table "proposed_alternatvies", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.text "source"
-    t.text "find"
-    t.jsonb "whereToFind", default: {"diy"=>false, "local"=>false, "online"=>false}
-    t.string "imgUrl"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_proposed_alternatvies_on_product_id"
-  end
-
   create_table "suggested_alternatives", force: :cascade do |t|
     t.bigint "product_id"
     t.string "title"
     t.text "description"
     t.text "source"
     t.text "find"
-    t.jsonb "whereToFind", default: {"diy"=>false, "local"=>false, "online"=>false}
     t.string "imgUrl"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "alternative_type_filter_id"
+    t.index ["alternative_type_filter_id"], name: "index_suggested_alternatives_on_alternative_type_filter_id"
     t.index ["product_id"], name: "index_suggested_alternatives_on_product_id"
   end
 
@@ -84,8 +80,9 @@ ActiveRecord::Schema.define(version: 2021_03_03_095828) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "alternatives", "alternative_type_filters"
   add_foreign_key "alternatives", "products"
   add_foreign_key "products", "categories"
-  add_foreign_key "proposed_alternatvies", "products"
+  add_foreign_key "suggested_alternatives", "alternative_type_filters"
   add_foreign_key "suggested_alternatives", "products"
 end
