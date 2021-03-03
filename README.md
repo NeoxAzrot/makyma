@@ -156,4 +156,4 @@ git push heroku master
 heroku run rails db:migrate
 ```
 
-© [makyma.org](http://www.makyma.org) 2020 🧡
+© [makyma.org](http://www.makyma.org) 2021 🧡
