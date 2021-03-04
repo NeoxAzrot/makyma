@@ -1,6 +1,12 @@
 namespace :makyma do
   desc "Data import"
   task import: :environment do
+
+    AlternativeTypeFilter.create( title: 'online')
+    AlternativeTypeFilter.create( title: 'diy')
+    AlternativeTypeFilter.create( title: 'local')
+
+    puts "add online, diy and local to alternativeTypeFilter"
     {
         hygiene: ['Hygiène', 'bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits de beauté ! Makyma te conseille les alternatives qui prennent tout autant soin de ta peau que de la planète. La seule hygiène qui vaille, c’est celle qui dure ! 🧴'],
         electronique: ['Électronique', 'plug.png', 'Déniche les alternatives vertes, durables et écoresponsables aux produits électroniques habituels ! Makyma te mets au courant des alternatives que te permettent de rester autant connecter à internet qu’à la planète. Réveille le geek-écolo qui sommeille en toi ! 💻'],

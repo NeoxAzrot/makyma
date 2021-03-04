@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :categories, :alternatives, :products, :suggested_alternatives
+  resources :categories, :alternatives, :products
+  resources :suggested_alternatives do 
+    member do
+      patch:add_to_alternatives 
+      put:add_to_alternatives 
+    end
+  end
   devise_for :users
 
   root to: "categories#index"

@@ -10,7 +10,7 @@
 
             <h2>Écris-nous ton idée :</h2>
             <p>Tous les champs marqués d’un <span class="makyma-orange">*</span> sont obligatoires. </p>
-
+<%# 
             <form action="post" class="suggest-form">
                 <div class="row g-3 align-items-center">
                     <div class="col-auto">
@@ -39,7 +39,25 @@
                         <input type="submit" value="Envoyer" class="btn btn-primary">
                     </div>
                 </div>
-            </form>
+            </form> %>
+
+            <%= simple_form_for SuggestedAlternative.new,  html: { class:"suggest-form"} do |f| %>
+                <%= f.error_notification %>
+                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+                <div class="form-inputs">
+                    <%= f.association :product, label: 'Produit', class: 'deroulant-action' %>
+                    <%= f.input :title, label: "Nom de l'alternative" %>
+                    <%= f.input :description, label: "Description de ton alternative"%>
+                    <%= f.input :find, label: "Où peut-on trouver ton alternative" %>
+                    <%= f.input :imgUrl, label: "L'url d'une image de ton alternative"  %>
+                </div>
+
+                <div class="form-actions">
+                    <%= f.button :submit, 'Envoyer', class: 'btn btn-primary' %>
+                </div>
+            <% end %>
+
         </div>
     </div>
 </div>

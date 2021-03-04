@@ -1,13 +1,24 @@
 class SuggestedAlternativesController < ApplicationController
-  before_action :set_suggested_alternative, only: %i[ show edit update destroy ]
+  before_action :set_suggested_alternative, only: %i[ show edit update destroy add_to_alternatives]
+
+
+  def add_to_alternatives
+    result = SuggestedAlternative.find( params[:id] )
+    alternative = Alternative.create(result.attributes.except("id"))
+    result.destroy
+    redirect_to action: 'index'
+
+  end
 
   # GET /suggested_alternatives or /suggested_alternatives.json
   def index
+    redirect_cannotManage(@suggested_alternatives)
     @suggested_alternatives = SuggestedAlternative.all
   end
 
   # GET /suggested_alternatives/1 or /suggested_alternatives/1.json
   def show
+    redirect_cannotManage(@suggested_alternatives)
   end
 
   # GET /suggested_alternatives/new
@@ -18,7 +29,6 @@ class SuggestedAlternativesController < ApplicationController
   # GET /suggested_alternatives/1/edit
   def edit
     redirect_cannotManage(@suggested_alternatives)
-
   end
 
   # POST /suggested_alternatives or /suggested_alternatives.json

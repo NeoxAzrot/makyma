@@ -28,6 +28,7 @@
         <td><%= suggested_alternative.imgUrl %></td>
         <td><%= link_to 'Show', suggested_alternative %></td>
         <td><%= link_to 'Edit', edit_suggested_alternative_path(suggested_alternative) %></td>
+        <td><%= link_to 'Add this alternative', add_to_alternatives_suggested_alternative_path(suggested_alternative), method: :put %></td>
         <td><%= link_to 'Destroy', suggested_alternative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
