@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :suggested_alternatives
   resources :categories
   resources :alternatives, :products
   devise_for :users

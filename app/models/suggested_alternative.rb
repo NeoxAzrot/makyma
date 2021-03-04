@@ -1,4 +1,4 @@
-class Alternative < ApplicationRecord
+class SuggestedAlternative < ApplicationRecord
   belongs_to :product
   belongs_to :alternative_type_filter
 
@@ -7,4 +7,5 @@ class Alternative < ApplicationRecord
   def to_s
     "#{title}"
   end
+
 end

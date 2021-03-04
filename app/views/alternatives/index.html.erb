@@ -20,6 +20,8 @@
         <td><%= alternative.title %></td>
         <td><%= alternative.description %></td>
         <td><%= alternative.source %></td>
+        <td><%= alternative.alternative_type_filter %></td>
+        <td><%= alternative.imgUrl %></td>
         <td><%= link_to 'Show', alternative %></td>
         <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_alternative_path(alternative) %></td>

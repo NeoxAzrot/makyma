@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @suggested_alternative.product %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @suggested_alternative.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @suggested_alternative.description %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @suggested_alternative.source %>
+</p>
+
+<p>
+  <strong>Find:</strong>
+  <%= @suggested_alternative.find %>
+</p>
+
+<p>
+  <strong>alternative_type_filter:</strong>
+  <%= @suggested_alternative.alternative_type_filter %>
+</p>
+
+<p>
+  <strong>Imgurl:</strong>
+  <%= @suggested_alternative.imgUrl %>
+</p>
+
+<%= link_to 'Edit', edit_suggested_alternative_path(@suggested_alternative) %> |
+<%= link_to 'Back', suggested_alternatives_path %>
