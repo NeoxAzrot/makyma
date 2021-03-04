@@ -17,6 +17,8 @@ class SuggestedAlternativesController < ApplicationController
 
   # GET /suggested_alternatives/1/edit
   def edit
+    redirect_cannotManage(@suggested_alternatives)
+
   end
 
   # POST /suggested_alternatives or /suggested_alternatives.json
@@ -36,6 +38,7 @@ class SuggestedAlternativesController < ApplicationController
 
   # PATCH/PUT /suggested_alternatives/1 or /suggested_alternatives/1.json
   def update
+    redirect_cannotManage(@suggested_alternatives)
     respond_to do |format|
       if @suggested_alternative.update(suggested_alternative_params)
         format.html { redirect_to @suggested_alternative, notice: "Suggested alternative was successfully updated." }
@@ -49,6 +52,7 @@ class SuggestedAlternativesController < ApplicationController
 
   # DELETE /suggested_alternatives/1 or /suggested_alternatives/1.json
   def destroy
+    redirect_cannotManage(@suggested_alternatives)
     @suggested_alternative.destroy
     respond_to do |format|
       format.html { redirect_to suggested_alternatives_url, notice: "Suggested alternative was successfully destroyed." }

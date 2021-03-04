@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :suggested_alternatives
-  resources :categories
-  resources :alternatives, :products
+  resources :categories, :alternatives, :products, :suggested_alternatives
   devise_for :users
 
   root to: "categories#index"

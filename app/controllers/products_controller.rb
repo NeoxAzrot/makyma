@@ -22,16 +22,19 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    redirect_cannotManage(@products)
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
+    redirect_cannotManage(@products)
   end
 
   # POST /products
   # POST /products.json
   def create
+    redirect_cannotManage(@products)
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -48,6 +51,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    redirect_cannotManage(@products)
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -62,6 +66,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    redirect_cannotManage(@products)
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }

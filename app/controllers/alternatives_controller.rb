@@ -1,6 +1,7 @@
 class AlternativesController < ApplicationController
   before_action :set_alternative, only: [:show, :edit, :update, :destroy]
 
+
   # GET /alternatives
   # GET /alternatives.json
   def index
@@ -19,16 +20,19 @@ class AlternativesController < ApplicationController
 
   # GET /alternatives/new
   def new
+    redirect_cannotManage(@alternatives)
     @alternative = Alternative.new
   end
 
   # GET /alternatives/1/edit
   def edit
+    redirect_cannotManage(@alternatives)
   end
 
   # POST /alternatives
   # POST /alternatives.json
   def create
+    redirect_cannotManage(@alternatives)
     @alternative = Alternative.new(alternative_params)
 
     respond_to do |format|
@@ -45,6 +49,7 @@ class AlternativesController < ApplicationController
   # PATCH/PUT /alternatives/1
   # PATCH/PUT /alternatives/1.json
   def update
+    redirect_cannotManage(@alternatives)
     respond_to do |format|
       if @alternative.update(alternative_params)
         format.html { redirect_to @alternative, notice: 'Alternative was successfully updated.' }
@@ -59,6 +64,7 @@ class AlternativesController < ApplicationController
   # DELETE /alternatives/1
   # DELETE /alternatives/1.json
   def destroy
+    redirect_cannotManage(@alternatives)
     @alternative.destroy
     respond_to do |format|
       format.html { redirect_to alternatives_url, notice: 'Alternative was successfully destroyed.' }
