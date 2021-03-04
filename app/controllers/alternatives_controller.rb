@@ -5,7 +5,7 @@ class AlternativesController < ApplicationController
   # GET /alternatives
   # GET /alternatives.json
   def index
-    @alternatives = Alternative.all
+    @alternatives = Alternative.order("created_at DESC").all
   end
 
   # GET /alternatives/1
