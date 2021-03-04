@@ -23,7 +23,6 @@ class SuggestedAlternativesController < ApplicationController
 
   # GET /suggested_alternatives/new
   def new
-    redirect_cannotManage(@suggested_alternatives)
     @suggested_alternative = SuggestedAlternative.new
   end
 
