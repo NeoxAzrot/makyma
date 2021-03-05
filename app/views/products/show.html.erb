@@ -3,20 +3,30 @@
             text: '',
             count: @product.alternatives.count %>
 
-<div class="container product__alternatives">
-  <div class="card-columns">
-    <% @product.alternatives.sort{|a,b| a.title <=> b.title}.each do |alternative| %>
-        <div class="card product__alternative">
-          <div class="card-body">
-            <h2><%= alternative %></h2>
-            <p><%= alternative.description %></p>
-            <h3 class="mt-5">Où trouver ?</h3>
-            <p><%= alternative.find %></p>
-            <%= link_to 'Je fonce !', alternative.source, target: :_blank, class: 'btn btn-primary mt-5 btn-product' %>
+<div class="container-sm">
+  <h2 class="alt-main-title">Voici nos alternatives :</h2>
+
+  <div class="row align-items-center">
+    <div class="col">
+      <% @product.alternatives.sort{|a,b| a.title <=> b.title}.each do |alternative| %>
+           
+          <div class="alt row align-items-top">
+            <div class="col alt-text">
+              <div class="alt-header">
+                <h3><%= alternative %></h3>
+                <span>🚲 Local</span>
+              </div>
+              <p><%= alternative.description %></p>
+
+              <h4>Où trouver ?</h4>
+              <p><%= alternative.find %></p>
+
+              <%= link_to 'Je visite le site !', alternative.source, target: :_blank, class: 'btn btn-primary mt-3 btn-product' %>      
+            </div>
+
+            <img src="https://picsum.photos/500/400" alt="Image du produit" class="col">
           </div>
-        </div>
-    <% end %>
-  </div>
+      <% end %>
 
   <div class="row mt-5 mb-5">
     <div class="alternative-contact col-md-8 offset-md-2" >
@@ -25,10 +35,13 @@
       <%= link_to "Suggérer une alternative", "/suggestion"%>
     </div>
   </div>
-  
 </div>
 
-
+  <div class="alt-suggestion">
+      <h3>Propose-nous ton alternative !</h3>
+      <p class="mb-5">Propose-la nous et elle apparaîtra peut-être sur notre site 🧡</p>
+      <a href="/suggestion">Je propose mon alternative !</a>
+  </div>
 
 
 <div class="container">
