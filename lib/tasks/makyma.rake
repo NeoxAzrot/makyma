@@ -20,7 +20,6 @@ namespace :makyma do
         category = Category.where(title: cat[0], description: cat[2], image: cat[1]).first_or_create
         require 'csv'
         CSV.foreach(path, headers: true) do |row|
-            puts row
             product_title = row[2]
             next if product_title.blank?
             product = Product.where(category: category, title: product_title).first_or_create
@@ -28,16 +27,15 @@ namespace :makyma do
             alternative_description = row[4]
             next if alternative_title.blank?
             alternative = Alternative.where(product: product, title: alternative_title, description: alternative_description).first_or_create
-            #alternative.description = row[4]
             alternative.find = row[5]
             alternative.source = row[6]
             alternative.imgUrl = row[7]
             alternative.alternative_type_filter_id = row[8]
             if alternative.valid?
               alternative.save
-              # puts "  #{product} -> #{alternative}"
+              puts "  #{product} -> #{alternative}"
             else 
-              # puts "ERROR #{product} -> #{alternative}"
+              puts "ERROR #{product} -> #{alternative}"
             end
         end
     end
