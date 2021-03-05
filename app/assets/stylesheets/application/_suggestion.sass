@@ -1,0 +1,57 @@
+.makyma-orange
+    color: #F28D69
+
+.suggest-form
+    .btn.btn-primary
+        color: #55B6A9
+        font-weight: bold
+        border: solid 3px #55B6A9
+        background-color: transparent
+        padding: 4px 14px
+
+        &:hover
+            background-color: #55B6A9
+            color: white
+
+        #textarea-characters-counter
+            color: red
+
+    .deroulant
+        position: relative
+        z-index: 1000
+
+        .input-button
+            width: 100%
+            cursor: pointer
+
+        ul
+            display: none
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            z-index: -1000
+
+            list-style: none
+            padding: 1rem 1.5rem
+            background-color: #fff
+            background-clip: padding-box
+            border: 1px solid #ced4da
+            border-radius: 30px
+
+            li
+                font-size: 1rem
+                font-weight: 400
+                line-height: 1.5
+                color: #495057
+
+                &:not(:last-child)
+                    margin-bottom: 1rem
+
+                &:first-child
+                    margin-top: 2rem
+
+                &:hover
+                    text-decoration: underline
+                    color: #55B6A9
+                    cursor: pointer

@@ -7,8 +7,6 @@
     <tr>
       <th>Product</th>
       <th>Title</th>
-      <th>Description</th>
-      <th>Source</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +16,8 @@
       <tr>
         <td><%= alternative.product %></td>
         <td><%= alternative.title %></td>
-        <td><%= alternative.description %></td>
-        <td><%= alternative.source %></td>
         <td><%= link_to 'Show', alternative %></td>
-        <% if user_signed_in? %>
+        <% if can? :manage, @atlernative %>
           <td><%= link_to 'Edit', edit_alternative_path(alternative) %></td>
           <td><%= link_to 'Destroy', alternative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

@@ -1,0 +1,63 @@
+<%= render 'header',
+    title: 'Propose une alternative',
+    text: 'Nous sommes constamment à la recherche de nouvelles alternatives. Si tu n’as pas trouvé ce que tu cherchais, fais-le nous savoir, nous la rajouterons au plus vite ! 🤞',
+    large: '???'
+%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+            <h2>Écris-nous ton idée :</h2>
+            <p>Tous les champs marqués d’un <span class="makyma-orange">*</span> sont obligatoires. </p>
+<%# 
+            <form action="post" class="suggest-form">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <div class="deroulant deroulant-action">
+                            <div class="input-button deroulant-action">
+                                <p class="form-control deroulant-action">Catégorie <span class="makyma-orange">*</span></p>
+                                <img src="/assets/down-chevron.png" alt="Ouvrir le menu déroulant">
+                            </div>
+                            <ul class="deroulant-action" id="deroulant-options">
+                                <li class="deroulant-action">Entretien et ménage</li>
+                                <li class="deroulant-action">Cuisine</li>
+                                <li class="deroulant-action">Numérique</li>
+                                <li class="deroulant-action">Jardin</li>
+                                <li class="deroulant-action">Hygiène</li>
+                            </ul>
+                        </div>
+                        <input type="text" name="prod-name" placeholder="Nom du produit à remplacer *" class="form-control mt-4">
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" name="alt-name" placeholder="Nom de l’alternative trouvée" class="form-control mb-4">
+                        <input type="text" name="prod-name" palceholder="Lien de l’alternative trouvée" class="form-control mt-4">
+                    </div>
+                    <textarea name="description" cols="30" rows="10" placeholder="Description supplémentaire" id="alt-description" class="form-control p-4 mt-5"></textarea>
+                    <div class="col-auto">
+                        <p id="textarea-characters-counter">0/200</p>
+                        <input type="submit" value="Envoyer" class="btn btn-primary">
+                    </div>
+                </div>
+            </form> %>
+
+            <%= simple_form_for SuggestedAlternative.new,  html: { class:"suggest-form"} do |f| %>
+                <%= f.error_notification %>
+                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+                <div class="form-inputs">
+                    <%= f.association :product, label: 'Produit', class: 'deroulant-action' %>
+                    <%= f.input :title, label: "Nom de l'alternative" %>
+                    <%= f.input :description, label: "Description de ton alternative"%>
+                    <%= f.input :find, label: "Où peut-on trouver ton alternative" %>
+                    <%= f.input :imgUrl, label: "L'url d'une image de ton alternative"  %>
+                </div>
+
+                <div class="form-actions">
+                    <%= f.button :submit, 'Envoyer', class: 'btn btn-primary' %>
+                </div>
+            <% end %>
+
+        </div>
+    </div>
+</div>

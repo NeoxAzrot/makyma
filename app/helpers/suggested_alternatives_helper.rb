@@ -1,0 +1,2 @@
+module SuggestedAlternativesHelper
+end

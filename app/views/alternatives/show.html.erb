@@ -25,6 +25,16 @@
   <%= @alternative.source %>
 </p>
 
+<p>
+  <strong>alternative_type_filter:</strong>
+  <%= @alternative.alternative_type_filter %>
+</p>
+
+<p>
+  <strong>Imgurl:</strong>
+  <%= @alternative.imgUrl %>
+</p>
+
 <% if can? :manage, @alternative %>
 	<%= link_to 'Edit', edit_alternative_path(@alternative) %>
 <% end %>
