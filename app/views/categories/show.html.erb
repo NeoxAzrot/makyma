@@ -5,6 +5,20 @@
 
 <div class="container category__products">
   <div class="row">
+    <div class='filter'>
+      <p>Filtrer :</p>
+        <label for="local">🚲 Local</label>
+        <input type="checkbox" id="local" name="local"checked>
+          <%=image_tag asset_path('separation.svg')%>
+        <label for="DIY">✂️ DIY</label>
+        <input type="checkbox" id="DIY" name="DIY"checked>
+          <%=image_tag asset_path('separation.svg')%>
+        <label for="onligne">🛒 En Ligne</label>
+        <input type="checkbox" id="onligne" name="onligne"checked>
+    </div>
+    <div class="result">
+      <p>33 résultats</p>
+    </div>
     <div class="col-md-8 offset-md-2">
       <% @category.products.each do |product| %>
 
@@ -15,8 +29,10 @@
           </div>
           <a class="btn mt-2 mb-2" href="<%= product_url(product) %>">Je change</a>
         </div>
-
       <% end %>
+    </div>
+    <div class='btn_see_more'>
+      <a href=''>Voir Plus</a>
     </div>
   </div>
 </div>

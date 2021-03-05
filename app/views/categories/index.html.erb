@@ -1,33 +1,77 @@
 <%= render 'header',
-            title: "Le compagnon pour ta transition <br>
-            éco-responsable qui te propose déjà #{@alternatives.count}&nbsp;alternatives !",
-            text: 'Tu as pris conscience de ton impact écologique et tu souhaites le réduire
-            sans changer tes habitudes. Découvre les alternatives vertes aux produits
-            de ton quotidien, et adopte un comportement éco-responsable.',
+            title: "#{@alternatives.count}&nbsp;alternatives pour 
+            ta transition responsable !",
+            text: 'Découvre les alternatives vertes aux produits de ton quotidien, 
+            et adopte un comportement éco-responsable.',
             count: @alternatives.count %>
 
 <div class="container">
-  <div class="row justify-content-center" style="margin-bottom: 130px;">
-    <% @categories.each do |category| %>
-      <div class="col-md-4">
-        <%= link_to category, class: "text-decoration-none" do %>
-          <div class="card category mb-4">
-            <div class="card-body">
-              <div class="row align-items-center">
-                <div class="col-4">
-                  <%#= image_tag 'http://www.makyma.org/assets/bottle-41f43f6483d94e76d6813467a4942b9d97dd790973dad6b12c861866da5359ab.png', class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" %>
-                  <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
-                </div>
-                <div class="col-8">
-                  <h3 class="pt-2" style="text-decoration: none;"><%= category %></h3>
+  <div class="discover_title mb-4">
+    <h2>Découvre nos catégories !</h2>
+  </div>
+    <div class="row justify-content-center" style="margin-bottom: 130px;">
+      <% @categories.each do |category| %>
+        <div class="col-md-4">
+          <%= link_to category, class: "text-decoration-none" do %>
+            <div class="card category mb-4">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-4">
+                    <%#= image_tag 'http://www.makyma.org/assets/bottle-41f43f6483d94e76d6813467a4942b9d97dd790973dad6b12c861866da5359ab.png', class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" %>
+                    <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
+                  </div>
+                  <div class="col-8">
+                    <h3 class="pt-2" style="text-decoration: none;"><%= category %></h3>
+                  </div>
                 </div>
               </div>
             </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="tutorial_container row justify-content-center" style="margin-top: 100px;">
+        <div class="step col-md-4">
+          <div class="row">
+            <p class="number">1</p>
+            <p class="emoji">🔎</p>
           </div>
-        <% end %>
+            <p><strong>Recherche</strong> un produit dans la <span>barre de recherche</span> ou dans nos <span>catégories</span></p>
+        </div> 
+        <div class="step col-md-4">
+          <div class="row">
+            <p class="number">2</p>
+            <p class="emoji">👀</p>
+          </div>
+          <p><strong>Découvre</strong> les différentes <span>alternatives</span> qui te sont <span>proposées</span></p>
+        </div> 
+        <div class="step col-md-4"> 
+          <div class="row">
+            <p class="number">3</p>
+            <p class="emoji">👆🏼</p>
+          </div> 
+          <p><strong>Choisi</strong>celle qui te <span>correspond</span> le plus et <span>change le monde</span> à ton échelle !</p>
+        </div> 
+    </div>
+    <div class="random_suggestion row justify-content-center mt-5">
+      <div class="column">
+        <h2>La roulette Makyma</h2>
+        <p>Tire une nouvelle alternative au hasard !👇</p>
+        <a href="">Tirer une nouvelle alternative</a>
       </div>
-    <% end %>
-  </div>
+      <!-- aleatoire -->
+    </div>
+    <div class="partnership row justify-content-center mt-5">
+      <h2>Ils nous font confiance</h2>
+    </div>
+    <div class="about_container row col-md-7 offset-md-1">
+      <h2>Qui sommes-nous ?</h2>
+      <p>Makyma permet d’accompagner ta transition écologique le plus facilement possible. 
+      Avec une utilisation facile pour tout le monde, même ta grand-mère peut y arriver ! 
+      Choisis d’acheter local, de le faire par toi même, ou de commander sur internet. 
+      Tu choisis ce que tu préfères !</p>
+      <a href="">En savoir plus</a>
+    </div>
 
   <% if can? :manage, @category %>
     <div class="row justify-content-around">
