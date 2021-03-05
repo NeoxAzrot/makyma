@@ -2,9 +2,10 @@ namespace :makyma do
   desc "Data import"
   task import: :environment do
 
-    AlternativeTypeFilter.create( title: 'online')
-    AlternativeTypeFilter.create( title: 'diy')
-    AlternativeTypeFilter.create( title: 'local')
+    puts "fill alternative type filter with online, diy and local"
+    AlternativeTypeFilter.create( title: 'en ligne')
+    AlternativeTypeFilter.create( title: 'DIY')
+    AlternativeTypeFilter.create( title: 'Local')
 
     puts "add online, diy and local to alternativeTypeFilter"
     {
