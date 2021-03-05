@@ -30,10 +30,14 @@ namespace :makyma do
             #alternative.description = row[4]
             alternative.find = row[5]
             alternative.source = row[6]
-            #alternative.whereToFind = {"diy"=>false, "local"=>false, "online"=>false}
+            #alternative.alternative_type_filter_id = 5
             alternative.imgUrl = ""
-            alternative.save
-            puts "  #{product} -> #{alternative}"
+            if alternative.valid?
+              alternative.save
+              puts "  #{product} -> #{alternative}"
+            else 
+              puts "ERROR #{product} -> #{alternative}"
+            end
         end
     end
   end
