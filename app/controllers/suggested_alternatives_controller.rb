@@ -37,6 +37,8 @@ class SuggestedAlternativesController < ApplicationController
 
     respond_to do |format|
       if @suggested_alternative.save
+
+        MakymaNoticeMailer.suggested_alternative_email.deliver_later
         format.html { redirect_to @suggested_alternative, notice: "Suggested alternative was successfully created." }
         format.json { render :show, status: :created, location: @suggested_alternative }
       else

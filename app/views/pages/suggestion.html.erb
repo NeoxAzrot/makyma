@@ -46,6 +46,15 @@
                 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
                 <div class="form-inputs">
+<<<<<<< HEAD
+                    <%= f.association :product, label: 'Produit', class: 'deroulant-action' %>
+                    <%= f.input :title, label: "Nom de l'alternative" %>
+                    <%= f.input :description, label: "Description de ton alternative"%>
+                    <%= f.input :find, label: "Où peut-on trouver ton alternative" %>
+                    <%= f.input :source, label: "Lien d'un site qui explique comment fabriquer, ou vend ton alternative" %>
+                    <%= f.input :imgUrl, label: "L'url d'une image de ton alternative", input_html: {rows: 10, cols: 10}  %>
+                    <%= f.association :alternative_type_filter, label: "De quel type d'alternative s'agit-il" ,class: 'deroulant-action' %>
+=======
                     <div class="row justify-content-lg-between">
                         <%= f.association :product, label: 'Produit', class: 'deroulant-action col' %>
                         <%= f.input :title, label: "Nom de l'alternative", class: 'col' %>
@@ -55,6 +64,7 @@
                         <%= f.input :find, label: "Où peut-on trouver ton alternative", class: 'col' %>
                     </div>
                     <%= f.input :imgUrl, label: "L'url d'une image de ton alternative"  %>
+>>>>>>> 2fca59c5ff86536a77722dd205e53d351bc7cff4
                 </div>
 
                 <div class="form-actions">

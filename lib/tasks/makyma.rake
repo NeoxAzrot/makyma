@@ -2,9 +2,10 @@ namespace :makyma do
   desc "Data import"
   task import: :environment do
 
-    AlternativeTypeFilter.create( title: 'online')
-    AlternativeTypeFilter.create( title: 'diy')
-    AlternativeTypeFilter.create( title: 'local')
+    puts "fill alternative type filter with online, diy and local"
+    AlternativeTypeFilter.create( title: 'en ligne')
+    AlternativeTypeFilter.create( title: 'DIY')
+    AlternativeTypeFilter.create( title: 'Local')
 
     puts "add online, diy and local to alternativeTypeFilter"
     {
@@ -29,10 +30,14 @@ namespace :makyma do
             #alternative.description = row[4]
             alternative.find = row[5]
             alternative.source = row[6]
-            #alternative.whereToFind = {"diy"=>false, "local"=>false, "online"=>false}
+            #alternative.alternative_type_filter_id = 5
             alternative.imgUrl = ""
-            alternative.save
-            puts "  #{product} -> #{alternative}"
+            if alternative.valid?
+              alternative.save
+              puts "  #{product} -> #{alternative}"
+            else 
+              puts "ERROR #{product} -> #{alternative}"
+            end
         end
     end
   end

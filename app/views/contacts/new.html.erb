@@ -11,6 +11,7 @@
       <h3>
         Tu as des <strong>questions</strong> ?
         Tu souhaites <strong>en savoir plus</strong> sur nous ?
+
       </h3>
       <p class="mb-5">
         Makyma est un projet humain et collaboratif.
@@ -19,7 +20,22 @@
         Alors, si tu as des questions, des remarques, n’hésites pas !
         Nous serons ravies de recevoir tes mots doux !
       </p>
-      <a href="mailto:contact@makyma.org" class="btn-product" style="font-weight:bold">Contacte-nous</a>
+
+      <%= simple_form_for @contact, url: 'contact#new'  do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%= f.input :name, label: 'Nom' %>
+          <%= f.input :email, label: 'Email' %>
+          <%= f.input :body, label: 'Message', as: :text %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, 'Envoyer', class: "btn-product" %>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
