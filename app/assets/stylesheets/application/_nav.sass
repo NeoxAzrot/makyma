@@ -1,0 +1,54 @@
+.navbar
+  @media screen and ( max-width: 991px )
+    display: none
+  .nav-link
+    &:hover, &:focus
+      color: $light !important
+      text-decoration: underline
+    &.border
+      border-width: 2px !important
+      margin-top: -2px
+
+  img
+    width: 28px
+    height: auto
+
+  .navbar-toggler
+    outline: none
+
+  .dropdown
+    .dropdown-menu
+      left: 50%
+      transform: translateX(-50%)
+      border-radius: 12px
+      .dropdown-item
+        &:hover
+          background-color: transparent !important
+          color: $secondary !important
+
+    .dropdown-toggle 
+      &::after
+        content: '>'
+        display: inline-block
+        margin-left: 5px !important
+        vertical-align: 0 !important
+        border: none !important
+        transform: rotate(90deg)
+        transition: .4s ease
+
+    &.show
+      .dropdown-toggle 
+        &::after
+          transform: rotate(-90deg)
+
+.navbar-mobile
+  display: none
+  @media screen and ( max-width: 991px )
+    display: block
+  
+  .nav-toggle
+    cursor: pointer
+    background: none
+    outline: none
+    border: none
+    width: 50px
