@@ -46,10 +46,14 @@
                 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
                 <div class="form-inputs">
-                    <%= f.association :product, label: 'Produit', class: 'deroulant-action' %>
-                    <%= f.input :title, label: "Nom de l'alternative" %>
-                    <%= f.input :description, label: "Description de ton alternative"%>
-                    <%= f.input :find, label: "Où peut-on trouver ton alternative" %>
+                    <div class="row justify-content-lg-between">
+                        <%= f.association :product, label: 'Produit', class: 'deroulant-action col' %>
+                        <%= f.input :title, label: "Nom de l'alternative", class: 'col' %>
+                    </div>
+                    <div class="row justify-content-lg-between">
+                        <%= f.input :description, label: "Description de ton alternative", class: 'col'%>
+                        <%= f.input :find, label: "Où peut-on trouver ton alternative", class: 'col' %>
+                    </div>
                     <%= f.input :imgUrl, label: "L'url d'une image de ton alternative"  %>
                 </div>
 
