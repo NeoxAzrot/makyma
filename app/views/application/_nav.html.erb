@@ -1,22 +1,59 @@
-<nav>
-  <div class="container pt-4">
-    <div class="row">
-      <div class="col-md-2">
-        <a class="navbar-brand" href="<%= root_path %>">
-          <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
-        </a>
-      </div>
-      <div class="col-md-6">
-        <ol class="breadcrumb pl-0 pt-4 small text-white bg-transparent font-weight-light font-italic" id="ariane">
-          <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
-        </ol>
-      </div>
-      <div class='options_container'>
-        <a href="">Catégories<%=image_tag asset_path('categorie.svg')=%></a>
-        <a href="">Propose une alternative</a>
-        <a href="">Qui sommes-nous ?</a>
-        <a href="">Contact</a>
-      </div>
+<div class="container pt-4 navigation_bar">
+  <div class="row d-flex flex-nowrap justify-content-between">
+    <div class="col-md-2">
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= image_tag "logos.svg", class:'logo', alt: "Logotype de Makyma" %>
+      </a>
     </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <!--<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>-->
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown mr-3">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Catégories
+            </a>
+            <div class="dropdown-menu border-info pt-3 pb-3 pl-4 pr-4" aria-labelledby="navbarDropdown">
+              <% Category.all.each_with_index do |category, index| %>
+              <% puts Category.all %>
+                <div class="d-flex <%= "mb-3" if Category.all.length - 1 != index %>">
+                  <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
+                  <a class="dropdown-item text-dark pl-3" href="#"><%= category %></a>
+                </div>
+              <% end %>
+            </div>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link text-light border border-light rounded pr-3 pl-3" href="/suggestion">Propose une alternative</a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link text-light" href="/about">Qui sommes-nous ?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="navbar-mobile">
+      <button class="nav-toggle">
+        <%= image_tag asset_path('menu.svg'), class: "img-fluid", alt: "Icône symbolisant le menu" %>
+      </button>
+    </nav>
+    <!--<div class="col-md-6">
+      <ol class="breadcrumb pl-0 pt-4 small text-white bg-transparent font-weight-light font-italic" id="ariane">
+        <%= render_breadcrumbs :tag => :li, :separator => "&nbsp;/&nbsp;" %>
+      </ol>
+    </div>-->
   </div>
-</nav>
+</div>
+
+<!-- Pour régler l'erreur dans la console de boostrap de manière très crade -->
+<span id="deroulant-options"></span>
+
+<%= javascript_tag do %>
+
+<% end %>

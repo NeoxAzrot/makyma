@@ -16,7 +16,7 @@ large ||= nil
           <div class="search">
             <div class="search-bar">
               <%= search_field_tag :id, current_controller?('search') ? params[:id] : '', placeholder: "Rechercher une alternative 🧡", 
-              class: "w-75"%>   
+              class: "w-75"%>
               <%= button_tag image_tag asset_path('search.svg'), class: "img-fluid", alt: "Icône d'une flèche" ,:name => nil%>
             </div>
           </div>  
@@ -38,9 +38,9 @@ large ||= nil
           duration: 8000,
           easing: 'swing',
           step: function (now) {
-              $(this).text(Math.ceil(now));
+              $(this).text(Math.ceil(now))
           }
-      });
-    });
+      })
+    })
   <% end %>
 <% end %>

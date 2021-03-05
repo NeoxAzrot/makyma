@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_132424) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "find"
-    t.jsonb "whereToFind", default: {"diy"=>false, "local"=>false, "online"=>false}
     t.string "imgUrl", default: ""
     t.bigint "alternative_type_filter_id"
     t.index ["alternative_type_filter_id"], name: "index_alternatives_on_alternative_type_filter_id"
