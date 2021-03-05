@@ -3,11 +3,10 @@ namespace :makyma do
   task import: :environment do
 
     puts "fill alternative type filter with online, diy and local"
-    AlternativeTypeFilter.create( title: 'en ligne')
-    AlternativeTypeFilter.create( title: 'DIY')
-    AlternativeTypeFilter.create( title: 'Local')
+    AlternativeTypeFilter.where( title: 'En ligne').first_or_create
+    AlternativeTypeFilter.where( title: 'DIY').first_or_create
+    AlternativeTypeFilter.where( title: 'Local').first_or_create
 
-    puts "add online, diy and local to alternativeTypeFilter"
     {
         entretien: ['Entretien et ménage', 'broom.png', 'Change tes produits et objets d’entretien par les alternatives vertes, durables et écoresponsables qui te plaisent ! Makyma te propose les alternatives pour une maison propre sans salir notre planète. Des produits durables pour un entretien d’enfer ! 🧽'],
         maison: ['Cuisine', 'bowl.png', 'Change le monde à ton échelle en remplaçant les objets de ton quotidien par des alternatives vertes et durables ! On te sert des solutions sur un plateau, c’est du tout cuit 🍽'],
@@ -20,7 +19,7 @@ namespace :makyma do
         category = Category.where(title: cat[0], description: cat[2], image: cat[1]).first_or_create
         require 'csv'
         CSV.foreach(path, headers: true) do |row|
-            puts row
+            #puts row
             product_title = row[2]
             next if product_title.blank?
             product = Product.where(category: category, title: product_title).first_or_create
@@ -32,7 +31,9 @@ namespace :makyma do
             alternative.find = row[5]
             alternative.source = row[6]
             alternative.imgUrl = row[7]
-            alternative.alternative_type_filter_id = row[8]
+            if AlternativeTypeFilter.find_by( title: row[8])
+              alternative.alternative_type_filter_id = AlternativeTypeFilter.find_by( title: row[8])[:id]
+            end
             if alternative.valid?
               alternative.save
               # puts "  #{product} -> #{alternative}"
