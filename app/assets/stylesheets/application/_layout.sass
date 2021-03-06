@@ -1,77 +1,44 @@
-.container
-	h3
-		color: $secondary
-		font-size: 1.2em
-	.sousTitre
-		color: $primary
-	strong
-		color: $primary
+body
+	overflow-x: hidden
 
-.navigation_bar
-	position: relative
-	z-index: 2
-
-.jumbotron
-	position: relative
-	margin-top: -130px
-	padding: 180px 0 150px 0
-	border-radius: unset
-	background: linear-gradient(40deg, #FF8F66, #ffeb9a 120%)
-	clip-path: url(#myClip)
-
-	.count
-		font-size: 24vw
-		font-weight: bold
-
-		@media screen and (max-width: 1100px)
-			display: none
 h1
-	font-weight: bold
-	font-size: 2rem
-	margin-bottom: 15px
+	font-weight: 700
+	font-size: 2.875rem
+	letter-spacing: 0
+
 h2
-	font-weight: bold
-	font-size: 1.5rem
-	margin-bottom: 15px
-	color: $primary
+	font-weight: 600
+	font-size: 2.063rem
+	letter-spacing: 0.25px
+
 h3
-	font-size: 1.1rem
-	margin-bottom: 15px
+	font-weight: 400
+	font-size: 1.438rem
+	letter-spacing: 0
+
 p
-	font-size: 0.95rem
+	font-weight: 400
+	font-size: 0.938rem
 	line-height: 1.4rem
+	letter-spacing: 0.5px
 
-.footer
-	margin-top: 60px
-	clip-path: url(#myClipFooter)
-	a
-		color: black
-		&:hover
-			text-decoration: none
-			color: #ff8f66
-	#copyright
-		margin-bottom: 30px
+a
+	font-weight: 400
+	font-size: 0.938rem
+	letter-spacing: 0.5px
+	position: relative
 
-.breadcrumb a
-	color: #ffffff
-
-.breadcrumb a:hover
-	text-decoration: underline
-	color: #ffffff !important
-
-.btn-product
-	background-color: $primary
-	color: white
-	font-weight: bold
-	padding: 16px 22px
-	border-radius: 15px
-	box-shadow: 0px 5px 10px #ff734032 //rgba(0, 0, 0, 0.15)
-	transition: background-color 0.3s, box-shadow 0.3s
-
-	&:hover
-		background-color: #ff7340
-		color: white
-		text-decoration: none
+	&::before
+		content: ''
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 0
+		height: 2px
+		transition: width .4s ease
+		border-radius: 8px
 	
-	&:active
-		color: white
+	&:hover
+		&::before
+			width: 100%
+		

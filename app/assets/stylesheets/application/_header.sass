@@ -1,0 +1,43 @@
+.jumbotron
+	position: relative
+	margin-top: -130px
+	padding: 180px 0 150px 0
+	border-radius: unset
+	background: linear-gradient(40deg, #FF8F66, #ffeb9a 120%)
+	clip-path: url(#headerClip)
+
+	.count-container
+		@media screen and (min-width: 992px)
+			display: flex !important
+		.count
+			font-size: 25rem
+			font-weight: 700
+		.info-count
+			font-size: 5.875rem
+			font-weight: 700
+			transform: translateY(-7rem)
+	
+	.search-bar
+		input
+			outline: none
+			max-width: none
+		
+		.button-container
+			right: 1.5rem
+			top: 50%
+			transform: translateY(-50%)
+
+			button
+				outline: none
+				background: white
+				box-shadow: none
+				z-index: 9999
+				padding: 0
+				margin-top: 0
+
+// .breadcrumb
+//   a
+// 	  color: #ffffff
+//     &:hover
+//       text-decoration: underline
+//       color: #ffffff !important
