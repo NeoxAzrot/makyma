@@ -2,25 +2,25 @@
             title: "#{@alternatives.count}&nbsp;alternatives pour 
             ta transition responsable !",
             text: 'Découvre les alternatives vertes aux produits de ton quotidien, 
-            et adopte un comportement éco-responsable.',
+            et adopte un comportement éco-responsable 🌱',
             count: @alternatives.count %>
 
 <div class="container">
-  <div class="discover_title mb-4">
-    <h2>Découvre nos catégories !</h2>
+  <div class="row mb-5 text-center justify-content-center align-items-center">
+    <h2 class="text-secondary">Découvre nos catégories !</h2>
   </div>
-    <div class="row justify-content-center" style="margin-bottom: 130px;">
+    <div class="row justify-content-center pt-3">
       <% @categories.each do |category| %>
-        <div class="col-md-4">
+        <div class="col-lg-4">
           <%= link_to category, class: "text-decoration-none" do %>
-            <div class="card category mb-4">
+            <div class="card category shadow-sm mb-4 border-info">
               <div class="card-body">
-                <div class="row align-items-center">
+                <div class="row justify-content-center align-items-center pt-2 pb-2 pl-3 pr-3">
                   <div class="col-4">
                     <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
                   </div>
                   <div class="col-8">
-                    <h3 class="pt-2" style="text-decoration: none;"><%= category %></h3>
+                    <h3 class="name-category text-info mb-0"><%= category %></h3>
                   </div>
                 </div>
               </div>
@@ -29,39 +29,39 @@
         </div>
       <% end %>
     </div>
-    <div class="tutorial_container row justify-content-center" style="margin-top: 100px;">
-        <div class="step col-md-4">
-          <div class="row">
-            <p class="number">1</p>
-            <p class="emoji">🔎</p>
+    <div class="tutorial-container row justify-content-center">
+        <div class="col-md-4 mb-5">
+          <div class="row justify-content-start align-items-start">
+            <p class="number text-primary">1</p>
+            <%= image_tag asset_path('search.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 1" %>
           </div>
-            <p><strong>Recherche</strong> un produit dans la <span>barre de recherche</span> ou dans nos <span>catégories</span></p>
+            <p><strong class="text-primary">Recherche</strong> un produit dans la <span>barre de recherche</span> ou dans nos <span>catégories</span></p>
         </div> 
-        <div class="step col-md-4">
+        <div class="col-md-4 mb-5">
           <div class="row">
-            <p class="number">2</p>
-            <p class="emoji">👀</p>
+            <p class="number text-primary">2</p>
+            <%= image_tag asset_path('eyes.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 2" %>
           </div>
-          <p><strong>Découvre</strong> les différentes <span>alternatives</span> qui te sont <span>proposées</span></p>
+          <p><strong class="text-primary">Découvre</strong> les différentes <span>alternatives</span> qui te sont <span>proposées</span></p>
         </div> 
-        <div class="step col-md-4"> 
+        <div class="col-md-4 mb-5"> 
           <div class="row">
-            <p class="number">3</p>
-            <p class="emoji">👆🏼</p>
+            <p class="number text-primary">3</p>
+            <%= image_tag asset_path('hand_finger_top.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 3" %>
           </div> 
-          <p><strong>Choisi</strong>celle qui te <span>correspond</span> le plus et <span>change le monde</span> à ton échelle !</p>
+          <p><strong class="text-primary">Choisi</strong> celle qui te <span>correspond</span> le plus et <span>change le monde</span> à ton échelle !</p>
         </div> 
     </div>
-    <div class="random_suggestion row justify-content-center mt-5">
-      <div class="column">
-        <h2>La roulette Makyma</h2>
-        <p>Tire une nouvelle alternative au hasard !👇</p>
-        <a href="">Tirer une nouvelle alternative</a>
+    <div class="random-suggestion row mt-5 pb-5">
+      <div class="w-100 d-flex flex-column text-center justify-content-center align-items-center header">
+        <h2 class="text-secondary">La roulette Makyma</h2>
+        <p class="text-secondary mt-2 mb-3">Tire une nouvelle alternative au hasard ! 👇🏼</p>
+        <button type="button" id="random-suggestion-btn" class="mt-3 border rounded border-info pt-3 pb-3 pl-4 pr-4 bg-transparent text-info">Tirer une nouvelle alternative</button>
       </div>
       <!-- aleatoire -->
     </div>
-    <div class="partnership row justify-content-center mt-5">
-      <h2>Ils nous font confiance</h2>
+    <div class="row justify-content-center align-items-center text-center mt-5">
+      <h2 class="text-secondary">Ils nous font confiance</h2>
     </div>
     <div class="about_container row col-md-7 offset-md-1">
       <h2>Qui sommes-nous ?</h2>

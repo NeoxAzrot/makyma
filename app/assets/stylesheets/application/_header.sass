@@ -6,7 +6,11 @@
 	background: linear-gradient(40deg, #FF8F66, #ffeb9a 120%)
 	clip-path: url(#headerClip)
 
+	.description
+		font-size: 1.188rem
+
 	.count-container
+		width: 100vw
 		@media screen and (min-width: 992px)
 			display: flex !important
 		.count
@@ -15,7 +19,7 @@
 		.info-count
 			font-size: 5.875rem
 			font-weight: 700
-			transform: translateY(-7rem)
+			transform: translate(-4rem, -7rem)
 	
 	.search-bar
 		input
@@ -34,10 +38,38 @@
 				z-index: 9999
 				padding: 0
 				margin-top: 0
+				&:hover
+					background: white !important
 
-// .breadcrumb
-//   a
-// 	  color: #ffffff
-//     &:hover
-//       text-decoration: underline
-//       color: #ffffff !important
+.breadcrumb
+	font-weight: 500
+	font-size: 0.938rem
+	line-height: 1.4rem
+	letter-spacing: 0.5px
+	li
+		&:first-child
+			display: none
+		&:last-child
+			font-weight: 700
+			position: relative
+			font-style: italic
+			&::before
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+				width: 100%
+				height: 2px
+				transition: width .4s ease
+				border-radius: 8px
+				background: $light
+	.separator
+		&:nth-child(2)	
+			display: none
+	a
+		color: $light
+		text-decoration: none
+		font-weight: 500
+		&:hover
+			&::before
+				background: $light
