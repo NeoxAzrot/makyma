@@ -10,7 +10,7 @@ namespace :makyma do
 
 		if admin.valid?
 			admin.save()
-			puts "****MAKYMA ADMIN CREATED : email = makymaorg@gmail.com and password = Makyma33!****"
+			puts "> MAKYMA ADMIN CREATED : email = makymaorg@gmail.com and password = Makyma33!"
 
 		elsif admin.errors.any?
 			admin.errors.full_messages.each do |msg|

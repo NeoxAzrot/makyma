@@ -27,6 +27,7 @@ a
 	font-size: 0.938rem
 	letter-spacing: 0.5px
 	position: relative
+	text-decoration: none
 
 	&::before
 		content: ''
@@ -42,9 +43,15 @@ a
 		&::before
 			width: 100%
 
-button
+button, .button
 	transition: background .4s ease, color .4s ease
+	user-select: none
 	&:hover
 		background: $info !important
 		color: $light !important
-		
+		text-decoration: none
+		&::before
+			width: 0
+
+img
+	user-select: none

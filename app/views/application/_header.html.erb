@@ -4,27 +4,27 @@ large ||= nil
 %>
 <header class="jumbotron bg-transparent text-white">
   <span class="position-fixed" style="opacity: 0.3; right:-60px; top:-50px;">
-    <div class="count-container d-none flex-column justify-content-center align-items-end">
-      <span class="count">
+    <div class="count-container d-lg-flex d-none flex-column justify-content-center align-items-end">
+      <span class="count text-light">
         <%= count %>     
         <%= large %>
       </span>
       <% arrayWithAlternatives = ['categories', 'search', 'products']
         if arrayWithAlternatives.include?(request.path.split('/')[1]) || request.path.split('/')[1].nil? %>
-        <p class="info-count">alternative<%= "s" if count > 1%></p>
+        <p class="info-count text-light">alternative<%= "s" if count > 1%></p>
       <% end %>
     </div>
   </span>
   <div class="container">
     <div class="row">
-      <ol class="breadcrumb bg-transparent" id="ariane">
+      <ol class="breadcrumb bg-transparent text-light" id="ariane">
         <%= render_breadcrumbs :tag => :li, :separator => "<span class='separator'>&nbsp;/&nbsp;</span>" %>
       </ol>
     </div>
     <div class="row offset-md-1">
       <div class="col-lg-7">
-        <h1><%= raw title %></h1>
-        <p class="mt-3 mb-4 description"><%= raw text %></p>
+        <h1 class="text-light"><%= raw title %></h1>
+        <p class="mt-3 mb-4 description text-light"><%= raw text %></p>
         <%= form_tag(search_path, :method => "get") do %>  
           <div class="search">
             <div class="search-bar position-relative">
@@ -36,7 +36,7 @@ large ||= nil
             </div>
             <div class="d-flex align-items-end justify-content-start ml-3">
               <%= image_tag asset_path('arrow.svg'), class: "img-fluid", alt: "Icône d'une flèche" %>
-              <p>Tu peux par exemple chercher « éponge » 🧽</p> 
+              <p class="text-light">Tu peux par exemple chercher « éponge » 🧽</p> 
             </div>
           </div>  
         <% end %>   

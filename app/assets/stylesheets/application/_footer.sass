@@ -1,10 +1,10 @@
-.footer
-	margin-top: 60px
+.footer-container
 	clip-path: url(#footerClip)
 	a
-		color: black
-		&:hover
-			text-decoration: none
-			color: #ff8f66
-	#copyright
-		margin-bottom: 30px
+		font-size: 0.75rem
+		text-decoration: none
+		&.copyright
+			font-weight: 500
+		&::before
+			background: $secondary
+			height: 1.5px

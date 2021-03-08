@@ -10,8 +10,8 @@
   </defs>
   <g id="Groupe_90" data-name="Groupe 90" transform="translate(-459.081 -555.983)">
     <g transform="matrix(1, 0, 0, 1, 459.08, 555.98)" filter="url(#Tracé_46)">
-      <path id="Tracé_46-2" data-name="Tracé 46" d="M-8060.747,7297.155s3.63,29.547,27.289,28.21" transform="translate(8084.92 -7274.98)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+      <path id="Tracé_46-2" data-name="Tracé 46" d="M-8060.747,7297.155s3.63,29.547,27.289,28.21" transform="translate(8084.92 -7274.98)" fill="none" stroke="#F7F7F7" stroke-linecap="round" stroke-width="3"/>
     </g>
-    <path id="Tracé_47" data-name="Tracé 47" d="M-8065.968,7311.515l5.214-15.29,14.547,8.327" transform="translate(8543 -6719)" fill="none" stroke="#fff" stroke-linecap="square" stroke-linejoin="round" stroke-width="3"/>
+    <path id="Tracé_47" data-name="Tracé 47" d="M-8065.968,7311.515l5.214-15.29,14.547,8.327" transform="translate(8543 -6719)" fill="none" stroke="#F7F7F7" stroke-linecap="square" stroke-linejoin="round" stroke-width="3"/>
   </g>
 </svg>

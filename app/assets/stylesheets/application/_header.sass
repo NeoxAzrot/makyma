@@ -11,8 +11,7 @@
 
 	.count-container
 		width: 100vw
-		@media screen and (min-width: 992px)
-			display: flex !important
+		user-select: none
 		.count
 			font-size: 25rem
 			font-weight: 700
@@ -25,6 +24,8 @@
 		input
 			outline: none
 			max-width: none
+			background: $light
+			user-select: none
 		
 		.button-container
 			right: 1.5rem
@@ -33,13 +34,14 @@
 
 			button
 				outline: none
-				background: white
+				background: $light
 				box-shadow: none
 				z-index: 9999
 				padding: 0
 				margin-top: 0
+				padding-left: .25rem
 				&:hover
-					background: white !important
+					background: transparent !important
 
 .breadcrumb
 	font-weight: 500
@@ -47,8 +49,6 @@
 	line-height: 1.4rem
 	letter-spacing: 0.5px
 	li
-		&:first-child
-			display: none
 		&:last-child
 			font-weight: 700
 			position: relative
@@ -63,9 +63,6 @@
 				transition: width .4s ease
 				border-radius: 8px
 				background: $light
-	.separator
-		&:nth-child(2)	
-			display: none
 	a
 		color: $light
 		text-decoration: none

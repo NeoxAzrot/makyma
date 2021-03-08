@@ -11,7 +11,7 @@
   </div>
     <div class="row justify-content-center pt-3">
       <% @categories.each do |category| %>
-        <div class="col-lg-4">
+        <div class="col-md-6 col-lg-4">
           <%= link_to category, class: "text-decoration-none" do %>
             <div class="card category shadow-sm mb-4 border-info">
               <div class="card-body">
@@ -29,47 +29,80 @@
         </div>
       <% end %>
     </div>
+
     <div class="tutorial-container row justify-content-center">
-        <div class="col-md-4 mb-5">
-          <div class="row justify-content-start align-items-start">
-            <p class="number text-primary">1</p>
-            <%= image_tag asset_path('search.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 1" %>
-          </div>
-            <p><strong class="text-primary">Recherche</strong> un produit dans la <span>barre de recherche</span> ou dans nos <span>catégories</span></p>
+      <div class="col-md-4 mb-5">
+        <div class="row justify-content-start align-items-start">
+          <p class="number text-primary">1</p>
+          <%= image_tag asset_path('search.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 1" %>
+        </div>
+          <p class="text-secondary"><strong class="text-primary">Recherche</strong> un produit dans la <span>barre de recherche</span> ou dans nos <span>catégories</span></p>
+      </div> 
+      <div class="col-md-4 mb-5">
+        <div class="row">
+          <p class="number text-primary">2</p>
+          <%= image_tag asset_path('eyes.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 2" %>
+        </div>
+        <p class="text-secondary"><strong class="text-primary">Découvre</strong> les différentes <span>alternatives</span> qui te sont <span>proposées</span></p>
+      </div> 
+      <div class="col-md-4 mb-5"> 
+        <div class="row">
+          <p class="number text-primary">3</p>
+          <%= image_tag asset_path('hand_finger_top.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 3" %>
         </div> 
-        <div class="col-md-4 mb-5">
-          <div class="row">
-            <p class="number text-primary">2</p>
-            <%= image_tag asset_path('eyes.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 2" %>
-          </div>
-          <p><strong class="text-primary">Découvre</strong> les différentes <span>alternatives</span> qui te sont <span>proposées</span></p>
-        </div> 
-        <div class="col-md-4 mb-5"> 
-          <div class="row">
-            <p class="number text-primary">3</p>
-            <%= image_tag asset_path('hand_finger_top.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 3" %>
-          </div> 
-          <p><strong class="text-primary">Choisi</strong> celle qui te <span>correspond</span> le plus et <span>change le monde</span> à ton échelle !</p>
-        </div> 
+        <p class="text-secondary"><strong class="text-primary">Choisi</strong> celle qui te <span>correspond</span> le plus et <span>change le monde</span> à ton échelle !</p>
+      </div> 
     </div>
-    <div class="random-suggestion row mt-5 pb-5">
-      <div class="w-100 d-flex flex-column text-center justify-content-center align-items-center header">
+
+    <div class="random-suggestion container mt-5 pb-5">
+      <div class="row flex-column text-center justify-content-center align-items-center header">
         <h2 class="text-secondary">La roulette Makyma</h2>
         <p class="text-secondary mt-2 mb-3">Tire une nouvelle alternative au hasard ! 👇🏼</p>
-        <button type="button" id="random-suggestion-btn" class="mt-3 border rounded border-info pt-3 pb-3 pl-4 pr-4 bg-transparent text-info">Tirer une nouvelle alternative</button>
+        <button type="button" id="random-alternative-btn" class="mt-3 border rounded border-info pt-3 pb-3 pl-4 pr-4 bg-transparent text-info">Tire une autre alternative</button>
       </div>
-      <!-- aleatoire -->
+      <div class="row justify-content-center align-items-center mt-5">
+        <% randIndex = rand(1...@alternatives.size) %>
+        <div class="col-md-6 text-container mb-5">
+          <div class="header-alternative row justify-content-between align-items-center mb-3">
+            <h3 class="text-primary mb-0"><%= @alternatives[randIndex].title %></h3>
+            <p class="filter text-primary mb-0">
+            <% if @alternatives[randIndex].alternative_type_filter.to_s == 'En ligne' %>
+              <span>🛒</span>
+            <% end %>
+            <% if @alternatives[randIndex].alternative_type_filter.to_s == 'DIY' %>
+              <span>✂️</span>
+            <% end %>
+            <% if @alternatives[randIndex].alternative_type_filter.to_s == 'Local' %>
+              <span>🚲</span>
+            <% end %>
+            <%= @alternatives[randIndex].alternative_type_filter %>
+            </p>
+          </div>
+          <p class="text-secondary mb-4"><%= @alternatives[randIndex].description %></p>
+          <h3 class="text-primary mb-3">Où trouver ?</h3>
+          <p class="text-secondary mb-4"><%= @alternatives[randIndex].find %></p>
+
+          <a href="<%= @alternatives[randIndex].source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3">Je visite le site !</a>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex justify-content-center align-items-center">
+            <img class="img-fluid rounded w-100" src="<%= @alternatives[randIndex].imgUrl %>" alt="Image correspondant à l'aternative <%= @alternatives[randIndex].title %>">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row justify-content-center align-items-center text-center mt-5">
-      <h2 class="text-secondary">Ils nous font confiance</h2>
-    </div>
-    <div class="about_container row col-md-7 offset-md-1">
-      <h2>Qui sommes-nous ?</h2>
-      <p>Makyma permet d’accompagner ta transition écologique le plus facilement possible. 
-      Avec une utilisation facile pour tout le monde, même ta grand-mère peut y arriver ! 
-      Choisis d’acheter local, de le faire par toi même, ou de commander sur internet. 
-      Tu choisis ce que tu préfères !</p>
-      <a href="">En savoir plus</a>
+
+    <div class="container partner-container">
+      <div class="row justify-content-center align-items-center text-center mt-5">
+        <h2 class="text-secondary">Ils nous font confiance</h2>
+      </div>
+      <div class="row justify-content-center align-items-center mt-4">
+        <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+          <a href="https://bonsplansecolo.fr/">
+            <%= image_tag asset_path('partenaires/bonsplansecolo.png'), class: "img-fluid", alt: "Icône de notre partenaire bonsplansecolo" %>
+          </a>
+        </div>
+      </div>
     </div>
 
   <% if can? :manage, @category %>
@@ -77,4 +110,20 @@
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle catégorie', new_category_path %></button>
     </div>
   <% end %>
+</div>
+
+<div class="about-container container pt-5 pb-5 bg-primary">
+  <div class="row offset-md-1 mt-5 position-relative pb-5">
+    <div class="col-md-7 mt-5 pb-5">
+      <h2 class="text-primary">Qui sommes-nous ?</h2>
+      <p class="text-secondary mt-4 mb-5">Makyma permet d’accompagner ta transition écologique le plus facilement possible. 
+      Avec une utilisation facile pour tout le monde, même ta grand-mère peut y arriver ! 
+      Choisis d’acheter local, de le faire par toi même, ou de commander sur internet. 
+      Tu choisis ce que tu préfères !</p>
+      <a href="/about" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3">En savoir plus</a>
+    </div>
+    <div class="logo-footer w-100 h-100 position-absolute d-sm-none d-md-flex justify-content-end align-items-center">
+      <%= image_tag asset_path('logo_mobile.svg'), class: "img-fluid mr-5", alt: "Logo de Makyma" %>
+    </div>
+  </div>
 </div>

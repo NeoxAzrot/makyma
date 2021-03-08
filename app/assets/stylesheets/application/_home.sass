@@ -2,6 +2,7 @@
 	border-width: 2px
 	border-radius: 100px
 	transition: background .4s ease
+	user-select: none
 	&:hover
 		background: $info
 		.name-category
@@ -26,6 +27,7 @@
 			opacity: .3
 			font-weight: 700
 			transform: translateY(40px)
+			user-select: none
 
 		span
 			font-weight: 600
@@ -43,90 +45,54 @@
 			font-weight: 600
 			font-size: 1rem
 			outline: none
-    
-// .category
-//     border: solid #55b6a9
-//     border-radius: 50px
-//     transition: all 0.5s
+	
+	h3
+		font-weight: 600
 
-    
-//     &:hover
-//         color: #55B6A9
-//         background-color: #55B6A9
-//         text-decoration: none
-//         h3
-//             color: #ffffff !important
-//             text-decoration: none
+	img
+		max-height: 400px
+		object-fit: cover
 
-//     h3
-//         color: $secondary !important
-//         margin-bottom: 0 !important
+	.header-alternative
+		padding-right: 15px
+		padding-left: 15px
+		.filter
+			font-size: 1rem
+	
+	.button
+		font-weight: 600
+		font-size: 0.75rem
+		&:hover
+			color: $light !important
 
-// .discover_title
-//     h2
-//         color: $secondary
-//         text-align: center
-//         font-size: 33px
-//         font-weight: 600
+.about-container
+	max-width: none
+	background: rgba($primary, .05) !important
+	clip-path: url('#aboutClip')
+	transform: translateY(40px)
 
-// .tutorial_container
-//     .step
-//         .number
-//             color: $info
-//             font-size: 142px
-//             font-weight: 700
-//             opacity: 0.3
-//         .emoji
-//             font-size: 80px
-//         p
-//             color: $secondary
-//             font-size: 16px
-//             span
-//                 font-weight: 600
-//                 color: $secondary
-  
-// .random_suggestion
-//     h2
-//         color: $secondary
-//         text-align: center
-//         font-size: 33px
-//         font-weight: 600
+	a
+		font-weight: 600
+		&:hover
+			color: $light !important
 
-//     p
-//         color: $secondary
-//         text-align: center
-//         font-size: 19px
-//         font-weight: 400
+	.logo-footer
+		opacity: .15
+		z-index: -1
+		img
+			height: 450px
 
-//     a
-//         border: solid 2px #55b6a9
-//         border-radius: 50px
-//         transition: all 0.5s
-//         color: #55b6a9
-//         padding: 12px
-        
-// .partnership
-//     h2
-//         color: $secondary
-//         text-align: center
-//         font-size: 33px
-//         font-weight: 600
+.partner-container
+	.partner
+		img
+			width: 50%
+			@media screen and ( min-width: 576px )
+				width: 75%
 
-// .about_container
-//     h2
-//         color: $primary
-//         font-size: 33px
-//         font-weight: 600
-
-//     p
-//         color: $secondary
-//         font-size: 15px
-//         font-weight: 400
-
-//     a
-//         border: solid 1.5px #55b6a9
-//         border-radius: 50px
-//         transition: all 0.5s
-//         color: #55b6a9
-//         font-size: 15px
-//         padding: 10px
+		a
+			filter : grayscale(100%)
+			transition: filter .4s ease
+			&:hover
+				filter: grayscale(0)
+				&::before
+					width: 0

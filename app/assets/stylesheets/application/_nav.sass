@@ -3,8 +3,6 @@
   z-index: 2
 
   .navbar
-    @media screen and ( max-width: 991px )
-      display: none
     .nav-link
       &:hover, &:focus
         color: $light !important
@@ -12,6 +10,7 @@
         border-width: 2px !important
         margin-top: -2px
         transition: background .4s ease, color .4s ease
+        user-select: none
         &::before
           display: none
         &:hover
@@ -23,9 +22,6 @@
     img
       width: 28px
       height: auto
-
-    .navbar-toggler
-      outline: none
 
     .dropdown
       .dropdown-menu
@@ -58,15 +54,14 @@
   .navbar-mobile
     display: flex
     align-self: center
-    @media screen and ( min-width: 992px )
-      display: none
-
     
     .nav-toggle
       background: none
       outline: none
       border: none
       z-index: 15
+      &:hover
+        background: transparent !important
 
     #nav-container
       width: 100vw

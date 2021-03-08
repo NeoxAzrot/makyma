@@ -5,7 +5,7 @@
         <%= image_tag "logo_computer.svg", class:'logo', alt: "Logotype de Makyma" %>
       </a>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <nav class="navbar d-none d-lg-block navbar-expand-lg navbar-light bg-transparent">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown mr-3 p-2">
@@ -34,7 +34,7 @@
       </div>
     </nav>
 
-    <nav class="navbar-mobile">
+    <nav class="navbar-mobile d-lg-none d-flex">
       <button class="nav-toggle" id="nav-toggle">
         <%= image_tag asset_path('menu.svg'), alt: "Icône symbolisant le menu" %>
       </button>
