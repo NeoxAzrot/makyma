@@ -1,0 +1,30 @@
+<div class="row justify-content-center align-items-center mt-5 flex-column-reverse flex-md-row">
+  <% randIndex = rand(1...@alternatives.size) %>
+  <div class="col-md-6 text-container mb-3">
+    <div class="header-alternative row justify-content-between align-items-center mb-3">
+      <h3 class="text-primary mb-0"><%= @alternatives[randIndex].title %></h3>
+      <p class="filter text-primary mb-0">
+      <% if @alternatives[randIndex].alternative_type_filter.to_s == 'En ligne' %>
+        <span>🛒</span>
+      <% end %>
+      <% if @alternatives[randIndex].alternative_type_filter.to_s == 'DIY' %>
+        <span>✂️</span>
+      <% end %>
+      <% if @alternatives[randIndex].alternative_type_filter.to_s == 'Local' %>
+        <span>🚲</span>
+      <% end %>
+      <%= @alternatives[randIndex].alternative_type_filter %>
+      </p>
+    </div>
+    <p class="text-secondary mb-4"><%= @alternatives[randIndex].description %></p>
+    <h3 class="text-primary mb-3">Où trouver ?</h3>
+    <p class="text-secondary mb-4"><%= @alternatives[randIndex].find %></p>
+
+    <a href="<%= @alternatives[randIndex].source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
+  </div>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-center align-items-center mb-4 mb-md-0">
+      <img class="img-fluid rounded w-100" src="<%= @alternatives[randIndex].imgUrl %>" alt="Image correspondant à l'aternative <%= @alternatives[randIndex].title %>">
+    </div>
+  </div>
+</div>

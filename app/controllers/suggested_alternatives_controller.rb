@@ -21,6 +21,8 @@ class SuggestedAlternativesController < ApplicationController
 
   # GET /suggested_alternatives/new
   def new
+		add_breadcrumb 'Propose une alternative'
+
     @suggested_alternative = SuggestedAlternative.new
   end
 
@@ -37,7 +39,8 @@ class SuggestedAlternativesController < ApplicationController
       if @suggested_alternative.save
 
         MakymaNoticeMailer.suggested_alternative_email.deliver_later
-        format.html { redirect_to @suggested_alternative, notice: "Suggested alternative was successfully created." }
+        #format.html { redirect_to @suggested_alternative, notice: "Suggested alternative was successfully created." }
+        format.html { redirect_to root_path, notice: "Suggested alternative was successfully created." }
         format.json { render :show, status: :created, location: @suggested_alternative }
       else
         format.html { render :new, status: :unprocessable_entity }

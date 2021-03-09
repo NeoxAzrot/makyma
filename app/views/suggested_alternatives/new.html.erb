@@ -1,5 +1,36 @@
-<h1>New Suggested Alternative</h1>
+<%= render 'header',
+    title: 'Propose une alternative',
+    text: 'Nous sommes constamment à la recherche de nouvelles alternatives. Si tu n’as pas trouvé ce que tu cherchais, fais-le nous savoir, nous la rajouterons au plus vite 🤞',
+    large: '!!!'
+%>
 
-<%= render 'form', suggested_alternative: @suggested_alternative %>
+<div class="container mb-5 form-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-primary">Écris-nous ton idée</h2>
+			<p class="text-secondary mt-3 sub_paragraph">Tous les champs marqués d’un <span class="text-primary">*</span> sont obligatoires.</p>
+    </div>
+  </div>
+  <div class="row mt-4">
+		<div class="col">
+		<%= simple_form_for @suggested_alternative, html: { class:"suggest-form"} do |f| %>
+			<%= f.error_notification %>
+			<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= link_to 'Back', suggested_alternatives_path %>
+			<div class="form-row align-items-end justify-content-between">
+				<%= f.association :product, as: :select, label: 'Produit', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' } %>
+				<%= f.association :alternative_type_filter, as: :select, label: "De quel type d'alternative s'agit-il", label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' } %>
+			</div>
+				<%= f.input :title, as: :string, label: "Nom de l'alternative", label_html: { class: 'text-secondary ml-4' }, required: true %>
+				<%= f.input :description, as: :text, :input_html => { :rows => 5 }, label: "Description de ton alternative", label_html: { class: 'text-secondary ml-4' } %>
+				<%= f.input :find, as: :text, :input_html => { :rows => 5 }, label: "Où peut-on trouver ton alternative", label_html: { class: 'text-secondary ml-4' } %>
+			<div class="form-row align-items-end justify-content-between">
+				<%= f.input :source, as: :url, label: "Lien d'un site qui explique comment fabriquer, ou vend ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' } %>
+				<%= f.input :imgUrl, as: :url, label: "L'url d'une image de ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' } %>
+			</div>
+
+			<%= f.button :submit, 'Envoyer', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm' %>
+		<% end %>
+		</div>
+  </div>
+</div>
