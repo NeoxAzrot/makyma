@@ -6,6 +6,8 @@ class SearchController < ApplicationController
     @nbOfResults = 0
     searchItems = Array.new
 
+    add_breadcrumb 'Résultats de recherche'
+
     # TO SPEED UP THE SEARCH, THE DICO CAN BE STORE IN A DB INSTEAD OF RECREATE IT ANY TIME
     # FOR SORT RESULTS : multiples dico (title, descriptions, ...)
     #fill product dico

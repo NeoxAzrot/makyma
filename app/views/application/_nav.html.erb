@@ -14,7 +14,7 @@
             </a>
             <div class="dropdown-menu border-info pt-3 pb-3 pl-4 pr-4" aria-labelledby="navbarDropdown">
               <% Category.all.each_with_index do |category, index| %>
-                <div class="d-flex <%= "mb-3" if Category.all.length - 1 != index %>">
+                <div class="d-flex justify-content-start align-items-center <%= "mb-3" if Category.all.length - 1 != index %>">
                   <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
                   <a class="dropdown-item text-dark pl-3" href="/categories/<%= index + 1 %>"><%= category %></a>
                 </div>
