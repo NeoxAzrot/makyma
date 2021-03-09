@@ -1,38 +1,55 @@
 <%= render 'header',
-            title: @category.title,
+            title: "#{@category.alternatives.count} alternative#{"s" if @category.alternatives.count > 1} écologique#{"s" if @category.alternatives.count > 1} pour la catégorie #{@category.title.downcase}",
             text: @category.description,
             count: @category.alternatives.count %>
 
-<div class="container category__products">
-  <div class="row">
-    <div class='filter'>
-      <p>Filtrer :</p>
-        <label for="local">🚲 Local</label>
-        <input type="checkbox" id="local" name="local"checked>
-          <%=image_tag asset_path('separation.svg')%>
-        <label for="DIY">✂️ DIY</label>
-        <input type="checkbox" id="DIY" name="DIY"checked>
-          <%=image_tag asset_path('separation.svg')%>
-        <label for="onligne">🛒 En Ligne</label>
-        <input type="checkbox" id="onligne" name="onligne"checked>
-    </div>
-    <div class="result">
-      <p>33 résultats</p>
-    </div>
-    <div class="col-md-8 offset-md-2">
-      <% @category.products.each do |product| %>
+<div class="container products-container">
+	<div class="row offset-md-3">
+		<div class="col-md-8 mb-5">
+			<div class="d-flex justify-content-between align-items-center filter-container">
+				<p class="mb-0"><span class="mr-1">🚲</span> Local</p>
+				<span class="bg-secondary rounded filter-separator"></span>
+				<p class="mb-0"><span class="mr-1">✂️</span> DIY</p>
+				<span class="bg-secondary rounded filter-separator"></span>
+				<p class="mb-0"><span class="mr-1">🛒</span> En ligne</p>
+			</div>
+		</div>
+	</div>
 
-        <div class="product">
-          <div class="product-text">
-            <h4><a href="<%= product_url(product) %>"><%= product %></a></h4>
-            <p class="alternatives-count"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></p>
+  <div class="row mb-5 offset-lg-2">
+    <div class="col-lg-10">
+      <% @category.products.each do |product| %>
+        <a href="<%= product_url(product) %>" class="link-container">
+          <div class="product-container d-flex justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
+            <div class="mr-3">
+              <h3 class="text-secondary mb-0 text-break"><%= product %></h3>
+              <p class="text-secondary mb-0 nb-alternatives mt-2"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="text-primary mb-0 d-flex flex-column flex-sm-row mr-3">
+              <% arrayOfFilter = []
+              for i in (0...product.alternatives.count)
+                if(arrayOfFilter.exclude?product.alternatives[i].alternative_type_filter.to_s)
+                    arrayOfFilter.push(product.alternatives[i].alternative_type_filter.to_s)
+                end
+              end
+              for i in(0..arrayOfFilter.length) %>
+                <% if arrayOfFilter[i] == 'En ligne' %>
+                  <span>🛒</span>
+                <% end %>
+                <% if arrayOfFilter[i] == 'DIY' %>
+                  <span>✂️</span>
+                <% end %>
+                <% if arrayOfFilter[i] == 'Local' %>
+                  <span>🚲</span>
+                <% end %>
+              <% end %>
+              </p>
+              <div class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm button-link" href="<%= product_url(product) %>">Je change !</div>
+            </div>
           </div>
-          <a class="btn mt-2 mb-2" href="<%= product_url(product) %>">Je change</a>
-        </div>
+        </a>
       <% end %>
-    </div>
-    <div class='btn_see_more'>
-      <a href=''>Voir Plus</a>
     </div>
   </div>
 </div>
@@ -42,7 +59,6 @@
     <div class="row justify-content-around my-5">
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
-      <%# <!-- <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Retour', categories_path %>
     </div>
   </div>
 <% end %>

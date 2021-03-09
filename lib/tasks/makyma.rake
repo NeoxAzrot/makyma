@@ -8,11 +8,11 @@ namespace :makyma do
     AlternativeTypeFilter.where( title: 'Local').first_or_create
 
     {
-        entretien: ['Entretien et ménage', 'broom.png', 'Change tes produits et objets d’entretien par les alternatives vertes, durables et écoresponsables qui te plaisent ! Makyma te propose les alternatives pour une maison propre sans salir notre planète. Des produits durables pour un entretien d’enfer ! 🧽'],
-        maison: ['Cuisine', 'bowl.png', 'Change le monde à ton échelle en remplaçant les objets de ton quotidien par des alternatives vertes et durables ! On te sert des solutions sur un plateau, c’est du tout cuit 🍽'],
-        electronique: ['Numérique', 'computer.png', 'Déniche les alternatives vertes, durables et écoresponsables aux produits numériques habituels ! Makyma te mets au courant des alternatives que te permettent de rester autant connecter à internet qu’à la planète. Réveille le geek-écolo qui sommeille en toi ! 💻'],
-        exterieur: ['Jardin', 'herb.png', 'Découvre les alternatives vertes, durables et écoresponsables aux produits de jardinage habituel ! Makyma te présente les alternatives qui s’occupent autant de tes plantes vertes que de la planète bleue. Prend l’air vert ! 🌿'],
-        hygiene: ['Hygiène', 'bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits de beauté ! Makyma te conseille les alternatives qui prennent tout autant soin de ta peau que de la planète. La seule hygiène qui vaille, c’est celle qui dure ! 🧴']
+        entretien: ['Entretien et ménage', 'broom.png', 'Change tes produits et objets d’entretien par les alternatives vertes, durables et écoresponsables qui te plaisent ! Makyma te propose les alternatives pour une maison propre sans salir notre planète. Des produits durables pour un entretien d’enfer 🧽'],
+        maison: ['Cuisine', 'bowl.png', 'Change le monde à ton échelle en remplaçant les objets de ton quotidien par des alternatives vertes et durables ! On te sert des solutions sur un plateau, c’est du tout cuit 🍽️'],
+        electronique: ['Numérique', 'computer.png', 'Déniche les alternatives vertes, durables et écoresponsables aux produits numériques habituels ! Makyma te mets au courant des alternatives que te permettent de rester autant connecter à internet qu’à la planète. Réveille le geek-écolo qui sommeille en toi 💻'],
+        exterieur: ['Jardin', 'herb.png', 'Découvre les alternatives vertes, durables et écoresponsables aux produits de jardinage habituel ! Makyma te présente les alternatives qui s’occupent autant de tes plantes vertes que de la planète bleue. Prend l’air vert 🌿'],
+        hygiene: ['Hygiène', 'bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits de beauté ! Makyma te conseille les alternatives qui prennent tout autant soin de ta peau que de la planète. La seule hygiène qui vaille, c’est celle qui dure 🧴']
     }.each do |file, cat|
         puts "Import #{cat}"
         path = "vendor/data/#{file}.csv"

@@ -65,6 +65,9 @@ class SearchController < ApplicationController
         @alternatives += Alternative.where("lower(unaccent(title)) LIKE :search OR lower(unaccent(description)) LIKE :search", search: "%#{item}%")
       end
 
+      @products = @products.sort_by(&:title)
+      @alternatives = @alternatives.sort_by(&:title)
+
       # keep only one element for same word
       @products = drop_duplicates(@products)
       @alternatives = drop_duplicates(@alternatives)
@@ -83,6 +86,7 @@ class SearchController < ApplicationController
         #suggestion = Product.find( rand(nbOfProducts))
         suggestion = Product.order("id").offset(rand(nbOfProducts)).first
       end
+      @suggestions = @suggestions.sort_by(&:title)
     end
 	end
 

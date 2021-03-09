@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 	private
 		def redirect_cannotManage(controller)
 			if cannot? :manage, controller
-				redirect_to :root
+				redirect_to '/404'
 			end
 		end
 

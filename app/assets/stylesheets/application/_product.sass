@@ -1,106 +1,33 @@
-// .alt-main-title
-//     color: #F28D69
-//     font-size: 2.063rem
-//     font-weight: 600
-//     margin: 5rem 0 5rem 3rem
+.products-container
+  h3
+    font-weight: 600
+    font-size: 1.438rem
+    letter-spacing: 0
+  .button
+    font-weight: 600
+    font-size: 0.75rem
+    &:hover
+      color: $light !important
+  .nb-alternatives
+    font-size: 0.75rem
+    line-height: 1rem
+  
+  .link-container
+    .product-container
+      transition: box-shadow .4s ease
+    &:hover
+      &::before
+        width: 0
+      .product-container
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
+      .button
+        background: $info !important
+        color: $light !important
+        text-decoration: none
+        &::before
+          width: 0
 
-// .alt
-//     &:not(:last-child)
-//         margin-bottom: 8vw
-
-//     .alt-text
-//         h3
-//             font-size: 1.57rem
-//             font-weight: 600
-//             color: #F28D69
-//             margin-bottom: 1.8rem
-
-//         h4
-//             font-size: 1.35rem
-//             font-weight: 400
-//             color: #F28D69
-//             margin: 1.8rem 0
-        
-//         p
-//             font-size: 1.1rem
-//             color: #707070
-        
-//         .btn.btn-product
-//             padding: 0.6rem 1.4rem
-//             color: #55B6A9
-//             font-size: 0.938rem
-//             font-weight: 600
-//             border: solid 2px #55B6A9
-//             border-radius: 100rem
-//             box-shadow: none
-//             background-color: transparent
-//             transition: background-color 0.3s
-
-//             &:hover
-//                 background-color: #55B6A9
-//                 color: white
-        
-//         .alt-header
-//             display: flex
-//             justify-content: space-between
-
-//             h3
-//                 max-width: 75%
-
-//             span
-//                 display: block
-//                 text-align: right
-//                 font-size: 1.4rem
-//                 color: #F28D69
-    
-//     img
-//         height: 100%
-//         border-radius: 6%
-
-// .alt-suggestion
-//     text-align: center
-//     border: solid 2px #55B6A9
-//     width: 50%
-//     margin: 10vw auto
-//     padding: 3rem 0.8rem
-//     border-radius: 32px
-
-//     h3
-//         color: #707070
-//         font-size: 1.438rem
-//         width: 100%
-    
-//     a
-//         padding: 0.6rem 1.4rem
-//         color: #55B6A9
-//         font-size: 0.938rem
-//         font-weight: 600
-//         border: solid 2px #55B6A9
-//         border-radius: 100rem
-//         box-shadow: none
-//         background-color: transparent
-//         transition: background-color 0.3s
-//         text-decoration: none
-
-//         &:hover
-//             background-color: #55B6A9
-//             color: white
-
-
-// // ADD FROM LAYOUT
-// // .btn-product
-// // 	background-color: $primary
-// // 	color: white
-// // 	font-weight: bold
-// // 	padding: 16px 22px
-// // 	border-radius: 15px
-// // 	box-shadow: 0px 5px 10px #ff734032 //rgba(0, 0, 0, 0.15)
-// // 	transition: background-color 0.3s, box-shadow 0.3s
-
-// // 	&:hover
-// // 		background-color: #ff7340
-// // 		color: white
-// // 		text-decoration: none
-	
-// // 	&:active
-// // 		color: white
+  .filter-container
+    .filter-separator
+      height: 15px
+      width: 2px

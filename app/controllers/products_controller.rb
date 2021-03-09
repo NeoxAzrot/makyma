@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    redirect_cannotManage(@alternatives)
     @products = Product.all
     @search = params["search"]
     if @search.present?

@@ -1,42 +1,75 @@
 .search-bar
-    display: flex
-    align-items: center
-    justify-content: right
+  display: flex
+  align-items: center
+  justify-content: right
 
-    @media screen and (max-width: 768px)
-        justify-content: center
-    
-    @media screen and (max-width: 600px)
-        display: block
-
-        button
-            margin-right: 0
-            margin-top: 2vh
-
-    input
-        max-width: 80vw
-        border: none
-        background-color: white
-        border-radius: 20px
-        padding: 10px
-        margin-right: 1vw
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12)
-        transition: box-shadow 0.2s ease-in-out
-
-        &:focus 
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0)
+  @media screen and (max-width: 768px)
+    justify-content: center
+  
+  @media screen and (max-width: 600px)
+    display: block
 
     button
-        border: none
-        background-color: white
-        border-radius: 8px
-        padding: 10px
-        margin-right: 1vw
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12)
-        color: #3b3b3b
-        transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out
+      margin-right: 0
+      margin-top: 2vh
 
-        &:hover 
-            color: black
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0)
-	
+  input
+    max-width: 80vw
+    border: none
+    background-color: white
+    border-radius: 20px
+    padding: 10px
+    margin-right: 1vw
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12)
+    transition: box-shadow .4s ease-in-out
+
+    &:focus 
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0)
+
+  button
+    border: none
+    background-color: white
+    border-radius: 8px
+    padding: 10px
+    margin-right: 1vw
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12)
+    color: #3b3b3b
+    transition: box-shadow .4s ease-in-out, color .4s ease-in-out
+
+    &:hover 
+      color: black
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0)
+
+.search-container
+  h3
+    font-weight: 600
+    font-size: 1.438rem
+    letter-spacing: 0
+  .button
+    font-weight: 600
+    font-size: 0.75rem
+    &:hover
+      color: $light !important
+  .nb-alternatives
+    font-size: 0.75rem
+    line-height: 1rem
+  
+  .link-container
+    .product-container
+      transition: box-shadow .4s ease
+    &:hover
+      &::before
+        width: 0
+      .product-container
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
+      .button
+        background: $info !important
+        color: $light !important
+        text-decoration: none
+        &::before
+          width: 0
+
+  .filter-container
+    .filter-separator
+      height: 15px
+      width: 2px

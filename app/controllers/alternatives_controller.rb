@@ -4,12 +4,14 @@ class AlternativesController < ApplicationController
   # GET /alternatives
   # GET /alternatives.json
   def index
+    redirect_cannotManage(@alternatives)
     @alternatives = Alternative.order("created_at DESC").all
   end
 
   # GET /alternatives/1
   # GET /alternatives/1.json
-  def show 
+  def show
+    redirect_cannotManage(@alternatives)
     @product = @alternative.product
     @category = @product.category
     add_breadcrumb @category, @category

@@ -16,7 +16,7 @@ large ||= nil
     </div>
   </span>
   <div class="container">
-    <div class="row">
+    <div class="row mb-3">
       <ol class="breadcrumb bg-transparent text-light" id="ariane">
         <%= render_breadcrumbs :tag => :li, :separator => "<span class='separator'>&nbsp;/&nbsp;</span>" %>
       </ol>
@@ -34,9 +34,9 @@ large ||= nil
                 <%= button_tag image_tag asset_path('search.svg'), class: "img-fluid", alt: "Icône d'une loupe faire sa recherche", :name => nil %>
               </span>
             </div>
-            <div class="d-flex align-items-end justify-content-start ml-3">
-              <%= image_tag asset_path('arrow.svg'), class: "img-fluid", alt: "Icône d'une flèche" %>
-              <p class="text-light">Tu peux par exemple chercher « éponge » 🧽</p> 
+            <div class="d-flex align-items-start justify-content-start ml-3">
+              <%= image_tag asset_path('arrow.svg'), class: "img-fluid mt-2", alt: "Icône d'une flèche" %>
+              <p class="text-light mt-5">Tu peux par exemple chercher « éponge » 🧽</p> 
             </div>
           </div>  
         <% end %>   
