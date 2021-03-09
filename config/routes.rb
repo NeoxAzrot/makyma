@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   get '/contact', to: 'contacts#new'
   post '/contact', to: 'contacts#create'
-  get "/pages/:page" => "pages#show"
+  #get "/pages/:page" => "pages#show"
   get '/search', to: 'search#index', as: 'search'
 
   match '/about', to: 'pages#about', via: 'get'
