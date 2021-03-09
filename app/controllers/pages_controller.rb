@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 	end
 
 	def suggestion 
-		add_breadcrumb 'Proposer une alternative'
+		add_breadcrumb 'Propose une alternative'
 	end
 
 end
