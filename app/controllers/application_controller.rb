@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-	# A modifier pour ajouter sur toutes les pages quand le breadcrum marchera pour les pages statics
-	#add_breadcrumb 'Accueil', :root_path
+	add_breadcrumb 'Accueil', :root_path
 
 	def original_url
 	  base_url + original_fullpath

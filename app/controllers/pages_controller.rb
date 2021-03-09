@@ -1,28 +1,23 @@
 class PagesController < ApplicationController
-	#add_breadcrumb 'test', '/'
 
 	def show
 		render template: "pages/#{params[:page]}"
 	end
 	
 	def about 
-		add_breadcrumb 'Accueil', :root_path
-		add_breadcrumb 'À propos', 'about'
+		add_breadcrumb 'À propos'
 	end
 
 	def cgu 
-		add_breadcrumb 'Accueil', :root_path
-		add_breadcrumb 'Mentions Légales', 'cgu'
+		add_breadcrumb 'Mentions légales'
 	end
 
 	def presse 
-		add_breadcrumb 'Accueil', :root_path
-		add_breadcrumb 'Nos ressources presse', 'Presse'
+		add_breadcrumb 'Nos ressources presse'
 	end
 
 	def suggestion 
-		add_breadcrumb 'Accueil', :root_path
-		add_breadcrumb 'Proposer une alternative', 'suggestion'
+		add_breadcrumb 'Proposer une alternative'
 	end
 
 end
