@@ -21,7 +21,6 @@ class SuggestedAlternativesController < ApplicationController
 
   # GET /suggested_alternatives/new
   def new
-    redirect_cannotManage(@suggested_alternatives)
     @suggested_alternative = SuggestedAlternative.new
   end
 
@@ -32,7 +31,6 @@ class SuggestedAlternativesController < ApplicationController
 
   # POST /suggested_alternatives or /suggested_alternatives.json
   def create
-    redirect_cannotManage(@suggested_alternatives)
     @suggested_alternative = SuggestedAlternative.new(suggested_alternative_params)
 
     respond_to do |format|
