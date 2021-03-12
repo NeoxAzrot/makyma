@@ -1,7 +1,7 @@
 class Contact
   include ActiveModel::Model
   
-  attr_accessor :name, :email, :body
+  attr_accessor :name, :subject, :email, :body
 
   validates :email, 
     :presence => :true,
@@ -9,6 +9,6 @@ class Contact
       :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
       :message => "Ton adresse mail ne semble pas valide"
     }
-  validates :name, :body, :presence => :true
+  validates :name, :subject, :body, :presence => :true
  
 end
