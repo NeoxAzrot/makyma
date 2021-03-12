@@ -2,11 +2,12 @@ class ContactsController < ApplicationController
   protect_from_forgery
 
   def new
-    @contact = Contact.new
     add_breadcrumb 'Contact'
+    @contact = Contact.new
   end
 
   def create
+    add_breadcrumb 'Contact'
     @contact = Contact.new contact_params
     if @contact.valid?
       ContactMailer.contact_form(@contact).deliver_now

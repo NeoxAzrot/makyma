@@ -70,11 +70,9 @@
   </div>
 </div>
 
-<!-- Pour régler l'erreur dans la console de boostrap de manière très crade -->
-<span id="deroulant-options"></span>
-
-<%= javascript_tag do %>
+<%= javascript_tag do %>  
   $('#nav-toggle').click(function() {
     $('#nav-container').toggleClass('active')
+    $('body').toggleClass('menu-active')
   })
 <% end %>

@@ -13,24 +13,24 @@
   </div>
   <div class="row mt-4">
 		<div class="col">
-		<%= simple_form_for @suggested_alternative, html: { class:"suggest-form"} do |f| %>
-			<%= f.error_notification %>
-			<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+			<%= simple_form_for @suggested_alternative, html: { class:"suggest-form"} do |f| %>
+				<%= f.error_notification %>
+				<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-			<div class="form-row align-items-end justify-content-between">
-				<%= f.association :product, as: :select, label: 'Produit', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' } %>
-				<%= f.association :alternative_type_filter, as: :select, label: "De quel type d'alternative s'agit-il", label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' } %>
-			</div>
-				<%= f.input :title, as: :string, label: "Nom de l'alternative", label_html: { class: 'text-secondary ml-4' }, required: true %>
-				<%= f.input :description, as: :text, :input_html => { :rows => 5 }, label: "Description de ton alternative", label_html: { class: 'text-secondary ml-4' } %>
-				<%= f.input :find, as: :text, :input_html => { :rows => 5 }, label: "Où peut-on trouver ton alternative", label_html: { class: 'text-secondary ml-4' } %>
-			<div class="form-row align-items-end justify-content-between">
-				<%= f.input :source, as: :url, label: "Lien d'un site qui explique comment fabriquer, ou vend ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' } %>
-				<%= f.input :imgUrl, as: :url, label: "L'url d'une image de ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' } %>
-			</div>
+				<div class="form-row align-items-start justify-content-between">
+					<%= f.association :product, as: :select, label: "De quel produit s'agit-il ?", label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️', :input_html => { class: 'input-form' } %>
+					<%= f.association :alternative_type_filter, as: :select, label: "De quel type d'alternative s'agit-il ?", label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form' } %>
+				</div>
+					<%= f.input :title, as: :string, label: "Nom de ton alternative", placeholder: 'Tu peux par exemple écrire « Éponge Tawashi »', label_html: { class: 'text-secondary ml-4' }, required: true, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form px-3 py-3' } %>
+					<%= f.input :description, as: :text, :input_html => { :rows => 4, class: 'input-form px-3 py-2' }, label: "Description de ton alternative", placeholder: 'Ici, tu dois renseigner une brève description de ton alternative', label_html: { class: 'text-secondary ml-4' } %>
+					<%= f.input :find, as: :text, :input_html => { :rows => 4, class: 'input-form px-3 py-2' }, label: "Description d'un endroit où l'on peut trouver ton alternative", placeholder: 'Tu peux ici décrire où trouver ton alternative', label_html: { class: 'text-secondary ml-4' } %>
+				<div class="form-row align-items-end justify-content-between">
+					<%= f.input :source, as: :url, label: "Lien d'un site qui explique comment fabriquer ou vend ton alternative", placeholder: "Inscris le lien d'un site internet qui propose ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' }, :input_html => { class: 'input-form px-3 py-3' } %>
+					<%= f.input :imgUrl, as: :url, label: "Lien d'une image de ton alternative", placeholder: "Propose nous le lien d'une image illustrant ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' }, :input_html => { class: 'input-form px-3 py-3' } %>
+				</div>
 
-			<%= f.button :submit, 'Envoyer', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm' %>
-		<% end %>
+				<%= f.button :submit, 'Envoyer', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm mt-2' %>
+			<% end %>
 		</div>
   </div>
 </div>

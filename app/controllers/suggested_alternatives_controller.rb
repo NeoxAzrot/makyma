@@ -34,6 +34,7 @@ class SuggestedAlternativesController < ApplicationController
   # POST /suggested_alternatives or /suggested_alternatives.json
   def create
     @suggested_alternative = SuggestedAlternative.new(suggested_alternative_params)
+		add_breadcrumb 'Propose une alternative'
 
     respond_to do |format|
       if @suggested_alternative.save

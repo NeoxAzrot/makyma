@@ -4,6 +4,8 @@ class SuggestedAlternative < ApplicationRecord
 
   default_scope { order(:title) }
 
+  validates :product, :alternative_type_filter, :title, :presence => :true
+
   def to_s
     "#{title}"
   end

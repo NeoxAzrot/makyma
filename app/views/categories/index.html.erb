@@ -60,48 +60,67 @@
         <p class="text-secondary mt-2 mb-3">Tire une nouvelle alternative au hasard ! 👇🏼</p>
         <button type="button" id="random-alternative-btn" class="shadow-sm mt-3 border rounded border-info pt-3 pb-3 pl-4 pr-4 bg-transparent text-info">Tire une autre alternative</button>
       </div>
-      <div class="row justify-content-center align-items-center mt-5 flex-column-reverse flex-md-row">
+      <div class="row mt-1 roulette-container">
         <% randIndex = rand(1...@alternatives.size) %>
-        <div class="col-md-6 text-container mb-3">
-          <div class="header-alternative row justify-content-between align-items-center mb-3">
-            <h3 class="text-primary mb-0"><%= @alternatives[randIndex].title %></h3>
-            <p class="filter text-primary mb-0">
-            <% if @alternatives[randIndex].alternative_type_filter.to_s == 'En ligne' %>
-              <span>🛒</span>
-            <% end %>
-            <% if @alternatives[randIndex].alternative_type_filter.to_s == 'DIY' %>
-              <span>✂️</span>
-            <% end %>
-            <% if @alternatives[randIndex].alternative_type_filter.to_s == 'Local' %>
-              <span>🚲</span>
-            <% end %>
-            <%= @alternatives[randIndex].alternative_type_filter %>
-            </p>
-          </div>
-          <p class="text-secondary mb-4"><%= @alternatives[randIndex].description %></p>
-          <h3 class="text-primary mb-3">Où trouver ?</h3>
-          <p class="text-secondary mb-4"><%= @alternatives[randIndex].find %></p>
+        <% @alternatives.each_with_index do |alternative, index| %>
+          <div class="<%= index == randIndex ? 'd-flex active' : 'd-none' %> alternative-random-container justify-content-center align-items-center flex-column-reverse flex-md-row">
+            <div class="col-md-6 text-container mb-5 mb-md-5 mb-lg-0 mt-0 mt-md-5 mt-lg-5">
+              <div class="header-alternative row justify-content-between align-items-center mb-3">
+                <h3 class="text-primary mb-0"><%= alternative.title %></h3>
+                <p class="filter text-primary mb-0">
+                <% if alternative.alternative_type_filter.to_s == 'En ligne' %>
+                  <span>🛒</span>
+                <% end %>
+                <% if alternative.alternative_type_filter.to_s == 'DIY' %>
+                  <span>✂️</span>
+                <% end %>
+                <% if alternative.alternative_type_filter.to_s == 'Local' %>
+                  <span>🚲</span>
+                <% end %>
+                <%= alternative.alternative_type_filter %>
+                </p>
+              </div>
+              <p class="text-secondary mb-4"><%= alternative.description %></p>
+              <h3 class="text-primary mb-3">Où trouver ?</h3>
+              <p class="text-secondary mb-4"><%= alternative.find %></p>
 
-          <a href="<%= @alternatives[randIndex].source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
-        </div>
-        <div class="col-md-6">
-          <div class="d-flex justify-content-center align-items-center mb-4 mb-md-0">
-            <img class="img-fluid rounded w-100" src="<%= @alternatives[randIndex].imgUrl %>" alt="Image correspondant à l'aternative <%= @alternatives[randIndex].title %>">
+              <a href="<%= alternative.source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex justify-content-center align-items-center mb-4 mb-md-5 mt-5">
+                <img class="img-fluid rounded w-100" src="<%= alternative.imgUrl %>" alt="Image correspondant à l'aternative <%= alternative.title %>">
+              </div>
+            </div>
           </div>
-        </div>
+        <% end%>
       </div>
     </div>
 
     <div class="container partner-container">
-      <div class="row justify-content-center align-items-center text-center mt-5">
+      <div class="row justify-content-center align-items-center text-center mt-4">
         <h2 class="text-secondary">Ils nous font confiance</h2>
       </div>
       <div class="row justify-content-center align-items-center mt-4">
         <div class="col-sm-6 col-md-3 mb-3 text-center partner">
-          <a href="https://bonsplansecolo.fr/">
-            <%= image_tag asset_path('partenaires/bonsplansecolo.png'), class: "img-fluid", alt: "Icône de notre partenaire bonsplansecolo" %>
+          <a href="https://bonsplansecolo.fr/" target="_blank">
+            <%= image_tag asset_path('partenaires/bons_plans_ecolo.png'), class: "img-fluid", alt: "Icône de notre partenaire bonsplansecolo" %>
           </a>
         </div>
+        <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+          <a href="https://www.machouettecouture.fr/" target="_blank">
+            <%= image_tag asset_path('partenaires/ma_chouette_couture.png'), class: "img-fluid", alt: "Icône de notre partenaire ma chouette couture" %>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+          <a href="https://www.instagram.com/thegreenglobalproject/" target="_blank">
+            <%= image_tag asset_path('partenaires/the_green_global_project.png'), class: "img-fluid", alt: "Icône de notre partenaire the green global project" %>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+          <a href="https://oxygenecaps.fr/" target="_blank">
+            <%= image_tag asset_path('partenaires/oxygene_caps.png'), class: "img-fluid", alt: "Icône de notre partenaire oxygene caps" %>
+          </a>
+        </div>        
       </div>
     </div>
 
@@ -127,3 +146,30 @@
     </div>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  $('#random-alternative-btn').click(() => {
+    const alternatives = $('.alternative-random-container').not('.active')
+    const alternative_active = $('.alternative-random-container.active')
+    const index = randomNumber(0, alternatives.length)
+
+    hideAlternative(alternative_active)
+    showAlternative(alternatives.eq(index))
+  })
+
+  const hideAlternative = (alternative) => {
+    alternative.removeClass(['d-flex', 'active'])
+    alternative.addClass('d-none')
+  }
+
+  const showAlternative = (alternative) => {
+    alternative.removeClass('d-none')
+    alternative.addClass(['d-flex', 'active'])
+  }  
+
+  const randomNumber = (min, max) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min +1)) + min
+  }
+<% end %>
