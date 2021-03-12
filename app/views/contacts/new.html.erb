@@ -18,12 +18,11 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-row align-items-start justify-content-between">
-          <%= f.input :body, as: :select, label: "De quel produit s'agit-il ?", label_html: { class: 'text-secondary ml-4' }, collection: [['Partenariat', 'Partenariat'], ['Lien obsolète', 'Lien obsolète'], ['Problème rencontré', 'Problème rencontré'], ['Question diverse', 'Question diverse']], required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️', :input_html => { class: 'input-form' } %>
+          <%= f.input :body, as: :select, label: "Objet", label_html: { class: 'text-secondary ml-4' }, collection: [['Partenariat', 'Partenariat'], ['Lien obsolète', 'Lien obsolète'], ['Problème rencontré', 'Problème rencontré'], ['Question diverse', 'Question diverse']], required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️', :input_html => { class: 'input-form' } %>
           <%= f.input :name, as: :string, label: "Nom", placeholder: 'John Doe', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form px-3 py-3' } %>
         </div>
         <%= f.input :email, as: :string, label: "Email", placeholder: 'johndoe@exemple.com', label_html: { class: 'text-secondary ml-4' }, required: true, error: 'Ton adresse mail ne semble pas valide ❌', :input_html => { class: 'input-form px-3 py-3' } %>
         <%= f.input :body, as: :text, :input_html => { :rows => 4, class: 'input-form px-3 py-2' }, label: "Message", placeholder: 'Écris-nous ton message', label_html: { class: 'text-secondary ml-4' }, required: true, error: 'Ce champ est requis ✏️' %>
-        
 
         <%= f.button :submit, 'Envoyer', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm mt-2' %>
 

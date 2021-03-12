@@ -39,6 +39,7 @@
 											arrayOfFilter.push(product.alternatives[i].alternative_type_filter.to_s)
 									end
 								end
+								arrayOfFilter = arrayOfFilter.sort
 								for i in(0..arrayOfFilter.length) %>
 									<% if arrayOfFilter[i] == 'En ligne' %>
 										<span>🛒</span>
@@ -117,6 +118,7 @@
 											arrayOfFilter.push(suggestion.alternatives[i].alternative_type_filter.to_s)
 									end
 								end
+								arrayOfFilter = arrayOfFilter.sort
 								for i in(0..arrayOfFilter.length) %>
 									<% if arrayOfFilter[i] == 'En ligne' %>
 										<span>🛒</span>
