@@ -1,7 +1,7 @@
 <%= render 'header',
             title: 'Contacte-nous',
             text: 'Tu as une question, une demande particulière sur un produit, une proposition à nous faire ? Contacte-nous, nous serons ravis de pouvoir te répondre 🙌',
-            large: '!!!'
+            large: '@'
 %>
 
 <div class="container mb-5 form-container">
@@ -18,8 +18,8 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-row align-items-start justify-content-between">
-          <%= f.input :body, as: :select, label: "Objet", label_html: { class: 'text-secondary ml-4' }, collection: [['Partenariat', 'Partenariat'], ['Lien obsolète', 'Lien obsolète'], ['Problème rencontré', 'Problème rencontré'], ['Question diverse', 'Question diverse']], required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️', :input_html => { class: 'input-form' } %>
-          <%= f.input :name, as: :string, label: "Nom", placeholder: 'John Doe', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form px-3 py-3' } %>
+          <%= f.input :name, as: :string, label: "Nom", placeholder: 'John Doe', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form px-3 py-3' }, autofocus: true %>
+          <%= f.input :subject, as: :select, label: "Objet", label_html: { class: 'text-secondary ml-4' }, collection: [['Partenariat', 'Partenariat'], ['Lien obsolète', 'Lien obsolète'], ['Problème rencontré', 'Problème rencontré'], ['Question diverse', 'Question diverse']], required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️', :input_html => { class: 'input-form' } %>
         </div>
         <%= f.input :email, as: :string, label: "Email", placeholder: 'johndoe@exemple.com', label_html: { class: 'text-secondary ml-4' }, required: true, error: 'Ton adresse mail ne semble pas valide ❌', :input_html => { class: 'input-form px-3 py-3' } %>
         <%= f.input :body, as: :text, :input_html => { :rows => 4, class: 'input-form px-3 py-2' }, label: "Message", placeholder: 'Écris-nous ton message', label_html: { class: 'text-secondary ml-4' }, required: true, error: 'Ce champ est requis ✏️' %>

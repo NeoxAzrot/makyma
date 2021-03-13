@@ -6,7 +6,7 @@
 <div class="container products-container">
 	<div class="row offset-md-3">
 		<div class="col-md-8 mb-5">
-			<div class="d-flex justify-content-between align-items-center filter-container">
+			<div class="d-flex flex-wrap justify-content-between align-items-center filter-container">
 				<p class="mb-0"><span class="mr-1">🚲</span> Local</p>
 				<span class="bg-secondary rounded filter-separator"></span>
 				<p class="mb-0"><span class="mr-1">✂️</span> DIY</p>
@@ -16,11 +16,14 @@
 		</div>
 	</div>
 
-  <div class="row mb-5 offset-lg-2">
+  <div class="row mb-2 offset-lg-2 product-row-container">
+  	<div class="col-12">
+			<p class="text-secondary"><%= @category.products.count %> résultat<%= "s" if @category.products.count > 1 %></p>
+		</div>
     <div class="col-lg-10">
       <% @category.products.each do |product| %>
         <a href="<%= product_url(product) %>" class="link-container">
-          <div class="product-container d-flex justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
+          <div class="product-container d-none justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
             <div class="mr-3">
               <h3 class="text-secondary mb-0 text-break"><%= product %></h3>
               <p class="text-secondary mb-0 nb-alternatives mt-2"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></p>
@@ -54,7 +57,7 @@
     </div>
   </div>
 
-  <div class="row mb-5 justify-content-center align-items-center">
+  <div class="row mb-5 justify-content-center align-items-center container-see-more">
     <button type="button" id="see-more" class="shadow-sm mt-3 border rounded border-info pt-2 pb-2 pl-5 pr-5 mb-4 bg-transparent text-info">Voir plus</button>
   </div>
 </div>
@@ -66,4 +69,39 @@
       <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
     </div>
   </div>
+<% end %>
+
+<%= javascript_tag do %>
+  // Fonction pour faire les actions au click sur le bouton voir plus
+  $('#see-more').click(() => {
+    var arrayProducts = $('.product-container')
+    var arrayProductsDisplay = $('.product-container.d-flex')
+    var indexMaxProductsDisplay = arrayProductsDisplay.length
+    for(let i = indexMaxProductsDisplay; i < indexMaxProductsDisplay + 10; i++) {
+      $(arrayProducts[i]).addClass('d-flex')
+      $(arrayProducts[i]).removeClass('d-none')
+    }
+    checkIfHideButton(arrayProducts[indexMaxProductsDisplay + 10])
+  })
+
+  // Fonction pour check si on doit cacher ou pas le bouton voir plus
+  var checkIfHideButton = (product) => {
+    if(!product) {
+      $('.container-see-more').hide()
+      $('.product-row-container').addClass('mb-5')
+      $('.product-row-container').removeClass('mb-2')
+    }
+  }
+
+  // Initialisation de la page
+  var init = () => {
+    var arrayProducts = $('.product-container')
+    for(let i = 0; i < 10; i++) {
+      $(arrayProducts[i]).addClass('d-flex')
+      $(arrayProducts[i]).removeClass('d-none')
+    }
+    checkIfHideButton(arrayProducts[10])
+  }
+
+  init()
 <% end %>

@@ -22,11 +22,11 @@
 				<h2 class="text-primary">Produits</h2>
 			</div>
 		</div>
-		<div class="row mb-5 offset-lg-2">
+		<div class="row mb-2 offset-lg-2 product-row-container">
 			<div class="col-lg-10">
 				<% @products.each do |product| %>
 					<a href="<%= product_url(product) %>" class="link-container">
-						<div class="product-container d-flex justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
+						<div class="product-container d-none justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
 							<div class="mr-3">
 								<h3 class="text-secondary mb-0 text-break"><%= product %></h3>
 								<p class="text-secondary mb-0 nb-alternatives mt-2"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></p>
@@ -59,6 +59,10 @@
 				<% end %>
 			</div>
 		</div>
+
+		<div class="row mb-5 justify-content-center align-items-center container-see-more-products">
+			<button type="button" id="see-more-products" class="shadow-sm mt-3 border rounded border-info pt-2 pb-2 pl-5 pr-5 mb-4 bg-transparent text-info">Voir plus</button>
+		</div>
 	<% end %>
 
 	<% if @alternatives.present? %>
@@ -67,11 +71,11 @@
 				<h2 class="text-primary">Alternatives</h2>
 			</div>
 		</div>
-		<div class="row mb-5 offset-lg-2">
+		<div class="row mb-2 offset-lg-2 alternative-row-container">
 			<div class="col-lg-10">
 				<% @alternatives.each do |alternative| %>
 					<a href="<%= product_path(alternative.product) %>" class="link-container">
-						<div class="product-container d-flex justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
+						<div class="alternative-container d-none justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
 							<div class="mr-3">
 								<h3 class="text-secondary mb-0 text-break"><%= alternative %></h3>
 							</div>
@@ -94,6 +98,10 @@
 				<% end %>
 			</div>
 		</div>
+
+		<div class="row mb-5 justify-content-center align-items-center container-see-more-alternatives">
+			<button type="button" id="see-more-alternatives" class="shadow-sm mt-3 border rounded border-info pt-2 pb-2 pl-5 pr-5 mb-4 bg-transparent text-info">Voir plus</button>
+		</div>
 	<% end %>
 
 	<% if @suggestions.present? %>
@@ -106,7 +114,7 @@
 			<div class="col-lg-10">
 				<% @suggestions.each do |suggestion| %>
 					<a href="<%= product_url(suggestion) %>" class="link-container">
-						<div class="product-container d-flex justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
+						<div class="suggestion-container d-flex justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
 							<div class="mr-3">
 								<h3 class="text-secondary mb-0 text-break"><%= suggestion %></h3>
 							</div>
@@ -140,3 +148,70 @@
 		</div>
 	<% end %>
 </div>
+
+<%= javascript_tag do %>
+	// Fonction pour faire les actions au click sur le bouton voir plus pour les produits
+  $('#see-more-products').click(() => {
+		var arrayProducts = $('.product-container')
+    var arrayProductsDisplay = $('.product-container.d-flex')
+    var indexMaxProductsDisplay = arrayProductsDisplay.length
+    for(let i = indexMaxProductsDisplay; i < indexMaxProductsDisplay + 10; i++) {
+      $(arrayProducts[i]).addClass('d-flex')
+      $(arrayProducts[i]).removeClass('d-none')
+    }
+    checkIfHideButtonProduct(arrayProducts[indexMaxProductsDisplay + 10])
+  })
+
+	// Fonction pour check si on doit cacher ou pas le bouton voir plus pour les produits
+  var checkIfHideButtonProduct = (product) => {
+    if(!product) {
+      $('.container-see-more-products').hide()
+      $('.product-row-container').addClass('mb-5')
+      $('.product-row-container').removeClass('mb-2')
+    }
+  }
+
+
+	// Fonction pour faire les actions au click sur le bouton voir plus pour les alternatives
+	$('#see-more-alternatives').click(() => {
+		var arrayAlternatives = $('.alternative-container')
+    var arrayAlternativesDisplay = $('.alternative-container.d-flex')
+    var indexMaxAlternativesDisplay = arrayAlternativesDisplay.length
+    for(let i = indexMaxAlternativesDisplay; i < indexMaxAlternativesDisplay + 10; i++) {
+      $(arrayAlternatives[i]).addClass('d-flex')
+      $(arrayAlternatives[i]).removeClass('d-none')
+    }
+		checkIfHideButtonAlternative(arrayAlternatives[indexMaxAlternativesDisplay + 10])
+  })
+
+	// Fonction pour check si on doit cacher ou pas le bouton voir plus pour les alternatives
+  var checkIfHideButtonAlternative = (alternative) => {
+    if(!alternative) {
+      $('.container-see-more-alternatives').hide()
+      $('.alternative-row-container').addClass('mb-5')
+      $('.alternative-row-container').removeClass('mb-2')
+    }
+  }
+
+	// Initialisation de la page
+	var init = () => {
+		// Pour les produits
+		var arrayProducts = $('.product-container')
+		for(let i = 0; i < 10; i++) {
+			$(arrayProducts[i]).addClass('d-flex')
+			$(arrayProducts[i]).removeClass('d-none')
+		}
+		checkIfHideButtonProduct(arrayProducts[10])
+
+		// Pour les alternatives
+		var arrayAlternatives = $('.alternative-container')
+		for(let i = 0; i < 10; i++) {
+			$(arrayAlternatives[i]).addClass('d-flex')
+			$(arrayAlternatives[i]).removeClass('d-none')
+		}
+		checkIfHideButtonAlternative(arrayAlternatives[10])
+	}
+
+	init()
+
+<% end %>

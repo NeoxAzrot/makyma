@@ -15,7 +15,7 @@
   <% if @product then %>
     <title>Makyma - <%= @product.category %> | <%= @product %></title>
   <% elsif @category then %>
-    <title>Makyma - <%= @category %></title>
+    <title>Makyma - <%= @category %> écoresponsable</title>
   <% else %>
     <title>Makyma - Ton compagnon écoresponsable</title>
   <% end %>
@@ -75,7 +75,7 @@
   <% if @product then %>
     <meta property="og:title" content="Makyma - <%= @product.category %> | <%= @product %>">
   <% elsif @category then %>
-    <meta property="og:title" content="Makyma - <%= @category %>">
+    <meta property="og:title" content="Makyma - <%= @category %> écoresponsable">
   <% else %>
     <meta property="og:title" content="Makyma - Ton compagnon écoresponsable">
   <% end %>
@@ -96,7 +96,7 @@
   <% if @product then %>
     <meta property="og:site_name" content="Makyma - <%= @product.category %> | <%= @product %>">
   <% elsif @category then %>
-    <meta property="og:site_name" content="Makyma - <%= @category %>">
+    <meta property="og:site_name" content="Makyma - <%= @category %> écoresponsable">
   <% else %>
     <meta property="og:site_name" content="Makyma - Ton compagnon écoresponsable">
   <% end %>
@@ -107,7 +107,7 @@
   <% if @product then %>
     <meta name="twitter:title" content="Makyma - <%= @product.category %> | <%= @product %>">
   <% elsif @category then %>
-    <meta name="twitter:title" content="Makyma - <%= @category %>">
+    <meta name="twitter:title" content="Makyma - <%= @category %> écoresponsable">
   <% else %>
     <meta name="twitter:title" content="Makyma - Ton compagnon écoresponsable">
   <% end %>

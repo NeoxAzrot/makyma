@@ -55,12 +55,12 @@
     line-height: 1rem
   
   .link-container
-    .product-container
+    .product-container, .alternative-container, .suggestion-container
       transition: box-shadow .4s ease
     &:hover
       &::before
         width: 0
-      .product-container
+      .product-container, .alternative-container, .suggestion-container
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
       .button
         background: $info !important
@@ -73,3 +73,8 @@
     .filter-separator
       height: 15px
       width: 2px
+
+  button
+    font-weight: 600
+    font-size: 0.938rem
+    outline: none

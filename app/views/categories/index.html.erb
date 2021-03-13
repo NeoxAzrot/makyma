@@ -149,25 +149,25 @@
 
 <%= javascript_tag do %>
   $('#random-alternative-btn').click(() => {
-    const alternatives = $('.alternative-random-container').not('.active')
-    const alternative_active = $('.alternative-random-container.active')
-    const index = randomNumber(0, alternatives.length)
+    var alternatives = $('.alternative-random-container').not('.active')
+    var alternative_active = $('.alternative-random-container.active')
+    var index = randomNumber(0, alternatives.length)
 
     hideAlternative(alternative_active)
     showAlternative(alternatives.eq(index))
   })
 
-  const hideAlternative = (alternative) => {
+  var hideAlternative = (alternative) => {
     alternative.removeClass(['d-flex', 'active'])
     alternative.addClass('d-none')
   }
 
-  const showAlternative = (alternative) => {
+  var showAlternative = (alternative) => {
     alternative.removeClass('d-none')
     alternative.addClass(['d-flex', 'active'])
   }  
 
-  const randomNumber = (min, max) => {
+  var randomNumber = (min, max) => {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min +1)) + min
