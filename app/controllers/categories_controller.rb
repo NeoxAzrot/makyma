@@ -18,16 +18,20 @@ class CategoriesController < ApplicationController
   def new
     redirect_cannotManage(@categories)
     @category = Category.new
+    add_breadcrumb 'Ajoute une catégorie'
   end
 
   # GET /categories/1/edit
   def edit
     redirect_cannotManage(@categories)
+    add_breadcrumb @category, @category
+    add_breadcrumb 'Modifie une catégorie'
   end
 
   # POST /categories
   # POST /categories.json
   def create
+    add_breadcrumb 'Ajoute une catégorie'
     redirect_cannotManage(@categories)
     @category = Category.new(category_params)
 

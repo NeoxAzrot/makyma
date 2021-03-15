@@ -9,39 +9,45 @@
       <h2 class="text-primary">Voici nos alternatives 👇🏼</h2>
     </div>
   </div>
-  <div class="row justify-content-center align-items-center mt-5 alternative-container flex-column-reverse flex-md-row">
+  <div class="row justify-content-center align-items-center mt-5 alternative-container">
     <% @product.alternatives.sort{|a,b| a.title <=> b.title}.each do |alternative| %>
-      <div class="col-md-6 text-container mb-5 mb-md-5 mb-lg-0 mt-0 mt-md-5 mt-lg-0">
-        <div class="header-alternative row justify-content-between align-items-center mb-3">
-          <h3 class="text-primary mb-0"><%= alternative.title %></h3>
-          <p class="filter text-primary mb-0">
-          <% if alternative.alternative_type_filter.to_s == 'En ligne' %>
-            <span>🛒</span>
-          <% end %>
-          <% if alternative.alternative_type_filter.to_s == 'DIY' %>
-            <span>✂️</span>
-          <% end %>
-          <% if alternative.alternative_type_filter.to_s == 'Local' %>
-            <span>🚲</span>
-          <% end %>
-          <%= alternative.alternative_type_filter %>
-          </p>
-        </div>
-        <p class="text-secondary mb-4"><%= alternative.description %></p>
-        <h3 class="text-primary mb-3">Où trouver ?</h3>
-        <p class="text-secondary mb-4"><%= alternative.find %></p>
+      <div class="d-flex justify-content-center align-items-center flex-column-reverse flex-md-row">
+        <div class="col-md-6 text-container mb-5 mb-md-5 mb-lg-0 mt-0 mt-md-5 mt-lg-0">
+          <div class="header-alternative row justify-content-between align-items-center mb-3">
+            <h3 class="text-primary mb-0"><%= alternative.title %></h3>
+            <p class="filter text-primary mb-0">
+            <% if alternative.alternative_type_filter.to_s == 'En ligne' %>
+              <span>🛒</span>
+            <% end %>
+            <% if alternative.alternative_type_filter.to_s == 'DIY' %>
+              <span>✂️</span>
+            <% end %>
+            <% if alternative.alternative_type_filter.to_s == 'Local' %>
+              <span>🚲</span>
+            <% end %>
+            <%= alternative.alternative_type_filter %>
+            </p>
+          </div>
+          <p class="text-secondary mb-4"><%= alternative.description %></p>
+          <h3 class="text-primary mb-3">Où trouver ?</h3>
+          <p class="text-secondary mb-4"><%= alternative.find %></p>
 
-        <a href="<%= alternative.source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
-      </div>
-      <div class="col-md-6">
-        <div class="d-flex justify-content-center align-items-center mb-4 mb-md-5 mt-5">
-          <img class="img-fluid rounded w-100" src="<%= alternative.imgUrl %>" alt="Image correspondant à l'aternative <%= alternative.title %>">
+          <a href="<%= alternative.source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
+          <% if can? :manage, @alternative %>
+            <%= link_to "✏️", edit_alternative_path(alternative), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-2' %>
+            <%= link_to "❌", alternative, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex justify-content-center align-items-center mb-4 mb-md-5 mt-5">
+            <img class="img-fluid rounded w-100" src="<%= alternative.imgUrl %>" alt="Image correspondant à l'aternative <%= alternative.title %>">
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="container mt-5 suggestion-link-container">
+  <div class="container mt-5 mb-5 pb-5 suggestion-link-container">
     <div class="row justify-content-center align-items-center">
       <div class="border border-info rounded py-5 px-5 d-flex flex-column justify-content-center align-items-center">
         <h3 class="text-secondary">Propose-nous ton alternative !</h3>
@@ -55,11 +61,12 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row justify-content-around my-5">
-    <% if can? :manage, @product %>
-      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouvelle Alternative', new_alternative_path %></button>
-      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_product_path(@product) %></button>
-    <% end %>
+<% if can? :manage, @category %>
+  <div class="container">
+    <div class="row justify-content-around mb-5">
+      <%= link_to "Modifier le produit ✏️", edit_product_path(@product), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+      <%= link_to "Supprimer le produit ❌", @product, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+      <%= link_to "Ajouter une alternative ➕", new_alternative_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+    </div>
   </div>
-</div>
+<% end %>

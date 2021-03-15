@@ -36,7 +36,7 @@
     color: #3b3b3b
     transition: box-shadow .4s ease-in-out, color .4s ease-in-out
 
-    &:hover 
+    &:hover, &:focus
       color: black
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0)
 
@@ -48,7 +48,7 @@
   .button
     font-weight: 600
     font-size: 0.75rem
-    &:hover
+    &:hover, &:focus
       color: $light !important
   .nb-alternatives
     font-size: 0.75rem
@@ -57,7 +57,7 @@
   .link-container
     .product-container, .alternative-container, .suggestion-container
       transition: box-shadow .4s ease
-    &:hover
+    &:hover, &:focus
       &::before
         width: 0
       .product-container, .alternative-container, .suggestion-container

@@ -6,6 +6,7 @@ class AlternativesController < ApplicationController
   def index
     redirect_cannotManage(@alternatives)
     @alternatives = Alternative.order("created_at DESC").all
+    add_breadcrumb 'Les alternatives'
   end
 
   # GET /alternatives/1
@@ -14,8 +15,7 @@ class AlternativesController < ApplicationController
     redirect_cannotManage(@alternatives)
     @product = @alternative.product
     @category = @product.category
-    add_breadcrumb @category, @category
-    add_breadcrumb @product, @product
+    add_breadcrumb 'Les alternatives', alternatives_path
     add_breadcrumb @alternative
   end
 
@@ -23,16 +23,24 @@ class AlternativesController < ApplicationController
   def new
     redirect_cannotManage(@alternatives)
     @alternative = Alternative.new
+    add_breadcrumb 'Les alternatives', alternatives_path
+    add_breadcrumb 'Ajoute une alternative'
   end
 
   # GET /alternatives/1/edit
   def edit
     redirect_cannotManage(@alternatives)
+    @product = @alternative.product
+    @category = @product.category
+    add_breadcrumb 'Les alternatives', alternatives_path
+    add_breadcrumb 'Modifie une alternative'
   end
 
   # POST /alternatives
   # POST /alternatives.json
   def create
+    add_breadcrumb 'Les alternatives', alternatives_path
+    add_breadcrumb 'Ajoute une alternative'
     redirect_cannotManage(@alternatives)
     @alternative = Alternative.new(alternative_params)
 

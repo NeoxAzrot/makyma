@@ -21,7 +21,7 @@ body.menu-active
         user-select: none
         &::before
           display: none
-        &:hover
+        &:hover, &:focus
           background: $light
           color: $primary !important
       &::before
@@ -38,7 +38,7 @@ body.menu-active
         border-radius: 12px
         .dropdown-item
           transition: color .4s ease
-          &:hover
+          &:hover, &:focus
             background-color: transparent !important
             color: $secondary !important
           &::before
@@ -68,7 +68,7 @@ body.menu-active
       outline: none
       border: none
       z-index: 15
-      &:hover
+      &:hover, &:focus
         background: transparent !important
 
     #nav-container

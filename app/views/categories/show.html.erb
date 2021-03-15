@@ -64,9 +64,10 @@
 
 <% if can? :manage, @category %>
   <div class="container">
-    <div class="row justify-content-around my-5">
-      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Nouveau produit', new_product_path %></button>
-      <button type="button" class="col-lg-2 btn btn-outline-primary" style="border-radius: 35px;"><%= link_to 'Modifier', edit_category_path(@category) %></button>
+    <div class="row justify-content-around mb-5">
+      <%= link_to "Modifier la catégorie ✏️", edit_category_path(@category), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+      <%= link_to "Supprimer la catégorie ❌", @category, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+      <%= link_to "Ajouter un produit ➕", new_product_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
     </div>
   </div>
 <% end %>

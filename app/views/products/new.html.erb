@@ -1,5 +1,8 @@
-<h1>New Product</h1>
+<%= render 'header',
+            title: "Ajoute ton produit",
+            text: 'Si tu es administrateur de Makyma, tu peux ajouter un produit avec ce formulaire ✏️',
+            large: '+++' %>
 
 <%= render 'form', product: @product %>
 
-<%= link_to 'Back', products_path %>
+<!--<%= link_to 'Back', products_path %>-->

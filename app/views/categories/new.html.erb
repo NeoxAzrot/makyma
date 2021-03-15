@@ -1,5 +1,8 @@
-<h1>New Category</h1>
+<%= render 'header',
+            title: "Ajoute ta catégorie",
+            text: 'Si tu es administrateur de Makyma, tu peux ajouter une catégorie avec ce formulaire ✏️',
+            large: '+++' %>
 
 <%= render 'form', category: @category %>
 
-<%= link_to 'Back', categories_path %>
+<!--<%= link_to '⬅️ Revenir à toutes les catégories', categories_path %>-->

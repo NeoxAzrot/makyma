@@ -1,13 +1,13 @@
 <footer class="footer-container bg-light">
   <div class="container pt-4">
-    <% if user_signed_in? %>
-      <div>
-        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
-      </div>
-    <% end %>
     <div class="row py-5">
       <div class="col-md-4 mb-4">
-        <a href="<%= root_path %>" class="text-secondary copyright">© Makyma <%= Date.today.year %></a>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a href="<%= root_path %>" class="text-secondary copyright">© Makyma <%= Date.today.year %></a></li>
+          <% if user_signed_in? %>
+            <li class="mb-3"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'text-secondary' %></li>
+          <% end %>
+        </ul>
       </div>
       <div class="col-6 col-md-3 offset-md-2">
         <ul class="list-unstyled">

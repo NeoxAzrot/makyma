@@ -9,8 +9,7 @@ large ||= nil
         <%= count %>     
         <%= large %>
       </span>
-      <% arrayWithAlternatives = ['categories', 'search', 'products']
-        if arrayWithAlternatives.include?(request.path.split('/')[1]) || request.path.split('/')[1].nil? %>
+      <% if count %>
         <p class="info-count text-light">alternative<%= "s" if count > 1%></p>
       <% end %>
     </div>

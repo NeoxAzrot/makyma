@@ -3,7 +3,7 @@
 	border-radius: 100px
 	transition: background .4s ease
 	user-select: none
-	&:hover
+	&:hover, &:focus
 		background: $info
 		.name-category
 			color: $light !important
@@ -62,7 +62,7 @@
 	.button
 		font-weight: 600
 		font-size: 0.75rem
-		&:hover
+		&:hover, &:focus
 			color: $light !important
 	
 .about-container
@@ -73,7 +73,7 @@
 
 	a
 		font-weight: 600
-		&:hover
+		&:hover, &:focus
 			color: $light !important
 
 	.logo-footer
@@ -92,7 +92,7 @@
 		a
 			filter : grayscale(100%)
 			transition: filter .4s ease
-			&:hover
+			&:hover, &:focus
 				filter: grayscale(0)
 				&::before
 					width: 0

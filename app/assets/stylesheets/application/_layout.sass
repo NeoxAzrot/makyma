@@ -28,6 +28,9 @@ a
 	letter-spacing: 0.5px
 	position: relative
 	text-decoration: none !important
+	&.button
+		&:hover, &:focus
+			color: $light !important
 
 	&::before
 		content: ''
@@ -39,14 +42,14 @@ a
 		transition: width .4s ease
 		border-radius: 8px
 	
-	&:hover
+	&:hover, &:focus
 		&::before
 			width: 100%
 
 button, .button
 	transition: background .4s ease, color .4s ease
 	user-select: none
-	&:hover
+	&:hover, &:focus
 		background: $info !important
 		color: $light !important
 		text-decoration: none
