@@ -18,6 +18,8 @@ gem "breadcrumbs_on_rails"
 # Cancancan
 gem 'cancancan'
 gem 'rails_admin', '~> 2.0'
+# Env var
+gem 'figaro'
 
 
 

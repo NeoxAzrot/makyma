@@ -31,6 +31,7 @@ class SuggestedAlternativesController < ApplicationController
     redirect_cannotManage(@suggested_alternatives)
   end
 
+  # SuggestedAlternativesController 
   # POST /suggested_alternatives or /suggested_alternatives.json
   def create
     @suggested_alternative = SuggestedAlternative.new(suggested_alternative_params)
@@ -39,8 +40,8 @@ class SuggestedAlternativesController < ApplicationController
     respond_to do |format|
       if @suggested_alternative.save
 
-        MakymaNoticeMailer.suggested_alternative_email.deliver_later
-        #format.html { redirect_to @suggested_alternative, notice: "Suggested alternative was successfully created." }
+        MakymaNoticeMailer.suggested_alternative_email.deliver_later #send notif mail to makyma team
+
         format.html { redirect_to root_path, notice: "Suggested alternative was successfully created." }
         format.json { render :show, status: :created, location: @suggested_alternative }
       else
