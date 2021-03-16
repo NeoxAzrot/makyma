@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_132424) do
     t.datetime "updated_at", null: false
   end
 
+  # Schema
   create_table "alternatives", force: :cascade do |t|
     t.bigint "product_id"
     t.string "title"
