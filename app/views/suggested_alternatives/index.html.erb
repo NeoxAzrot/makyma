@@ -1,40 +1,46 @@
-<p id="notice"><%= notice %></p>
+<%= render 'header',
+            title: "Toutes les alternatives proposées",
+            text: 'Si tu es administrateur de Makyma, tu peux voir ici toutes les alternatives proposées par les utilisateurs 👀',
+            large: '+++' %>
 
-<h1>Suggested Alternatives</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Source</th>
-      <th>Find</th>
-      <th>Type filter</th>
-      <th>Imgurl</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @suggested_alternatives.each do |suggested_alternative| %>
+<div class="container suggested-alternatives-container mt-5">
+  <table class="table table-hover table-striped">
+    <thead class="thead-dark">
       <tr>
-        <td><%= suggested_alternative.product %></td>
-        <td><%= suggested_alternative.title %></td>
-        <td><%= suggested_alternative.description %></td>
-        <td><%= suggested_alternative.source %></td>
-        <td><%= suggested_alternative.find %></td>
-        <td><%= suggested_alternative.alternative_type_filter %></td>
-        <td><%= suggested_alternative.imgUrl %></td>
-        <td><%= link_to 'Show', suggested_alternative %></td>
-        <td><%= link_to 'Edit', edit_suggested_alternative_path(suggested_alternative) %></td>
-        <td><%= link_to 'Add this alternative', add_to_alternatives_suggested_alternative_path(suggested_alternative), method: :put %></td>
-        <td><%= link_to 'Destroy', suggested_alternative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col text-light">Titre</th>
+        <th scope="col text-light">Type de filtre</th>
+        <th scope="col text-light">Produit</th>
+        <th scope="col text-light">Description</th>
+        <th scope="col text-light">Où trouver</th>
+        <th scope="col text-light">Lien</th>
+        <th scope="col text-light">Image</th>
+        <th scope="col text-light"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @suggested_alternatives.each do |suggested_alternative| %>
+        <tr>
+          <td class="text-secondary"><%= suggested_alternative.title %></td>
+          <td class="text-secondary"><%= suggested_alternative.alternative_type_filter %></td>
+          <td class="text-secondary"><%= suggested_alternative.product %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.description %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.find %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.source %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.imgUrl %></td>
+          <td class="d-flex align-items-center justify-content-center">
+            <%= link_to "👀", suggested_alternative, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm' %>
+            <%= link_to "✏️", edit_suggested_alternative_path(suggested_alternative), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
+            <%= link_to "❌", suggested_alternative, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Suggested Alternative', new_suggested_alternative_path %>
+<div class="container">
+  <div class="row justify-content-around mb-5 mt-5">
+    <%= link_to "Ajouter une alternative proposée ➕", new_suggested_alternative_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+  </div>
+</div>

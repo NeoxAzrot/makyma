@@ -6,7 +6,7 @@
   .button
     font-weight: 600
     font-size: 0.75rem
-    &:hover
+    &:hover, &:focus
       color: $light !important
   .nb-alternatives
     font-size: 0.75rem
@@ -15,7 +15,7 @@
   .link-container
     .product-container
       transition: box-shadow .4s ease
-    &:hover
+    &:hover, &:focus
       &::before
         width: 0
       .product-container
@@ -24,10 +24,24 @@
         background: $info !important
         color: $light !important
         text-decoration: none
+        &.admin
+          background: transparent !important
+          color: $info !important
+          &:hover
+            background: $info !important
+            color: $light !important
         &::before
           width: 0
 
   .filter-container
+    input[type=checkbox], label
+      cursor: pointer
+
     .filter-separator
       height: 15px
       width: 2px
+  
+  button
+    font-weight: 600
+    font-size: 0.938rem
+    outline: none

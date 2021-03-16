@@ -12,11 +12,14 @@ class SuggestedAlternativesController < ApplicationController
   def index
     redirect_cannotManage(@suggested_alternatives)
     @suggested_alternatives = SuggestedAlternative.all
+    add_breadcrumb 'Les alternatives proposées'
   end
 
   # GET /suggested_alternatives/1 or /suggested_alternatives/1.json
   def show
     redirect_cannotManage(@suggested_alternatives)
+    add_breadcrumb 'Les alternatives proposées', suggested_alternatives_path
+		add_breadcrumb @suggested_alternative
   end
 
   # GET /suggested_alternatives/new
@@ -29,6 +32,8 @@ class SuggestedAlternativesController < ApplicationController
   # GET /suggested_alternatives/1/edit
   def edit
     redirect_cannotManage(@suggested_alternatives)
+		add_breadcrumb 'Les alternatives proposées', suggested_alternatives_path
+		add_breadcrumb 'Modifie une alternative proposée'
   end
 
   # SuggestedAlternativesController 

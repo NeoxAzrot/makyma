@@ -1,41 +1,50 @@
-<p id="notice"><%= notice %></p>
+<%= render 'header',
+            title: @alternative,
+            text: 'Si tu es administrateur de Makyma, tu peux voir ici une alternative 👀',
+            large: '+++' %>
 
-<p>
-  <strong>Product:</strong>
-  <%= @alternative.product %>
-</p>
+<div class="container">
+  <!--<div class="row mb-5 offset-md-2">
+    <div class="col-md-12">
+      <p id="notice" class="text-secondary"><%= notice %></p>
+    </div>
+  </div>-->
+  <div class="row justify-content-center align-items-center alternative-container mb-5 mt-5">
+    <div class="d-flex justify-content-center align-items-center flex-column-reverse flex-md-row">
+      <div class="col-md-6 text-container mb-5 mb-md-5 mb-lg-0 mt-0 mt-md-5 mt-lg-0">
+        <div class="header-alternative row justify-content-between align-items-center mb-3">
+          <h3 class="text-primary mb-0"><%= @alternative.title %></h3>
+          <p class="filter text-primary mb-0">
+          <% if @alternative.alternative_type_filter.to_s == 'En ligne' %>
+            <span>🛒</span>
+          <% end %>
+          <% if @alternative.alternative_type_filter.to_s == 'DIY' %>
+            <span>✂️</span>
+          <% end %>
+          <% if @alternative.alternative_type_filter.to_s == 'Local' %>
+            <span>🚲</span>
+          <% end %>
+          <%= @alternative.alternative_type_filter %>
+          </p>
+        </div>
+        <p class="text-secondary mb-4"><%= @alternative.description %></p>
+        <h3 class="text-primary mb-3">Où trouver ?</h3>
+        <p class="text-secondary mb-4"><%= @alternative.find %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @alternative.title %>
-</p>
+        <a href="<%= @alternative.source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
+        <% if can? :manage, @alternative %>
+          <%= link_to "✏️", edit_alternative_path(@alternative), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-2' %>
+          <%= link_to "❌", @alternative, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center align-items-center mb-4 mb-md-5 mt-5">
+          <img class="img-fluid rounded w-100" src="<%= @alternative.imgUrl %>" alt="Image correspondant à l'aternative <%= @alternative.title %>">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @alternative.description %>
-</p>
-
-<p>
-  <strong>Find:</strong>
-  <%= @alternative.find %>
-</p>
-
-<p>
-  <strong>Source:</strong>
-  <%= @alternative.source %>
-</p>
-
-<p>
-  <strong>alternative_type_filter:</strong>
-  <%= @alternative.alternative_type_filter %>
-</p>
-
-<p>
-  <strong>Imgurl:</strong>
-  <%= @alternative.imgUrl %>
-</p>
-
-<% if can? :manage, @alternative %>
-	<%= link_to 'Edit', edit_alternative_path(@alternative) %>
-<% end %>
-<%= link_to 'Back', product_path(@alternative.product) %>
+<!--<%= link_to 'Edit', edit_alternative_path(@alternative) %>
+<%= link_to 'Back', product_path(@alternative.product) %>-->

@@ -36,7 +36,7 @@
     color: #3b3b3b
     transition: box-shadow .4s ease-in-out, color .4s ease-in-out
 
-    &:hover 
+    &:hover, &:focus
       color: black
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0)
 
@@ -48,19 +48,19 @@
   .button
     font-weight: 600
     font-size: 0.75rem
-    &:hover
+    &:hover, &:focus
       color: $light !important
   .nb-alternatives
     font-size: 0.75rem
     line-height: 1rem
   
   .link-container
-    .product-container
+    .product-container, .alternative-container, .suggestion-container
       transition: box-shadow .4s ease
-    &:hover
+    &:hover, &:focus
       &::before
         width: 0
-      .product-container
+      .product-container, .alternative-container, .suggestion-container
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
       .button
         background: $info !important
@@ -73,3 +73,8 @@
     .filter-separator
       height: 15px
       width: 2px
+
+  button
+    font-weight: 600
+    font-size: 0.938rem
+    outline: none

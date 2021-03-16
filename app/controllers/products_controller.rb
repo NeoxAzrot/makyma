@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     redirect_cannotManage(@alternatives)
+    add_breadcrumb 'Les produits'
     @products = Product.all
     @search = params["search"]
     if @search.present?
@@ -23,17 +24,23 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     redirect_cannotManage(@products)
+    add_breadcrumb 'Les produits', products_path
+    add_breadcrumb 'Ajoute un produit'
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
     redirect_cannotManage(@products)
+    add_breadcrumb 'Les produits', products_path
+    add_breadcrumb 'Modifie un produit'
   end
 
   # POST /products
   # POST /products.json
   def create
+    add_breadcrumb 'Les produits', products_path
+    add_breadcrumb 'Ajoute un produit'
     redirect_cannotManage(@products)
     @product = Product.new(product_params)
 

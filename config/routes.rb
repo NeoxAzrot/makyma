@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       put:add_to_alternatives 
     end
   end
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'sessions'}
 
   root to: "categories#index"
 

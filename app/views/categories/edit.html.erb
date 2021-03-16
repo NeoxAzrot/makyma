@@ -1,8 +1,9 @@
-<% if can? :manage, @category %>
-	<h1>Editing Category</h1>
+<%= render 'header',
+            title: "Modifie la catégorie #{@category.title.downcase}",
+            text: 'Si tu es administrateur de Makyma, tu peux modifier la catégorie avec ce formulaire ✏️',
+            large: '+++' %>
 
-	<%= render 'form', category: @category %>
+<%= render 'form', category: @category %>
 
-	<%= link_to 'Show', @category %> |
-	<%= link_to 'Back', categories_path %>
-<% end %>
+<!--<%= link_to 'Show', @category %> |
+<%= link_to 'Back', categories_path %>-->
