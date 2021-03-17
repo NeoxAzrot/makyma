@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
 	end
 
 	private
-		def redirect_cannotManage(controller)
+		def redirect_cannotManage(controller, redirection = '/404')
 			if cannot? :manage, controller
-				redirect_to '/404'
+				redirect_to redirection
 			end
 		end
 

@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    redirect_cannotManage(@alternatives)
+    redirect_cannotManage(@products, '/')
     add_breadcrumb 'Les produits'
     @products = Product.all
     @search = params["search"]
