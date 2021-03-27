@@ -87,8 +87,30 @@ rails makyma:import
 #### Créer les comptes admin
 
 ```bash
-rails makyma:create_admin
+rails makyma:admin
 ```
+
+## Référencement du site ⭐
+
+### Créer le sitemap
+
+```bash
+rake sitemap:create
+```
+
+### Modifier le sitemap
+
+```bash
+rake sitemap:refresh
+```
+
+### Effacer le sitemap
+
+```bash
+rake sitemap:clean
+```
+
+Pour plus d'information, voir la [documentation](https://github.com/kjvarga/sitemap_generator) de la gem.
 
 ## Exécution du site 💻
 
@@ -155,5 +177,7 @@ git push heroku master
 ```bash
 heroku run rails db:migrate
 ```
+
+---
 
 © [makyma.org](http://www.makyma.org) 2021 🧡

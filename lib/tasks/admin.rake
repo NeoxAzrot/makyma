@@ -1,6 +1,6 @@
 namespace :makyma do
 	desc "Admin Create"
-	task create_admin: :environment do
+	task admin: :environment do
 
 		puts "Create admin user"
 

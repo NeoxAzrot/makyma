@@ -20,6 +20,8 @@ gem 'cancancan'
 gem 'rails_admin', '~> 2.0'
 # Env var
 gem 'figaro'
+# Sitemap
+gem 'sitemap_generator'
 
 
 
