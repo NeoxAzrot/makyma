@@ -1,0 +1,78 @@
+<div class="container pt-4 navigation_bar">
+  <div class="row d-flex flex-nowrap justify-content-between">
+    <div class="col-md-2 navbar-brand-container">
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= image_tag "logo_computer.svg", class:'logo', alt: "Logotype de Makyma" %>
+      </a>
+    </div>
+    <nav class="navbar d-none d-lg-block navbar-expand-lg navbar-light bg-transparent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown mr-3 p-2">
+            <a class="nav-link dropdown-toggle text-light p-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Catégories
+            </a>
+            <div class="dropdown-menu border-info pt-3 pb-3 pl-4 pr-4" aria-labelledby="navbarDropdown">
+              <% Category.all.each_with_index do |category, index| %>
+                <div class="d-flex justify-content-start align-items-center <%= "mb-3" if Category.all.length - 1 != index %>">
+                  <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
+                  <a class="dropdown-item text-dark pl-3" href="/categories/<%= index + 1 %>"><%= category %></a>
+                </div>
+              <% end %>
+            </div>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link text-light border border-light rounded pr-3 pl-3" href="/suggestion">Propose une alternative</a>
+          </li>
+          <li class="nav-item mr-3 p-2">
+            <a class="nav-link text-light p-0" href="/about">Qui sommes-nous ?</a>
+          </li>
+          <li class="nav-item p-2">
+            <a class="nav-link text-light p-0" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar-mobile d-lg-none d-flex">
+      <button class="nav-toggle" id="nav-toggle">
+        <%= image_tag asset_path('menu.svg'), alt: "Icône symbolisant le menu" %>
+      </button>
+      <div class="container position-fixed" id="nav-container">
+        <div class="column navbar-list-container position-absolute d-flex justify-content-center align-items-center flex-column">
+          <ul class="navbar-list p-0">
+            <li class="nav-item text-center pt-2 pb-2 pl-3 pr-3">
+              <a class="nav-link text-light dropdown-toggle p-0 mb-1">
+                Catégories
+              </a>
+              <div class="dropdown-menu-container d-flex justify-content-center align-items-start flex-column">
+                <% Category.all.each_with_index do |category, index| %>
+                  <div class="text-center pt-2 <%= "mb-1" if Category.all.length - 1 != index %>">
+                    <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
+                    <a class="nav-link ml-2 item text-light text-center p-0" href="/categories/<%= index + 1 %>"><%= category %></a>
+                  </div>
+                <% end %>
+              </div>
+            </li>
+            <li class="nav-item text-center pt-3 pb-2 pl-3 pr-3">
+              <a class="nav-link text-light p-0" href="/suggestion">Propose une alternative</a>
+            </li>
+            <li class="nav-item text-center pt-2 pb-2 pl-3 pr-3">
+              <a class="nav-link text-light p-0" href="/about">Qui sommes-nous ?</a>
+            </li>
+            <li class="nav-item text-center pt-2 pb-2 pl-3 pr-3">
+              <a class="nav-link text-light p-0" href="/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<%= javascript_tag do %>  
+  $('#nav-toggle').click(function() {
+    $('#nav-container').toggleClass('active')
+    $('body').toggleClass('menu-active')
+  })
+<% end %>

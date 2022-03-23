@@ -1,0 +1,17 @@
+<div class="container mb-5 form-container">
+  <div class="row mt-4">
+		<div class="col">
+      <%= simple_form_for(@product) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-row align-items-start justify-content-between">
+          <%= f.input :title, as: :string, label: "Titre", placeholder: 'Film alimentaire', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form px-3 py-3' }, autofocus: true %>
+          <%= f.association :category, as: :select, label: "Catégorie", label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form' } %>
+        </div>
+        <%= f.button :submit, 'Envoyer', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm mt-2' %>
+
+      <% end %>
+		</div>
+  </div>
+</div>

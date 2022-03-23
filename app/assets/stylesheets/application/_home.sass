@@ -1,0 +1,98 @@
+.category
+	border-width: 2px
+	border-radius: 100px
+	transition: background .4s ease
+	user-select: none
+	&:hover, &:focus
+		background: $info
+		.name-category
+			color: $light !important
+
+	img
+		width: 70px
+		height: auto
+
+	.name-category
+		font-size: 1.188rem
+		font-weight: 600
+		letter-spacing: 0.5px
+		transition: color .4s ease
+
+.tutorial-container
+	margin-top: 100px
+	p
+		font-size: 1rem
+		&.number
+			font-size: 8.875rem
+			opacity: .3
+			font-weight: 700
+			transform: translateY(40px)
+			user-select: none
+
+		span
+			font-weight: 600
+
+	img
+		width: 75px
+		height: auto
+
+.random-suggestion
+	.header
+		p
+			font-size: 1.188rem
+		
+		button
+			font-weight: 600
+			font-size: 1rem
+			outline: none
+	
+	h3
+		font-weight: 600
+
+	img
+		max-height: 400px
+		object-fit: cover
+
+	.header-alternative
+		padding-right: 15px
+		padding-left: 15px
+		.filter
+			font-size: 1rem
+	
+	.button
+		font-weight: 600
+		font-size: 0.75rem
+		&:hover, &:focus
+			color: $light !important
+	
+.about-container
+	max-width: none
+	background: rgba($primary, .05) !important
+	clip-path: url('#aboutClip')
+	transform: translateY(40px)
+
+	a
+		font-weight: 600
+		&:hover, &:focus
+			color: $light !important
+
+	.logo-footer
+		opacity: .15
+		z-index: -1
+		img
+			height: 450px
+
+.partner-container
+	.partner
+		img
+			width: 50%
+			@media screen and ( min-width: 576px )
+				width: 75%
+
+		a
+			filter : grayscale(100%)
+			transition: filter .4s ease
+			&:hover, &:focus
+				filter: grayscale(0)
+				&::before
+					width: 0

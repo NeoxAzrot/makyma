@@ -1,0 +1,32 @@
+<%= render 'header',
+            title: "Connecte-toi",
+            text: 'Si tu es administrateur de Makyma, tu peux te connecter ici avec tes identifiants secrets. Ne les divulgue à personne 🤫',
+            large: '!!!' %>
+
+<div class="container mb-5 form-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-primary">Connexion</h2>
+			<p class="text-secondary mt-3 sub_paragraph">Tous les champs marqués d’un <span class="text-primary">*</span> sont obligatoires.</p>
+    </div>
+  </div>
+  <div class="row mt-4">
+		<div class="col">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-row align-items-start justify-content-between">
+          <%= f.input :email, as: :string, label: "Email", placeholder: 'johndoe@exemple.com' , label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ton adresse mail ne semble pas valide ❌', :input_html => { class: 'input-form px-3 py-3' }, autofocus: true %>
+          <%= f.input :password, as: :password, label: "Mot de passe", placeholder: 'JohnDoe93Xx!', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ton mot de passe ne semble pas valide ❌' , :input_html => { class: 'input-form px-3 py-3' } %>
+        </div>
+        <%= f.input :remember_me, as: :boolean, label: 'Se souvenir de moi', label_html: { class: 'text-secondary' }, wrapper_html: { class: 'col-md-6' } if devise_mapping.rememberable? %>
+
+        <%= f.button :submit, 'Se connecter', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm mt-2' %>
+
+      <% end %>
+
+      <!--<%= render "devise/shared/links" %>-->
+		</div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<%= render 'header',
+            title: "Tout les produits",
+            text: 'Si tu es administrateur de Makyma, tu peux voir ici tout les produits 👀',
+            large: '+++' %>
+
+<div class="container">
+  <div class="row justify-content-around">
+    <%= link_to "Ajouter un produit ➕", new_product_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+  </div>
+</div>
+
+<div class="container products-container">
+  <div class="row mb-5 offset-lg-2 product-row-container mt-5">
+    <div class="col-lg-10">
+      <% @products.each do |product| %>
+        <div class="link-container">
+          <div class="product-container d-flex justify-content-between align-items-center px-3 px-sm-4 py-3 mb-4 shadow-sm rounded">
+            <div class="mr-3">
+              <h3 class="text-secondary mb-0 text-break"><%= product %></h3>
+              <p class="text-secondary mb-0 nb-alternatives mt-2"><%= product.alternatives.count %> solution<%= "s" if product.alternatives.count > 1 %> alternative<%= "s" if product.alternatives.count > 1 %></p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="text-primary mb-0 d-flex flex-column flex-sm-row mr-3">
+              <% arrayOfFilter = []
+              for i in (0...product.alternatives.count)
+                if(arrayOfFilter.exclude?product.alternatives[i].alternative_type_filter.to_s)
+                    arrayOfFilter.push(product.alternatives[i].alternative_type_filter.to_s)
+                end
+              end
+              arrayOfFilter = arrayOfFilter.sort
+              for i in(0..arrayOfFilter.length) %>
+                <% if arrayOfFilter[i] == 'En ligne' %>
+                  <span>🛒</span>
+                <% end %>
+                <% if arrayOfFilter[i] == 'DIY' %>
+                  <span>✂️</span>
+                <% end %>
+                <% if arrayOfFilter[i] == 'Local' %>
+                  <span>🚲</span>
+                <% end %>
+              <% end %>
+              </p>
+              <%= link_to "👀", product, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm' %>
+              <%= link_to "✏️", edit_product_path(product), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 ml-1 shadow-sm' %>
+              <%= link_to "❌", product, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 ml-1 shadow-sm' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-around mb-5">
+    <%= link_to "Ajouter un produit ➕", new_product_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+  </div>
+</div>

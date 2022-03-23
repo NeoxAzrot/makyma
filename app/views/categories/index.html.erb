@@ -1,0 +1,194 @@
+<%= render 'header',
+            title: "#{@alternatives.count}&nbsp;alternatives pour 
+            ta transition responsable !",
+            text: 'Découvre les alternatives vertes aux produits de ton quotidien, 
+            et adopte un comportement éco-responsable 🌱',
+            count: @alternatives.count %>
+
+<div class="container">
+  <% if can? :manage, @alternative %>
+    <div class="row mb-3 text-center justify-content-center align-items-center">
+      <a href="/suggested_alternatives" class="button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm ml-2">Voir les suggestions 👀</a>
+    </div>
+  <% end %>
+
+  <div class="row mb-5 text-center justify-content-center align-items-center">
+    <h2 class="text-secondary">Découvre nos catégories !</h2>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <% @categories.each do |category| %>
+      <div class="col-md-6 col-lg-4">
+        <%= link_to category, class: "text-decoration-none" do %>
+          <div class="card category shadow-sm mb-4 border-info">
+            <div class="card-body">
+              <div class="row justify-content-center align-items-center pt-2 pb-2 pl-3 pr-3">
+                <div class="col-4">
+                  <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
+                </div>
+                <div class="col-8">
+                  <h3 class="name-category text-info mb-0"><%= category %></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if can? :manage, @category %>
+    <div class="row justify-content-center">
+      <%= link_to 'Ajouter une nouvelle catégorie ➕', new_category_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm' %>
+    </div>
+  <% end %>
+
+  <div class="tutorial-container row justify-content-center">
+    <div class="col-md-4 mb-5">
+      <div class="row justify-content-start align-items-start">
+        <p class="number text-primary">1</p>
+        <%= image_tag asset_path('search.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 1" %>
+      </div>
+        <p class="text-secondary"><strong class="text-primary">Recherche</strong> un produit dans la <span>barre de recherche</span> ou dans nos <span>catégories</span></p>
+    </div> 
+    <div class="col-md-4 mb-5">
+      <div class="row justify-content-start align-items-start">
+        <p class="number text-primary">2</p>
+        <%= image_tag asset_path('eyes.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 2" %>
+      </div>
+      <p class="text-secondary"><strong class="text-primary">Découvre</strong> les différentes <span>alternatives</span> qui te sont <span>proposées</span></p>
+    </div> 
+    <div class="col-md-4 mb-5"> 
+      <div class="row justify-content-start align-items-start">
+        <p class="number text-primary">3</p>
+        <%= image_tag asset_path('hand_finger_top.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 3" %>
+      </div> 
+      <p class="text-secondary"><strong class="text-primary">Choisi</strong> celle qui te <span>correspond</span> le plus et <span>change le monde</span> à ton échelle !</p>
+    </div> 
+  </div>
+
+  <div class="random-suggestion container mt-5 pb-5">
+    <div class="row flex-column text-center justify-content-center align-items-center header">
+      <h2 class="text-secondary">La roulette Makyma</h2>
+      <p class="text-secondary mt-2 mb-3">Tire une nouvelle alternative au hasard ! 👇🏼</p>
+      <button type="button" id="random-alternative-btn" class="shadow-sm mt-3 border rounded border-info pt-3 pb-3 pl-4 pr-4 bg-transparent text-info">Tire une autre alternative</button>
+    </div>
+    <div class="row mt-1 roulette-container">
+      <% randIndex = rand(1...@alternatives.size) %>
+      <% @alternatives.each_with_index do |alternative, index| %>
+        <div class="<%= index == randIndex ? 'd-flex active' : 'd-none' %> alternative-random-container justify-content-center align-items-center flex-column-reverse flex-md-row">
+          <div class="col-md-6 text-container mb-5 mb-md-5 mb-lg-0 mt-0 mt-md-5 mt-lg-5">
+            <div class="header-alternative row justify-content-between align-items-center mb-3">
+              <h3 class="text-primary mb-0"><%= alternative.title %></h3>
+              <p class="filter text-primary mb-0">
+              <% if alternative.alternative_type_filter.to_s == 'En ligne' %>
+                <span>🛒</span>
+              <% end %>
+              <% if alternative.alternative_type_filter.to_s == 'DIY' %>
+                <span>✂️</span>
+              <% end %>
+              <% if alternative.alternative_type_filter.to_s == 'Local' %>
+                <span>🚲</span>
+              <% end %>
+              <%= alternative.alternative_type_filter %>
+              </p>
+            </div>
+            <p class="text-secondary mb-4"><%= alternative.description %></p>
+            <h3 class="text-primary mb-3">Où trouver ?</h3>
+            <p class="text-secondary mb-4"><%= alternative.find %></p>
+
+            <a href="<%= alternative.source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
+            <% if can? :manage, @alternative %>
+              <%= link_to "✏️", edit_alternative_path(alternative), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-2' %>
+              <%= link_to "❌", alternative, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex justify-content-center align-items-center mb-4 mb-md-5 mt-5">
+              <img class="img-fluid rounded w-100" src="<%= alternative.imgUrl %>" alt="Image correspondant à l'aternative <%= alternative.title %>">
+            </div>
+          </div>
+        </div>
+      <% end%>
+    </div>
+  </div>
+
+  <div class="container partner-container">
+    <div class="row justify-content-center align-items-center text-center mt-4">
+      <h2 class="text-secondary">Ils nous font confiance</h2>
+    </div>
+    <div class="row justify-content-center align-items-center mt-4">
+      <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+        <a href="https://www.u-bordeaux-montaigne.fr/fr/index.html" target="_blank">
+          <%= image_tag asset_path('partenaires/universite_bordeaux_montaigne.png'), class: "img-fluid", alt: "Icône de notre partenaire oxygene caps" %>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+        <a href="https://www.mmibordeaux.com/" target="_blank">
+          <%= image_tag asset_path('partenaires/mmi_bordeaux.png'), class: "img-fluid", alt: "Icône de notre partenaire oxygene caps" %>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+        <a href="https://bonsplansecolo.fr/" target="_blank">
+          <%= image_tag asset_path('partenaires/bons_plans_ecolo.png'), class: "img-fluid", alt: "Icône de notre partenaire bonsplansecolo" %>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+        <a href="https://www.instagram.com/thegreenglobalproject/" target="_blank">
+          <%= image_tag asset_path('partenaires/the_green_global_project.png'), class: "img-fluid", alt: "Icône de notre partenaire the green global project" %>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+        <a href="https://www.machouettecouture.fr/" target="_blank">
+          <%= image_tag asset_path('partenaires/ma_chouette_couture.png'), class: "img-fluid", alt: "Icône de notre partenaire ma chouette couture" %>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+        <a href="https://oxygenecaps.fr/" target="_blank">
+          <%= image_tag asset_path('partenaires/oxygene_caps.png'), class: "img-fluid", alt: "Icône de notre partenaire oxygene caps" %>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-container container pt-5 pb-5 bg-primary">
+  <div class="row offset-md-1 mt-5 position-relative pb-5">
+    <div class="col-md-7 mt-5 pb-5">
+      <h2 class="text-primary">Qui sommes-nous ?</h2>
+      <p class="text-secondary mt-4 mb-5">Makyma permet d’accompagner ta transition écologique le plus facilement possible. 
+      Avec une utilisation facile pour tout le monde, même ta grand-mère peut y arriver ! 
+      Choisis d’acheter local, de le faire par toi même, ou de commander sur internet. 
+      Tu choisis ce que tu préfères !</p>
+      <a href="/about" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">En savoir plus</a>
+    </div>
+    <div class="logo-footer w-100 h-100 position-absolute d-none d-md-flex justify-content-end align-items-center">
+      <%= image_tag asset_path('logo_mobile.svg'), class: "img-fluid mr-5", alt: "Logo de Makyma" %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  $('#random-alternative-btn').click(() => {
+    var alternatives = $('.alternative-random-container').not('.active')
+    var alternative_active = $('.alternative-random-container.active')
+    var index = randomNumber(0, alternatives.length)
+
+    hideAlternative(alternative_active)
+    showAlternative(alternatives.eq(index))
+  })
+
+  var hideAlternative = (alternative) => {
+    alternative.removeClass(['d-flex', 'active'])
+    alternative.addClass('d-none')
+  }
+
+  var showAlternative = (alternative) => {
+    alternative.removeClass('d-none')
+    alternative.addClass(['d-flex', 'active'])
+  }  
+
+  var randomNumber = (min, max) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min +1)) + min
+  }
+<% end %>

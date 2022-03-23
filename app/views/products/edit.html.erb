@@ -1,0 +1,9 @@
+<%= render 'header',
+            title: "Modifie le produit #{@product.title.downcase}",
+            text: 'Si tu es administrateur de Makyma, tu peux modifier le produit avec ce formulaire ✏️',
+            large: '+++' %>
+
+<%= render 'form', product: @product %>
+
+<!--<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>-->

@@ -1,0 +1,46 @@
+<%= render 'header',
+            title: "Toutes les alternatives proposées",
+            text: 'Si tu es administrateur de Makyma, tu peux voir ici toutes les alternatives proposées par les utilisateurs 👀',
+            large: '+++' %>
+
+<div class="container suggested-alternatives-container mt-5">
+  <table class="table table-hover table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col text-light">Titre</th>
+        <th scope="col text-light">Type de filtre</th>
+        <th scope="col text-light">Produit</th>
+        <th scope="col text-light">Description</th>
+        <th scope="col text-light">Où trouver</th>
+        <th scope="col text-light">Lien</th>
+        <th scope="col text-light">Image</th>
+        <th scope="col text-light"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @suggested_alternatives.each do |suggested_alternative| %>
+        <tr>
+          <td class="text-secondary"><%= suggested_alternative.title %></td>
+          <td class="text-secondary"><%= suggested_alternative.alternative_type_filter %></td>
+          <td class="text-secondary"><%= suggested_alternative.product %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.description %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.find %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.source %></td>
+          <td class="text-break text-secondary"><%= suggested_alternative.imgUrl %></td>
+          <td class="d-flex align-items-center justify-content-center">
+            <%= link_to "👀", suggested_alternative, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm' %>
+            <%= link_to "✏️", edit_suggested_alternative_path(suggested_alternative), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
+            <%= link_to "❌", suggested_alternative, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <div class="row justify-content-around mb-5 mt-5">
+    <%= link_to "Ajouter une alternative proposée ➕", new_suggested_alternative_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm mb-3' %>
+  </div>
+</div>

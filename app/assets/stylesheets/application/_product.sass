@@ -1,0 +1,47 @@
+.products-container
+  h3
+    font-weight: 600
+    font-size: 1.438rem
+    letter-spacing: 0
+  .button
+    font-weight: 600
+    font-size: 0.75rem
+    &:hover, &:focus
+      color: $light !important
+  .nb-alternatives
+    font-size: 0.75rem
+    line-height: 1rem
+  
+  .link-container
+    .product-container
+      transition: box-shadow .4s ease
+    &:hover, &:focus
+      &::before
+        width: 0
+      .product-container
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important
+      .button
+        background: $info !important
+        color: $light !important
+        text-decoration: none
+        &.admin
+          background: transparent !important
+          color: $info !important
+          &:hover
+            background: $info !important
+            color: $light !important
+        &::before
+          width: 0
+
+  .filter-container
+    input[type=checkbox], label
+      cursor: pointer
+
+    .filter-separator
+      height: 15px
+      width: 2px
+  
+  button
+    font-weight: 600
+    font-size: 0.938rem
+    outline: none

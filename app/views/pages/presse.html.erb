@@ -1,0 +1,25 @@
+<%= render 'header',
+            title: 'Nos ressources presse',
+            text: 'Parce que nous avons besoin de nous faire connaître, pour que chacun puisse découvrir ou proposer son alternative éco-responsable 💌',
+            large: 'PUB' %>
+
+<div class="container mb-5 presse-container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="mb-5 text-primary">Nos ressources</h2>
+      <h3 class="mt-5 text-secondary">Tout nouveau sur la toile, notre site web a besoin<br/>d'un <strong class="text-primary">coup de pouce</strong> 📢</h3>
+      <h3 class="mt-5 text-right text-secondary">Tu es libre de <strong class="text-primary">partager</strong> notre site à ton entourage 💏</h3>
+      <h3 class="mt-5 mb-4 text-secondary">Si tu veux travailler avec nous, on attend ton message<br/>avec impatience 🤗</h3>
+      <p class="text-secondary"><a href="<%= asset_path('downloads/communique.pdf') %>" download="Communiqué de presse - Makyma">Télécharger notre communiqué de presse</a></p>
+      <p class="text-secondary"><a href="<%= asset_path('downloads/dossier_presse.pdf') %>" download="Dossier de presse - Makyma">Télécharger notre dossier de presse</a></p>
+
+      <!-- Enlever download -->
+      <h2 class="mt-5 mb-5 text-primary">Notre logo</h2>
+      <h3 class="mt-5 mb-4 text-secondary">Makyma à toutes les échelles 🔍</h3>
+      <p class="text-secondary">Vous trouverez ci-dessous nos différentes déclinaisons de <strong class="text-primary">logo</strong>.</p>
+      <p class="text-secondary"><a href="<%= asset_path('downloads/logo_computer.svg') %>" download="Logo ordinateur - Makyma">Télécharger notre logo version ordinateur</a></p>
+      <p class="text-secondary"><a href="<%= asset_path('downloads/logo_tablette.svg') %>" download="Logo tablette - Makyma">Télécharger notre logo version tablette</a></p>
+      <p class="text-secondary"><a href="<%= asset_path('downloads/logo_mobile.svg') %>" download="Logo téléphone - Makyma">Télécharger notre logo version téléphone</a></p>
+    </div>
+  </div>
+</div>

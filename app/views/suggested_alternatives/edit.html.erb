@@ -1,0 +1,11 @@
+<%= render 'header',
+            title: "Modifie ton alternative suggérée #{@suggested_alternative.title.downcase}",
+            text: 'Si tu es administrateur de Makyma, tu peux modifier une alternative suggérée avec ce formulaire ✏️',
+            large: '+++' %>
+
+<div class="container mb-5 form-container">
+  <%= render 'form', suggested_alternative: @suggested_alternative %>
+</div>
+
+<!--<%= link_to 'Show', @suggested_alternative %> |
+<%= link_to 'Back', suggested_alternatives_path %>-->

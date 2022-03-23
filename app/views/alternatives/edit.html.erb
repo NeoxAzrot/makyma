@@ -1,0 +1,10 @@
+<%= render 'header',
+            title: "Modifie ton alternative #{@alternative.title.downcase}",
+            text: 'Si tu es administrateur de Makyma, tu peux modifier une alternative avec ce formulaire ✏️',
+            large: '+++' %>
+
+<%= render 'form', alternative: @alternative %>
+
+<!--<%= link_to 'Show', @alternative %> |
+<%= link_to 'Back', alternatives_path %>-->
+

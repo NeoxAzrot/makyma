@@ -1,0 +1,7 @@
+<% if can? :manage, @user %>
+	<% @users = User.all %>
+	<% @users.each do |user| %>
+		<%= user.id %> - 
+	  	<%= user.email %><br>
+	<% end %>
+<% end %>

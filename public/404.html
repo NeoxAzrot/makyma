@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makyma - Erreur 404</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .error-container {
+      width: 100vw;
+      height: 100vh;
+      color: white;
+      font-family: "Poppins", sans-serif;
+	    background: linear-gradient(40deg, #FF8F66, #ffeb9a 120%)
+    }
+
+    .error-texts {
+      width: 45vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .error-texts h2 {
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 2.5vw;
+    }
+
+    .error-texts p {
+      font-size: 25px;
+    }
+
+    .error-texts .btn-product {
+      background-color: rgb(255, 255, 255);
+      color: #FFB078;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2vw;
+      font-weight: bold;
+      padding: 16px 22px;
+      border-radius: 30px;
+      box-shadow: 0px 5px 10px #835b4332;
+      transition: background-color 0.5s;
+    }
+
+    .error-texts .btn-product:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .bg-text {
+      overflow: hidden;
+      font-size: 396px;
+      position: absolute;
+      right: 0;
+      top: 25%;
+      transform: translate(0%, -25%);
+      font-weight: bold;
+      opacity: 0.27;
+    }
+
+    @media screen and (max-width: 800px) {
+      .error-texts {
+        width: 90vw;
+      }
+
+      .error-texts h2 {
+        font-size: 2.4rem;
+      }
+
+      .error-texts p {
+        font-size: 1rem
+      }
+
+      .bg-text {
+        opacity: 0.1;
+        top: 10%;
+        font-size: 50vw;
+      }
+    }
+
+    @media screen and (max-width: 300px) {
+      .error-texts {
+        width: 100vw;
+      }
+
+      .bg-text {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="error-container">
+    <p class="bg-text">404</p>
+    <div class="error-texts">
+      <h2>Erreur 404</h2>
+      <p>Ooops ! Il semblerai que tu te sois perdu ! T’inquiètes pas, ça arrive même aux meilleurs.<br>Tu veux retourner explorer makyma de toi-même ?</p>
+      <a class="btn-product" href="https://www.makyma.org">C'est re-partis !</a>
+    </div>
+  </div>
+
+  
+</body>
+</html>

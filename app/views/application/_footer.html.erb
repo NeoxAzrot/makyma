@@ -1,0 +1,30 @@
+<footer class="footer-container bg-light">
+  <div class="container pt-4">
+    <div class="row py-5">
+      <div class="col-md-4 mb-4">
+        <ul class="list-unstyled">
+          <li class="mb-3"><a href="<%= root_path %>" class="text-secondary copyright">© Makyma <%= Date.today.year %></a></li>
+          <% if user_signed_in? %>
+            <li class="mb-3"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: 'text-secondary' %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-6 col-md-3 offset-md-2">
+        <ul class="list-unstyled">
+          <li class="mb-3"><a href="/suggestion" class="text-secondary">Propose une alternative</a></li>
+          <li class="mb-3"><a href="/about" class="text-secondary">À Propos</a></li>
+          <li class="mb-3"><a href="/contact" class="text-secondary">Contact</a></li>
+          <li class="mb-3"><a href="/presse" class="text-secondary">Presse</a></li>
+          <li class="mb-3"><a href="/cgu" class="text-secondary">Mentions légales</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-3">
+        <ul class="list-unstyled">
+          <li class="mb-3"><a href="https://www.facebook.com/makymaorg" class="text-secondary" target="_blank">Facebook</a></li>
+          <li class="mb-3"><a href="https://www.instagram.com/makyma_app" class="text-secondary" target="_blank">Instagram</a></li>
+          <li class="mb-3"><a href="https://twitter.com/makyma_app" class="text-secondary" target="_blank">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

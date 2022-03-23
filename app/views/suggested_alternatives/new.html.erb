@@ -1,0 +1,16 @@
+<%= render 'header',
+    title: 'Propose une alternative',
+    text: 'Nous sommes constamment à la recherche de nouvelles alternatives. Si tu n’as pas trouvé ce que tu cherchais, fais-le nous savoir, nous la rajouterons au plus vite 🤞',
+    large: '!!!'
+%>
+
+<div class="container mb-5 form-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-primary">Écris-nous ton idée</h2>
+			<p class="text-secondary mt-3 sub_paragraph">Tous les champs marqués d’un <span class="text-primary">*</span> sont obligatoires.</p>
+    </div>
+  </div>
+	
+  <%= render 'form', suggested_alternative: @suggested_alternative %>
+</div>

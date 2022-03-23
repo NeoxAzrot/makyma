@@ -1,0 +1,32 @@
+<%= render 'header',
+            title: 'Contacte-nous',
+            text: 'Tu as une question, une demande particulière sur un produit, une proposition à nous faire ? Contacte-nous, nous serons ravis de pouvoir te répondre 🙌',
+            large: '@'
+%>
+
+<div class="container mb-5 form-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-primary">Envoie-nous ton message</h2>
+			<p class="text-secondary mt-3 sub_paragraph">Tous les champs marqués d’un <span class="text-primary">*</span> sont obligatoires.</p>
+    </div>
+  </div>
+  <div class="row mt-4">
+		<div class="col">
+      <%= simple_form_for @contact, url: 'contact#new', html: { class:"suggest-form"} do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-row align-items-start justify-content-between">
+          <%= f.input :name, as: :string, label: "Nom", placeholder: 'John Doe', label_html: { class: 'text-secondary ml-4' }, required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️' , :input_html => { class: 'input-form px-3 py-3' }, autofocus: true %>
+          <%= f.input :subject, as: :select, label: "Objet", label_html: { class: 'text-secondary ml-4' }, collection: [['Partenariat', 'Partenariat'], ['Lien obsolète', 'Lien obsolète'], ['Proposer un nouveau produit', 'Proposer un nouveau produit'], ['Problème rencontré', 'Problème rencontré'], ['Question diverse', 'Question diverse']], required: true, wrapper_html: { class: 'col-md-6' }, error: 'Ce champ est requis ✏️', :input_html => { class: 'input-form' } %>
+        </div>
+        <%= f.input :email, as: :string, label: "Email", placeholder: 'johndoe@exemple.com', label_html: { class: 'text-secondary ml-4' }, required: true, error: 'Ton adresse mail ne semble pas valide ❌', :input_html => { class: 'input-form px-3 py-3' } %>
+        <%= f.input :body, as: :text, :input_html => { :rows => 4, class: 'input-form px-3 py-2' }, label: "Message", placeholder: 'Écris-nous ton message', label_html: { class: 'text-secondary ml-4' }, required: true, error: 'Ce champ est requis ✏️' %>
+
+        <%= f.button :submit, 'Envoyer', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm mt-2' %>
+
+      <% end %>
+		</div>
+  </div>
+</div>

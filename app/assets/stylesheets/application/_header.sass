@@ -1,0 +1,71 @@
+.jumbotron
+	position: relative
+	margin-top: -130px
+	padding: 180px 0 150px 0
+	border-radius: unset
+	background: linear-gradient(40deg, #FF8F66, #ffeb9a 120%)
+	clip-path: url(#headerClip)
+
+	.description
+		font-size: 1.188rem
+
+	.count-container
+		width: 100vw
+		user-select: none
+		.count
+			font-size: 25rem
+			font-weight: 700
+		.info-count
+			font-size: 5.875rem
+			font-weight: 700
+			transform: translate(-4rem, -7rem)
+	
+	.search-bar
+		input
+			outline: none
+			max-width: none
+			background: $light
+		
+		.button-container
+			right: 1.5rem
+			top: 50%
+			transform: translateY(-50%)
+
+			button
+				outline: none
+				background: $light
+				box-shadow: none
+				z-index: 9999
+				padding: 0
+				margin-top: 0
+				padding-left: .5rem
+				&:hover, &:focus
+					background: $light !important
+
+.breadcrumb
+	font-weight: 500
+	font-size: 0.938rem
+	line-height: 1.4rem
+	letter-spacing: 0.5px
+	li
+		&:last-child
+			font-weight: 700
+			position: relative
+			font-style: italic
+			&::before
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+				width: 100%
+				height: 2px
+				transition: width .4s ease
+				border-radius: 8px
+				background: $light
+	a
+		color: $light
+		text-decoration: none
+		font-weight: 500
+		&:hover, &:focus
+			&::before
+				background: $light
