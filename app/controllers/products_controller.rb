@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    add_breadcrumb @product.category, @product.category
     add_breadcrumb @product
   end
 

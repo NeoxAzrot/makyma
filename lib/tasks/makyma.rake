@@ -12,7 +12,9 @@ namespace :makyma do
         electromenager: ['Electroménager', 'bath.png', 'Déniche les alternatives vertes, durables et écoresponsables aux produits numériques habituels ! Makyma te mets au courant des alternatives que te permettent de rester autant connecter à internet qu’à la planète. Réveille le geek-écolo qui sommeille en toi 🛁'],
         jardin: ['Jardin', 'herb.png', 'Découvre les alternatives vertes, durables et écoresponsables aux produits de jardinage habituel ! Makyma te présente les alternatives qui s’occupent autant de tes plantes vertes que de la planète bleue. Prend l’air vert 🌿'],
         hygiene: ['Salle de bain', 'bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits de beauté ! Makyma te conseille les alternatives qui prennent tout autant soin de ta peau que de la planète. La seule hygiène qui vaille, c’est celle qui dure 🧴'],
-        technologie: ['High-Tech', 'computer.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits high-tech 💻']
+        technologie: ['High-Tech', 'computer.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits high-tech 💻'],
+        vetement: ['Vêtement', 't-shirt.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes vêtements 👕'],
+        pitchoun: ['Pitchoun', 'baby-bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits pour ton pitchoune 🍼']
     }.each do |file, cat|
         puts "Import #{cat}"
         path = "vendor/data/#{file}.csv"

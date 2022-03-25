@@ -4,8 +4,15 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+    @filter = params[:filter]
+    if @filter.nil?
+      @params = nil
+    else
+      @params = @filter.parameterize.split('-')
+    end
+
     @categories = Category.all
-    @alternatives = Alternative.all
+    @products = Product.all
   end
 
   # GET /categories/1

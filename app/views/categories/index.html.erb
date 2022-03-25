@@ -1,9 +1,16 @@
-<%= render 'header',
-            title: "#{@alternatives.count}&nbsp;alternatives pour 
-            ta transition responsable !",
-            text: 'Découvre les alternatives vertes aux produits de ton quotidien, 
-            et adopte un comportement éco-responsable 🌱',
-            count: @alternatives.count %>
+<%= render 'header'%>
+<div class="container mb-0">
+  <div class="flex-column-reverse flex-md-row  mb-3 justify-content-between d-flex align-items-center ">
+    <div class="d-inline-block">
+      <h2 class="w-100">Explore <br/> les alternatives <br/> éco-responsable <%= image_tag asset_path('plant.png'), class: "img-fluid", alt: "Emoji plante" %></h2>
+      <p>Pour t’aider dans ta transition écologique quotidienne <%= image_tag asset_path('smile.png'), class: "img-fluid", alt: "Emoji content" %></p>
+      <a class="button nav-link d-inline-block text-light border border-info bg-info rounded pr-3 pl-3" href="/suggestion">À propos de Makyma</a>
+    </div>
+    <div class="left-part">
+        <%= image_tag asset_path('networks.png'), class: "img-fluid", alt: "Image des réseaux sociaux" %>
+    </div>
+  </div>
+</div> 
 
 <div class="container">
   <% if can? :manage, @alternative %>
@@ -12,108 +19,83 @@
     </div>
   <% end %>
 
-  <div class="row mb-5 text-center justify-content-center align-items-center">
-    <h2 class="text-secondary">Découvre nos catégories !</h2>
+  <div class="container">
+    <div id="alternatives" class="row mb-2 text-center justify-content-between align-items-center">
+      <p class="mb-0">Nos catégories</p> 
+      <div class="d-flex">
+        <p class="mb-0"><span class="mr-1">✂️</span> DIY</p>
+        <p class="mb-0 ml-5"><span class="mr-1">🛒</span> Acheter en ligne</p>
+      </div>
+    </div>
   </div>
-  <div class="row justify-content-center pt-3">
+
+  <div class="d-flex flex-wrap">
     <% @categories.each do |category| %>
-      <div class="col-md-6 col-lg-4">
-        <%= link_to category, class: "text-decoration-none" do %>
-          <div class="card category shadow-sm mb-4 border-info">
-            <div class="card-body">
-              <div class="row justify-content-center align-items-center pt-2 pb-2 pl-3 pr-3">
-                <div class="col-4">
+    <% if !@params.nil? 
+        isFilterActive = @params[0].to_s === category.id.to_s 
+      end %>
+      <div class="mr-2">
+        <div class="filter" data-id="<%= category.id %>">
+          <div class="card category shadow-sm mb-4 border-info d-inline-block <%= 'active' if isFilterActive %>">
+            <div class="card-body ">
+              <div class="row align-items-center">
+                <div class="img">
                   <%= image_tag category.image, class: "img-fluid", alt: "Icône symbolisant la catégorie #{category}" if category.image %>
                 </div>
-                <div class="col-8">
-                  <h3 class="name-category text-info mb-0"><%= category %></h3>
+                <div>
+                  <p class="name-category text-info mb-0 d-inline"><%= category %></p>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
+        </div>
       </div>
     <% end %>
   </div>
+
   <% if can? :manage, @category %>
     <div class="row justify-content-center">
       <%= link_to 'Ajouter une nouvelle catégorie ➕', new_category_path, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm' %>
     </div>
   <% end %>
 
-  <div class="tutorial-container row justify-content-center">
-    <div class="col-md-4 mb-5">
-      <div class="row justify-content-start align-items-start">
-        <p class="number text-primary">1</p>
-        <%= image_tag asset_path('search.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 1" %>
-      </div>
-        <p class="text-secondary"><strong class="text-primary">Recherche</strong> un produit dans la <span>barre de recherche</span> ou dans nos <span>catégories</span></p>
-    </div> 
-    <div class="col-md-4 mb-5">
-      <div class="row justify-content-start align-items-start">
-        <p class="number text-primary">2</p>
-        <%= image_tag asset_path('eyes.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 2" %>
-      </div>
-      <p class="text-secondary"><strong class="text-primary">Découvre</strong> les différentes <span>alternatives</span> qui te sont <span>proposées</span></p>
-    </div> 
-    <div class="col-md-4 mb-5"> 
-      <div class="row justify-content-start align-items-start">
-        <p class="number text-primary">3</p>
-        <%= image_tag asset_path('hand_finger_top.png'), class: "img-fluid ml-4 mb-2", alt: "Icône symbolisant l'étape 3" %>
-      </div> 
-      <p class="text-secondary"><strong class="text-primary">Choisi</strong> celle qui te <span>correspond</span> le plus et <span>change le monde</span> à ton échelle !</p>
-    </div> 
-  </div>
-
-  <div class="random-suggestion container mt-5 pb-5">
-    <div class="row flex-column text-center justify-content-center align-items-center header">
-      <h2 class="text-secondary">La roulette Makyma</h2>
-      <p class="text-secondary mt-2 mb-3">Tire une nouvelle alternative au hasard ! 👇🏼</p>
-      <button type="button" id="random-alternative-btn" class="shadow-sm mt-3 border rounded border-info pt-3 pb-3 pl-4 pr-4 bg-transparent text-info">Tire une autre alternative</button>
-    </div>
-    <div class="row mt-1 roulette-container">
-      <% randIndex = rand(1...@alternatives.size) %>
-      <% @alternatives.each_with_index do |alternative, index| %>
-        <div class="<%= index == randIndex ? 'd-flex active' : 'd-none' %> alternative-random-container justify-content-center align-items-center flex-column-reverse flex-md-row">
-          <div class="col-md-6 text-container mb-5 mb-md-5 mb-lg-0 mt-0 mt-md-5 mt-lg-5">
-            <div class="header-alternative row justify-content-between align-items-center mb-3">
-              <h3 class="text-primary mb-0"><%= alternative.title %></h3>
-              <p class="filter text-primary mb-0">
-              <% if alternative.alternative_type_filter.to_s == 'En ligne' %>
-                <span>🛒</span>
+  <div class="d-flex flex-wrap">
+    <% @products.each do |product| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-3 product-card" data-filter="<%= product.category.id %>">
+        <%= link_to product_path(product) do %>
+          <img class="img-fluid rounded" src="<%= product.alternatives[0].imgUrl %>" alt="Image correspondant à l'aternative <%= product.alternatives[0] %>">
+            <div class="ml-1 row icon">
+              <% arrayOfFilter = []
+              for i in (0...product.alternatives.count)
+                if(arrayOfFilter.exclude?product.alternatives[i].alternative_type_filter.to_s)
+                    arrayOfFilter.push(product.alternatives[i].alternative_type_filter.to_s)
+                end
+              end
+              arrayOfFilter = arrayOfFilter.sort
+              for i in(0..arrayOfFilter.length) %>
+                <% if arrayOfFilter[i] == 'En ligne' %>
+                  <p>🛒</p>
+                <% end %>
+                <% if arrayOfFilter[i] == 'DIY' %>
+                  <p>✂️</p>
+                <% end %>
               <% end %>
-              <% if alternative.alternative_type_filter.to_s == 'DIY' %>
-                <span>✂️</span>
-              <% end %>
-              <% if alternative.alternative_type_filter.to_s == 'Local' %>
-                <span>🚲</span>
-              <% end %>
-              <%= alternative.alternative_type_filter %>
-              </p>
-            </div>
-            <p class="text-secondary mb-4"><%= alternative.description %></p>
-            <h3 class="text-primary mb-3">Où trouver ?</h3>
-            <p class="text-secondary mb-4"><%= alternative.find %></p>
-
-            <a href="<%= alternative.source %>" target="_blank" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">Je visite le site !</a>
-            <% if can? :manage, @alternative %>
-              <%= link_to "✏️", edit_alternative_path(alternative), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-2' %>
-              <%= link_to "❌", alternative, method: :delete, data: { confirm: 'En es-tu sûr ?' }, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>
-            <% end %>
           </div>
-          <div class="col-md-6">
-            <div class="d-flex justify-content-center align-items-center mb-4 mb-md-5 mt-5">
-              <img class="img-fluid rounded w-100" src="<%= alternative.imgUrl %>" alt="Image correspondant à l'aternative <%= alternative.title %>">
-            </div>
+          <div class="description">
+            <h4><%= product.title %></h4>
+            <p><%= product.alternatives.count %> alternative<%= 's' if product.alternatives.count > 1%> trouvée<%= 's' if product.alternatives.count > 1%> 🌱</p>
           </div>
         </div>
-      <% end%>
+      <% end %>
+    <% end %>
+    <div class="d-flex justify-content-center w-100">
+      <div class="nav-link text-info border border-info rounded pr-3 pl-3 show-more-button">Voir plus</div>
     </div>
   </div>
 
   <div class="container partner-container">
     <div class="row justify-content-center align-items-center text-center mt-4">
-      <h2 class="text-secondary">Ils nous font confiance</h2>
+      <h2>Ils nous font <span class="text-primary">confiance</span></h2>
     </div>
     <div class="row justify-content-center align-items-center mt-4">
       <div class="col-sm-6 col-md-3 mb-3 text-center partner">
@@ -156,7 +138,7 @@
       <h2 class="text-primary">Qui sommes-nous ?</h2>
       <p class="text-secondary mt-4 mb-5">Makyma permet d’accompagner ta transition écologique le plus facilement possible. 
       Avec une utilisation facile pour tout le monde, même ta grand-mère peut y arriver ! 
-      Choisis d’acheter local, de le faire par toi même, ou de commander sur internet. 
+      Choisis d’acheter en ligne ou de le faire par toi même. 
       Tu choisis ce que tu préfères !</p>
       <a href="/about" class="button text-info border-info border rounded pt-2 pb-2 pl-3 pr-3 shadow-sm">En savoir plus</a>
     </div>
@@ -167,6 +149,8 @@
 </div>
 
 <%= javascript_tag do %>
+  var pageSize = 12;
+
   $('#random-alternative-btn').click(() => {
     var alternatives = $('.alternative-random-container').not('.active')
     var alternative_active = $('.alternative-random-container.active')
@@ -191,4 +175,71 @@
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min +1)) + min
   }
+
+  $('.filter').click((e) => {
+    var filterId = $(e.currentTarget).data('id')
+    var queryParams = new URLSearchParams(window.location.search);
+    var actualFilter = queryParams.get('filter');
+    var filterProductCard;
+
+    $('.filter .card').removeClass('active')
+
+    if (actualFilter === filterId.toString()) {
+      queryParams.delete('filter', filterId)
+      filterProductCard = $(".product-card")
+    } else {
+      queryParams.set('filter', filterId)
+      $(e.currentTarget).children('.card').addClass('active')
+      filterProductCard = $(`.product-card[data-filter="${filterId}"]`)
+    }
+    
+    pageSize = 12;
+    const productsCard = $('.product-card')
+
+    productsCard.hide()
+    filterProductCard.slice(0, pageSize).show()
+
+    if (filterProductCard.length < pageSize) {
+      $('.show-more-button').hide()
+    } else {
+      $('.show-more-button').show()
+    }
+
+    history.replaceState(null, null, "?"+queryParams.toString());
+  })
+
+  $('.show-more-button').click(() => {
+    pageSize += 8
+
+    const productsCard = $('.product-card')
+    const productsCardFiltered = productsCard.slice(0, pageSize)
+
+    productsCard.hide()
+    productsCardFiltered.show();
+
+    window.scrollTo(0, productsCardFiltered.slice(pageSize - 8, pageSize).offset().top)
+
+    if (pageSize >= productsCard.length) {
+      $('.show-more-button').hide()
+    }
+  })
+
+  $(document).ready(() => {
+    const productsCard = $('.product-card')
+    const productsCardFiltered = productsCard.slice(0, pageSize)
+
+    productsCard.hide()
+
+    const filter = new URLSearchParams(window.location.search).get("filter")
+    if (filter) {
+      const filterProductCard = $(`.product-card[data-filter="${filter}"]`)
+      filterProductCard.slice(0, pageSize).show()
+
+    if (pageSize >= filterProductCard.length) {
+      $('.show-more-button').hide()
+    }
+    } else {
+      productsCardFiltered.show();
+    }
+  })
 <% end %>
