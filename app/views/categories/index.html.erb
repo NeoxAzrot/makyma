@@ -2,9 +2,9 @@
 <div class="container mb-0">
   <div class="flex-column-reverse flex-md-row  mb-3 justify-content-between d-flex align-items-center ">
     <div class="d-inline-block">
-      <h2 class="w-100">Explore <br/> les alternatives <br/> éco-responsable <%= image_tag asset_path('plant.png'), class: "img-fluid", alt: "Emoji plante" %></h2>
+      <h2 class="w-100">Explore les<br/> <%= @alternatives.count %> alternatives <br/> éco-responsable <%= image_tag asset_path('plant.png'), class: "img-fluid", alt: "Emoji plante" %></h2>
       <p>Pour t’aider dans ta transition écologique quotidienne <%= image_tag asset_path('smile.png'), class: "img-fluid", alt: "Emoji content" %></p>
-      <a class="button nav-link d-inline-block text-light border border-info bg-info rounded pr-3 pl-3" href="/suggestion">À propos de Makyma</a>
+      <a class="button nav-link d-inline-block text-light border border-info bg-info rounded pr-3 pl-3" href="/about">À propos de Makyma</a>
     </div>
     <div class="left-part">
         <%= image_tag asset_path('networks.png'), class: "img-fluid", alt: "Image des réseaux sociaux" %>
@@ -126,6 +126,11 @@
       <div class="col-sm-6 col-md-3 mb-3 text-center partner">
         <a href="https://oxygenecaps.fr/" target="_blank">
           <%= image_tag asset_path('partenaires/oxygene_caps.png'), class: "img-fluid", alt: "Icône de notre partenaire oxygene caps" %>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-3 mb-3 text-center partner">
+        <a href="https://circouleur.fr/" target="_blank">
+          <%= image_tag asset_path('partenaires/circouleur.png'), class: "img-fluid", alt: "Logo de circouleur" %>
         </a>
       </div>
     </div>

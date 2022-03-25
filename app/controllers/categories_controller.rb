@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
 
     @categories = Category.all
     @products = Product.all
+    @alternatives = Alternative.all
   end
 
   # GET /categories/1
