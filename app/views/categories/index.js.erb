@@ -1,0 +1,16 @@
+<% if @refresh.present? %>
+  $('.products_card').empty();
+<% end %>
+
+$('.products_card').append("<%= escape_javascript(render 'products-list', products: @products) %>");
+$('#show-more-button').blur();
+
+<% if @products.total_count == 0 || @products.last_page? %>
+  $('#show-more-button').hide();
+<% else %>
+  <% remaining_products = remaining_objects(@products) %>
+  $('#show-more-button').text("Voir plus (<%= remaining_products %> produit<%= 's' if remaining_products > 1 %>)");
+  $('#show-more-button').attr('href', '<%= url_for request.params.merge(page: @products.next_page, filter: @filter).except(:refresh) %>');
+
+  $('#show-more-button').show();
+<% end %>

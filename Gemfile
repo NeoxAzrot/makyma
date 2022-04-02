@@ -22,8 +22,12 @@ gem 'rails_admin', '~> 2.0'
 gem 'figaro'
 # Sitemap
 gem 'sitemap_generator'
-
+# Dotenv
 gem 'dotenv-rails'
+# Pagination
+gem 'kaminari'
+# Image optimization
+gem 'kamifusen'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

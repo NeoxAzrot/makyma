@@ -31,12 +31,9 @@
 
   <div class="d-flex flex-wrap">
     <% @categories.each do |category| %>
-    <% if !@params.nil? 
-        isFilterActive = @params[0].to_s === category.id.to_s 
-      end %>
       <div class="mr-2">
-        <div class="filter" data-id="<%= category.id %>">
-          <div class="card category shadow-sm mb-4 border-info d-inline-block <%= 'active' if isFilterActive %>">
+        <%= link_to categories_path(page: 1, filter: category.id.to_s, refresh: true), class: 'filter', remote: true do %>
+          <div class="card category shadow-sm mb-4 border-info d-inline-block">
             <div class="card-body ">
               <div class="row align-items-center">
                 <div class="img">
@@ -48,7 +45,7 @@
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -59,39 +56,18 @@
     </div>
   <% end %>
 
-  <div class="d-flex flex-wrap">
-    <% @products.each do |product| %>
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-3 product-card" data-filter="<%= product.category.id %>">
-        <%= link_to product_path(product) do %>
-          <img class="img-fluid rounded" src="<%= product.alternatives[0].imgUrl %>" alt="Image correspondant à l'aternative <%= product.alternatives[0] %>">
-            <div class="ml-1 row icon">
-              <% arrayOfFilter = []
-              for i in (0...product.alternatives.count)
-                if(arrayOfFilter.exclude?product.alternatives[i].alternative_type_filter.to_s)
-                    arrayOfFilter.push(product.alternatives[i].alternative_type_filter.to_s)
-                end
-              end
-              arrayOfFilter = arrayOfFilter.sort
-              for i in(0..arrayOfFilter.length) %>
-                <% if arrayOfFilter[i] == 'En ligne' %>
-                  <p>🛒</p>
-                <% end %>
-                <% if arrayOfFilter[i] == 'DIY' %>
-                  <p>✂️</p>
-                <% end %>
-              <% end %>
-          </div>
-          <div class="description">
-            <h4><%= product.title %></h4>
-            <p><%= product.alternatives.count %> alternative<%= 's' if product.alternatives.count > 1%> trouvée<%= 's' if product.alternatives.count > 1%> 🌱</p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-    <div class="d-flex justify-content-center w-100">
-      <div class="nav-link text-info border border-info rounded pr-3 pl-3 show-more-button">Voir plus</div>
-    </div>
+<div>
+  <div class="d-flex flex-wrap products_card">
+    <%= render 'products-list', products: @products %>
   </div>
+
+  <% remaining_products = remaining_objects(@products) %>
+  <% if remaining_products > 0 %>
+  <div class="d-flex justify-content-center w-100">
+    <%= link_to "Voir plus (#{remaining_products.to_s} produit#{'s' if remaining_products > 1})", categories_path(page: @products.next_page, filter: @filter), id: "show-more-button", class: "nav-link text-info border border-info rounded pr-3 pl-3", remote: true %>
+  </div>
+  <% end %>
+</div>
 
   <div class="container partner-container">
     <div class="row justify-content-center align-items-center text-center mt-4">
@@ -154,8 +130,6 @@
 </div>
 
 <%= javascript_tag do %>
-  var pageSize = 12;
-
   $('#random-alternative-btn').click(() => {
     var alternatives = $('.alternative-random-container').not('.active')
     var alternative_active = $('.alternative-random-container.active')
@@ -182,69 +156,7 @@
   }
 
   $('.filter').click((e) => {
-    var filterId = $(e.currentTarget).data('id')
-    var queryParams = new URLSearchParams(window.location.search);
-    var actualFilter = queryParams.get('filter');
-    var filterProductCard;
-
-    $('.filter .card').removeClass('active')
-
-    if (actualFilter === filterId.toString()) {
-      queryParams.delete('filter', filterId)
-      filterProductCard = $(".product-card")
-    } else {
-      queryParams.set('filter', filterId)
-      $(e.currentTarget).children('.card').addClass('active')
-      filterProductCard = $(`.product-card[data-filter="${filterId}"]`)
-    }
-    
-    pageSize = 12;
-    const productsCard = $('.product-card')
-
-    productsCard.hide()
-    filterProductCard.slice(0, pageSize).show()
-
-    if (filterProductCard.length < pageSize) {
-      $('.show-more-button').hide()
-    } else {
-      $('.show-more-button').show()
-    }
-
-    history.replaceState(null, null, "?"+queryParams.toString());
-  })
-
-  $('.show-more-button').click(() => {
-    pageSize += 8
-
-    const productsCard = $('.product-card')
-    const productsCardFiltered = productsCard.slice(0, pageSize)
-
-    productsCard.hide()
-    productsCardFiltered.show();
-
-    window.scrollTo(0, productsCardFiltered.slice(pageSize - 8, pageSize).offset().top)
-
-    if (pageSize >= productsCard.length) {
-      $('.show-more-button').hide()
-    }
-  })
-
-  $(document).ready(() => {
-    const productsCard = $('.product-card')
-    const productsCardFiltered = productsCard.slice(0, pageSize)
-
-    productsCard.hide()
-
-    const filter = new URLSearchParams(window.location.search).get("filter")
-    if (filter) {
-      const filterProductCard = $(`.product-card[data-filter="${filter}"]`)
-      filterProductCard.slice(0, pageSize).show()
-
-    if (pageSize >= filterProductCard.length) {
-      $('.show-more-button').hide()
-    }
-    } else {
-      productsCardFiltered.show();
-    }
+    $('.filter').children('.card').removeClass('active')
+    $(e.currentTarget).children('.card').addClass('active')
   })
 <% end %>

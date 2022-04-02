@@ -1,0 +1,32 @@
+<%
+  products ||= nil
+%>
+
+<% products.each do |product| %>
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-3 product-card" data-filter="<%= product.category.id %>">
+    <%= link_to product_path(product) do %>
+      <img loading="lazy" class="img-fluid rounded" src="<%= product.alternatives[0].imgUrl %>" alt="Image correspondant à l'aternative <%= product.alternatives[0] %>">
+        <div class="ml-1 row icon">
+          <% arrayOfFilter = []
+          for i in (0...product.alternatives.count)
+            if(arrayOfFilter.exclude?product.alternatives[i].alternative_type_filter.to_s)
+                arrayOfFilter.push(product.alternatives[i].alternative_type_filter.to_s)
+            end
+          end
+          arrayOfFilter = arrayOfFilter.sort
+          for i in(0..arrayOfFilter.length) %>
+            <% if arrayOfFilter[i] == 'En ligne' %>
+              <p>🛒</p>
+            <% end %>
+            <% if arrayOfFilter[i] == 'DIY' %>
+              <p>✂️</p>
+            <% end %>
+          <% end %>
+      </div>
+      <div class="description">
+        <h4><%= product.title %></h4>
+        <p><%= product.alternatives.count %> alternative<%= 's' if product.alternatives.count > 1%> trouvée<%= 's' if product.alternatives.count > 1%> 🌱</p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

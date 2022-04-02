@@ -5,15 +5,26 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @filter = params[:filter]
-    if @filter.nil?
-      @params = nil
-    else
-      @params = @filter.parameterize.split('-')
-    end
+    @page = params[:page]
+    @refresh = params[:refresh]
 
     @categories = Category.all
-    @products = Product.all
+
+    @products = Product.page(@page).per(12)
+    if @filter != nil
+      @products = Product.where(:category_id => @filter).page(@page).per(12)
+    end
+
     @alternatives = Alternative.all
+
+    respond_to do |format|
+      format.html {
+        @filter = nil
+        @page = 1
+        @products = Product.page(@page).per(12)
+      }
+      format.js
+    end
   end
 
   # GET /categories/1
