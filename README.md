@@ -10,21 +10,21 @@ Les instructions suivantes vous aideront à la mise en route et à l'utilisation
 
 #### Version de Ruby : `2.7.2`
 
-* [Installation](https://github.com/lewagon/setup/blob/master/macOS.md) pour MacOS
-* [Installation](https://github.com/lewagon/setup/blob/master/UBUNTU.md) pour Linux
-* [Installation](https://github.com/lewagon/setup/blob/master/WINDOWS.md) pour Windows
+- [Installation](https://github.com/lewagon/setup/blob/master/macOS.md) pour MacOS
+- [Installation](https://github.com/lewagon/setup/blob/master/UBUNTU.md) pour Linux
+- [Installation](https://github.com/lewagon/setup/blob/master/WINDOWS.md) pour Windows
 
 #### Version de Ruby on Rails : `5.2.4.1`
 
-* [Installation](https://www.synbioz.com/blog/tech/installer-ruby-on-rails-sur-mac) pour MacOS
-* [Installation](https://doc.ubuntu-fr.org/rubyonrails) pour Linux
-* [Installation](https://gorails.com/setup/windows/10) pour Windows
+- [Installation](https://www.synbioz.com/blog/tech/installer-ruby-on-rails-sur-mac) pour MacOS
+- [Installation](https://doc.ubuntu-fr.org/rubyonrails) pour Linux
+- [Installation](https://gorails.com/setup/windows/10) pour Windows
 
 #### PostgreSQL
 
-* [Installation](https://postgresapp.com/downloads.html) pour MacOS
-* [Installation](https://doc.ubuntu-fr.org/postgresql) pour Linux
-* [Installation](https://www.postgresql.org/download/windows/) pour Windows
+- [Installation](https://postgresapp.com/downloads.html) pour MacOS
+- [Installation](https://doc.ubuntu-fr.org/postgresql) pour Linux
+- [Installation](https://www.postgresql.org/download/windows/) pour Windows
 
 ## Configuration ⚙️
 
@@ -69,7 +69,7 @@ Pour récupérer les données de la database, il y a **2 façons** de faire :
 > ⚠️ Pour cette solution, il est impératif d'être invité en tant que collaborateur sur **Heroku**
 
 ```bash
-rails db:drop "Makyma_development" 
+rails db:drop "Makyma_development"
 ```
 
 ```bash
@@ -95,19 +95,19 @@ rails makyma:admin
 ### Créer le sitemap
 
 ```bash
-rake sitemap:create
+rails sitemap:create
 ```
 
 ### Modifier le sitemap
 
 ```bash
-rake sitemap:refresh
+rails sitemap:refresh
 ```
 
 ### Effacer le sitemap
 
 ```bash
-rake sitemap:clean
+rails sitemap:clean
 ```
 
 Pour plus d'information, voir la [documentation](https://github.com/kjvarga/sitemap_generator) de la gem.
