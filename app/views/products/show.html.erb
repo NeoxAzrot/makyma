@@ -22,9 +22,6 @@
             <% if alternative.alternative_type_filter.to_s == 'DIY' %>
               <span>✂️</span>
             <% end %>
-            <% if alternative.alternative_type_filter.to_s == 'Local' %>
-              <span>🚲</span>
-            <% end %>
             <%= alternative.alternative_type_filter %>
             </p>
           </div>
@@ -40,7 +37,7 @@
         </div>
         <div class="col-md-6">
           <div class="d-flex justify-content-center align-items-center mb-4 mb-md-5 mt-5">
-            <img class="img-fluid rounded w-100" src="<%= alternative.imgUrl %>" alt="Image correspondant à l'aternative <%= alternative.title %>">
+            <%# cl_image_tag alternative.image.key, :quality => "auto", :fetch_format => :auto, :crop => "scale", class: "img-fluid rounded w-100", alt: "Image correspondant à l'aternative #{alternative.title}" %>
           </div>
         </div>
       </div>

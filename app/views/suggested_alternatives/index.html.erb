@@ -27,7 +27,9 @@
           <td class="text-break text-secondary"><%= suggested_alternative.description %></td>
           <td class="text-break text-secondary"><%= suggested_alternative.find %></td>
           <td class="text-break text-secondary"><%= suggested_alternative.source %></td>
-          <td class="text-break text-secondary"><%= suggested_alternative.imgUrl %></td>
+          <td class="text-break text-secondary">
+            <%= cl_image_tag suggested_alternative.image.key, :quality => "auto", :fetch_format => :auto, :crop => "scale", :height => "100", alt: "Image correspondant à l'aternative #{suggested_alternative.title}" %>
+          </td>
           <td class="d-flex align-items-center justify-content-center">
             <%= link_to "👀", suggested_alternative, class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm' %>
             <%= link_to "✏️", edit_suggested_alternative_path(suggested_alternative), class: 'button admin text-info border-info border rounded pt-2 pb-2 pl-2 pr-2 shadow-sm ml-1' %>

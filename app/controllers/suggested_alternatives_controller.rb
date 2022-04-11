@@ -88,6 +88,6 @@ class SuggestedAlternativesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def suggested_alternative_params
-      params.require(:suggested_alternative).permit(:product_id, :title, :description, :source, :find, :imgUrl, :alternative_type_filter_id)
+      params.require(:suggested_alternative).permit(:product_id, :title, :description, :source, :find, :imgUrl, :alternative_type_filter_id, :image)
     end
 end

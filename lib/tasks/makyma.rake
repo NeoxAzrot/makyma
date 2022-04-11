@@ -14,7 +14,8 @@ namespace :makyma do
         hygiene: ['Salle de bain', 'bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits de beauté ! Makyma te conseille les alternatives qui prennent tout autant soin de ta peau que de la planète. La seule hygiène qui vaille, c’est celle qui dure 🧴'],
         technologie: ['High-Tech', 'computer.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits high-tech 💻'],
         vetement: ['Vêtement', 't-shirt.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes vêtements 👕'],
-        pitchoun: ['Pitchoun', 'baby-bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits pour ton pitchoune 🍼']
+        pitchoun: ['Pitchoun', 'baby-bottle.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits pour ton pitchoune 🍼'],
+        decoration: ['Décoration', 'mirror.png', 'Trouve les alternatives vertes, durables et écoresponsables à tes produits pour ta décoration intérieure 🪞']
     }.each do |file, cat|
         puts "Import #{cat}"
         path = "vendor/data/#{file}.csv"
@@ -30,7 +31,7 @@ namespace :makyma do
             alternative = Alternative.where(product: product, title: alternative_title, description: alternative_description).first_or_create
             alternative.find = row[5]
             alternative.source = row[6]
-            alternative.imgUrl = row[7]
+            # alternative.imgUrl = row[7]
             if AlternativeTypeFilter.find_by( title: row[8])
               alternative.alternative_type_filter_id = AlternativeTypeFilter.find_by( title: row[8])[:id]
             end

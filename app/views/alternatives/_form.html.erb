@@ -14,7 +14,7 @@
           <%= f.input :find, as: :text, :input_html => { :rows => 4, class: 'input-form px-3 py-2' }, label: "Description d'un endroit où l'on peut trouver ton alternative", placeholder: 'Tu peux ici décrire où trouver ton alternative', label_html: { class: 'text-secondary ml-4' } %>
         <div class="form-row align-items-end justify-content-between">
           <%= f.input :source, as: :url, label: "Lien d'un site qui explique comment fabriquer ou vend ton alternative", placeholder: "Inscris le lien d'un site internet qui propose ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' }, :input_html => { class: 'input-form px-3 py-3' } %>
-          <%= f.input :imgUrl, as: :url, label: "Lien d'une image de ton alternative", placeholder: "Propose nous le lien d'une image illustrant ton alternative", label_html: { class: 'text-secondary ml-4' }, wrapper_html: { class: 'col-md-6' }, :input_html => { class: 'input-form px-3 py-3' } %>
+          <%= f.file_field :image %>
         </div>
 
         <%= f.button :submit, 'Envoyer', class: 'button text-light bg-info border-info border rounded pt-2 pb-2 pl-4 pr-4 shadow-sm mt-2' %>
